@@ -1171,7 +1171,7 @@ section{
                 </div>
 
                 <div class="category-card" onclick="openCategory('transfer')">
-                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=80" alt="Transfers">
+                    <img src="TRANSFER.jpeg" alt="Transfers">
                     <div class="category-overlay">
                         <h3 data-i18n="transfer">الترانسيـفر</h3>
                         <p data-i18n="transferDesc">توصيل خاص لأي مكان</p>
@@ -1686,14 +1686,14 @@ const translations = {
         luxorDesc:"المعابد والنيل والحضارة القديمة",
 
         transfer:"الترانسيـفر",
-        transferDesc:"توصيل خاص لأي مكان",
+        transferDesc:"التوصيل بين (الجونة، سهل حشيش، مكادي، سوما باي، سفاجا، القصير والمطارات)",
 
         featured:"مميز",
         featuredTitle:"أشهر الرحلات",
         featuredText:"بعض التجارب التي يمكنك الاستمتاع بها مع AKA.",
         discoverTrips:"اكتشف الرحلة",
 
-        why:"لماذا AKA؟",
+        why:"لماذا AKA?",
         whyTitle:"تجربة مختلفة من البداية للنهاية",
 
         why1Title:"خدمة احترافية",
@@ -1743,7 +1743,7 @@ const translations = {
         contactTitle:"تواصل معنا",
         whatsappLabel:"واتساب",
         locationLabel:"الموقع",
-        locationText:"الغردقة، البحر الأحمر، مصر",
+        locationText:"الغردقة، الجونة، سهل حشيش، مكادي، سوما باي، سفاجا، القصير، مصر",
         languagesLabel:"اللغات",
 
         readyTitle:"هل أنت جاهز للحجز؟",
@@ -1797,7 +1797,7 @@ const translations = {
         luxorDesc:"Temples, Nile and ancient civilization",
 
         transfer:"Transfers",
-        transferDesc:"Private transportation anywhere",
+        transferDesc:"Transfers for El Gouna, Sahl Hasheesh, Makadi, Soma Bay, Safaga, Al Quseir & Airports",
 
         featured:"Featured",
         featuredTitle:"Popular Experiences",
@@ -1854,7 +1854,7 @@ const translations = {
         contactTitle:"Contact Us",
         whatsappLabel:"WhatsApp",
         locationLabel:"Location",
-        locationText:"Hurghada, Red Sea, Egypt",
+        locationText:"Hurghada, El Gouna, Sahl Hasheesh, Makadi, Soma Bay, Safaga, Al Quseir, Egypt",
         languagesLabel:"Languages",
 
         readyTitle:"Ready to book?",
@@ -1908,7 +1908,7 @@ const translations = {
         luxorDesc:"Tempel, Nil und alte Zivilisation",
 
         transfer:"Transfers",
-        transferDesc:"Privater Transport überallhin",
+        transferDesc:"Transfers nach El Gouna, Sahl Hasheesh, Makadi, Soma Bay, Safaga, Al Quseir & Flughäfen",
 
         featured:"Empfohlen",
         featuredTitle:"Beliebte Erlebnisse",
@@ -1965,7 +1965,7 @@ const translations = {
         contactTitle:"Kontakt",
         whatsappLabel:"WhatsApp",
         locationLabel:"Standort",
-        locationText:"Hurghada, Rotes Meer, Ägypten",
+        locationText:"Hurghada, El Gouna, Sahl Hasheesh, Makadi, Soma Bay, Safaga, Al Quseir, Ägypten",
         languagesLabel:"Sprachen",
 
         readyTitle:"Bereit zu buchen?",
@@ -2019,7 +2019,7 @@ const translations = {
         luxorDesc:"Храмы, Нил и древняя цивилизация",
 
         transfer:"Трансферы",
-        transferDesc:"Индивидуальный транспорт",
+        transferDesc:"Трансферы в Эль-Гуну, Сахл-Хашиш, Макади, Сома-Бей, Сафагу, Эль-Кусейр и аэропорты",
 
         featured:"Популярное",
         featuredTitle:"Популярные экскурсии",
@@ -2076,7 +2076,7 @@ const translations = {
         contactTitle:"Свяжитесь с нами",
         whatsappLabel:"WhatsApp",
         locationLabel:"Местоположение",
-        locationText:"Хургада, Красное море, Египет",
+        locationText:"Хургада, Эль-Гуна, Сахл-Хашиш, Макади, Сома-Бей, Сафага, Эль-Кусейр, Египет",
         languagesLabel:"Языки",
 
         readyTitle:"Готовы забронировать?",
@@ -2106,6 +2106,182 @@ const translations = {
 ========================= */
 
 const trips = [
+
+    {
+        id:6,
+        category:"transfer",
+        title:{
+            ar:"Private Transfer – الغردقة، الجونة، سهل حشيش، مكادي، سوما باي، سفاجا، القصير والمطارات",
+            en:"Private Transfer – Hurghada, El Gouna, Sahl Hasheesh, Makadi, Soma Bay, Safaga, Al Quseir & Airports",
+            de:"Privater Transfer – Hurghada, El Gouna, Sahl Hasheesh, Makadi, Soma Bay, Safaga, Al Quseir & Flughäfen",
+            ru:"Индивидуальный трансфер – Хургада, Эль-Гуна, Сахл-Хашиш, Макади, Сома-Бей, Сафага, Эль-Кусейр и аэропорты"
+        },
+        intro:{
+            ar:"خدمة توصيل خاصة ومريحة من وإلى مطار الغردقة ومطار مرسى علم وجميع منتجعات البحر الأحمر (الجونة، سهل حشيش، مكادي باي، سوما باي، سفاجا والقصير).",
+            en:"Comfortable private transfer to and from airports and all Red Sea resorts (El Gouna, Sahl Hasheesh, Makadi Bay, Soma Bay, Safaga, Al Quseir).",
+            de:"Komfortabler privater Transfer zu allen Resorts am Roten Meer (El Gouna, Sahl Hasheesh, Makadi, Soma Bay, Safaga, Al Quseir) und Flughäfen.",
+            ru:"Комфортный индивидуальный трансфер в аэропорты и на все курорты Красного моря (Эль-Гуна, Сахл-Хашиш, Макади, Сома-Бей, Сафага, Эль-Кусейр)."
+        },
+        duration:{
+            ar:"حسب المسافة",
+            en:"According to distance",
+            de:"Je nach Entfernung",
+            ru:"В зависимости от расстояния"
+        },
+        pickup:{
+            ar:"من المطار أو الفندق",
+            en:"Airport / Hotel Pickup",
+            de:"Flughafen / Hotel Abholung",
+            ru:"Трансфер из аэропорта / отеля"
+        },
+        days:{
+            ar:"يوميًا",
+            en:"Daily",
+            de:"Täglich",
+            ru:"Ежедневно"
+        },
+        type:{
+            ar:"خاص",
+            en:"Private",
+            de:"Privat",
+            ru:"Индивидуальный"
+        },
+        description:{
+            ar:"احجز سيارة خاصة للتوصيل والاستقبال من وإلى المطارات (الغردقة / مرسى علم) وإلى أي فندق أو منتجع في الجونة، سهل حشيش، خليج مكادي، سوما باي، سفاجا، والقصير.",
+            en:"Book a private vehicle for airport pickups and drop-offs to hotels and resorts in El Gouna, Sahl Hasheesh, Makadi Bay, Soma Bay, Safaga, and Al Quseir.",
+            de:"Buchen Sie ein privates Fahrzeug für Flughafentransfers und Fahrten nach El Gouna, Sahl Hasheesh, Makadi Bay, Soma Bay, Safaga und Al Quseir.",
+            ru:"Закажите индивидуальный трансфер из/в аэропорты и отели Эль-Гуны, Сахл-Хашиша, Макади, Сома-Бей, Сафаги и Эль-Кусейра."
+        },
+        itinerary:{
+            ar:[
+                "تحديد وجهة الاستلام والتوصيل (المطار، الجونة، سهل حشيش، مكادي باي، سوما باي، سفاجا، أو القصير)",
+                "استقبال السائق بلافتة تحمل اسمك في صالة الوصول بالمطار أو انتظارك أمام الاستقبال بالفندق",
+                "المساعدة في الأمتعة والتوجه للسيارة الخاصة المريحة",
+                "التوصيل المباشر والآمن إلى وجهتك النهائية بكل راحة"
+            ],
+            en:[
+                "Specify pick-up and drop-off locations (Airport, El Gouna, Sahl Hasheesh, Makadi Bay, Soma Bay, Safaga, or Al Quseir)",
+                "Driver meets you with a name sign at the airport arrival hall or hotel lobby",
+                "Luggage assistance and transfer to a comfortable private vehicle",
+                "Direct and safe transfer to your final destination"
+            ],
+            de:[
+                "Abhol- und Zielort festlegen (Flughafen, El Gouna, Sahl Hasheesh, Makadi Bay, Soma Bay, Safaga oder Al Quseir)",
+                "Fahrer erwartet Sie mit Namensschild in der Ankunftshalle oder Hotellobby",
+                "Gepäckservice und Fahrt im komfortablen Privatfahrzeug",
+                "Direkter und sicherer Transfer zu Ihrem Ziel"
+            ],
+            ru:[
+                "Укажите точки отправления и назначения (Аэропорт, Эль-Гуна, Сахл-Хашиш, Макади, Сома-Бей, Сафага или Эль-Кусейр)",
+                "Водитель встретит вас с табличкой в зале прилета или лобби отеля",
+                "Помощь с багажом и поездка на комфортном автомобиле",
+                "Прямой и безопасный трансфер до пункта назначения"
+            ]
+        },
+        included:{
+            ar:["سيارة خاصة مكيفة الحديثة","سائق محترف","متابعة مواعيد الطيران (للمطار)","خدمة الاستقبال والتوصيل المباشر"],
+            en:["Modern private air-conditioned vehicle","Professional driver","Flight tracking (for airport)","Direct meet & greet transfer service"],
+            de:["Modernes privates klimatisiertes Fahrzeug","Professioneller Fahrer","Flugverfolgung","Direkter Abhol- und Transferservice"],
+            ru:["Современный индивидуальный автомобиль","Профессиональный водитель","Отслеживание рейсов","Прямой трансфер и встреча"]
+        },
+        notIncluded:{
+            ar:["المصاريف الإضافية غير المتفق عليها"],
+            en:["Additional unagreed expenses"],
+            de:["Nicht vereinbarte Zusatzkosten"],
+            ru:["Дополнительные неоговоренные расходы"]
+        },
+        image:"MESHO.jpeg"
+    },
+
+    {
+        id:51,
+        category:"cairo",
+        title:{
+            ar:"جولة مدينة الغردقة",
+            en:"Hurghada City Tour",
+            de:"Hurghada Stadtrundfahrt",
+            ru:"Обзорная экскурсия по Хургаде"
+        },
+        intro:{
+            ar:"اكتشف معالم مدينة الغردقة، المارينا، المسجد الكبير، والأسواق التقليدية في جولة ممتعة.",
+            en:"Explore Hurghada's highlights, Marina, Grand Mosque, and traditional markets on an exciting tour.",
+            de:"Entdecken Sie die Highlights von Hurghada, Marina, Moschee und traditionelle Märkte.",
+            ru:"Исследуйте достопримечательности Хургады, марину, мечеть и традиционные рынки."
+        },
+        duration:{
+            ar:"نصف يوم",
+            en:"Half Day",
+            de:"Halbtägig",
+            ru:"Пол дня"
+        },
+        pickup:{
+            ar:"من الفندق",
+            en:"Hotel Pickup",
+            de:"Hotelabholung",
+            ru:"Трансфер из отеля"
+        },
+        days:{
+            ar:"يوميًا",
+            en:"Daily",
+            de:"Täglich",
+            ru:"Ежедневно"
+        },
+        type:{
+            ar:"مشتركة / خاصة",
+            en:"Shared / Private",
+            de:"Gemeinsam / Privat",
+            ru:"Групповая / Индивидуальная"
+        },
+        description:{
+            ar:"جولة سياحية استكشافية داخل مدينة الغردقة للتعرف على الحياة المحلية وزيارة أشهر معالم المدينة والأسواق الشعبية.",
+            en:"An exploratory city tour in Hurghada to experience local life and visit famous landmarks and traditional bazaars.",
+            de:"Eine Entdeckungstour durch Hurghada, um das lokale Leben und die Märkte zu erleben.",
+            ru:"Обзорная экскурсия по Хургаде для знакомства с местной жизнью и рынками."
+        },
+        itinerary:{
+            ar:[
+                "الاستلام من الفندق",
+                "زيارة المسجد الكبير وكنيسة العذراء",
+                "جولة في ميناء الغردقة وممشى المارينا",
+                "وقت للتسوق في الأسواق التقليدية",
+                "العودة إلى الفندق"
+            ],
+            en:[
+                "Hotel pickup",
+                "Visit the Grand Mosque and St. Mary Church",
+                "Tour around Hurghada Marina and port",
+                "Shopping time in traditional bazaars",
+                "Return to hotel"
+            ],
+            de:[
+                "Abholung vom Hotel",
+                "Besuch der Moschee und Kirche",
+                "Rundgang an der Marina von Hurghada",
+                "Einkaufszeit auf den traditionellen Märkten",
+                "Rückfahrt zum Hotel"
+            ],
+            ru:[
+                "Трансфер из отеля",
+                "Посещение Большой мечети и церкви",
+                "Прогулка по марине Хургады",
+                "Время для покупок на традиционных рынках",
+                "Возвращение в отель"
+            ]
+        },
+        included:{
+            ar:["التوصيل من وإلى الفندق","مرشد سياحي حسب البرنامج"],
+            en:["Hotel pickup and drop-off","Tour guide according to program"],
+            de:["Hoteltransfer","Reiseleiter gemäß Programm"],
+            ru:["Трансфер из/в отель","Гид по программе"]
+        },
+        notIncluded:{
+            ar:["المصاريف الشخصية والمشتريات"],
+            en:["Personal expenses and shopping"],
+            de:["Persönliche Ausgaben und Einkäufe"],
+            ru:["Личные расходы и покупки"]
+        },
+        image:"HURGADA.jpg"
+    },
 
     {
         id:1,
@@ -2170,7 +2346,7 @@ const trips = [
             de:["Persönliche Ausgaben","Zusätzliche Leistungen"],
             ru:["Личные расходы","Дополнительные услуги"]
         },
-        image:"https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=85"
+        image:"ORANGE.jpg"
     },
 
     {
@@ -2237,149 +2413,6 @@ const trips = [
             ru:["Личные расходы"]
         },
         image:"https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1200&q=85"
-    },
-
-
-    {
-        id:7,
-        category:"sea",
-        title:{
-            ar:"Big Giftun Island",
-            en:"Big Giftun Island",
-            de:"Big Giftun Island",
-            ru:"Большой Гифтун"
-        },
-        intro:{
-            ar:"يوم بحري إلى جزيرة جفتون الكبيرة للاستمتاع بالمياه والشاطئ والسنوركلينج.",
-            en:"A Red Sea day trip to Big Giftun Island for beach time, swimming and snorkeling.",
-            de:"Ein Tag auf Big Giftun mit Strand, Schwimmen und Schnorcheln.",
-            ru:"Морская поездка на Большой Гифтун с пляжем, купанием и снорклингом."
-        },
-        duration:{ar:"يوم كامل",en:"Full Day",de:"Ganztägig",ru:"Целый день"},
-        pickup:{ar:"من الفندق",en:"Hotel Pickup",de:"Hotelabholung",ru:"Трансфер из отеля"},
-        days:{ar:"حسب الجدول",en:"According to schedule",de:"Nach Fahrplan",ru:"По расписанию"},
-        type:{ar:"مشتركة / خاصة",en:"Shared / Private",de:"Gemeinsam / Privat",ru:"Групповая / Индивидуальная"},
-        description:{
-            ar:"استمتع برحلة بحرية إلى جفتون الكبيرة مع وقت للسباحة والاسترخاء والسنوركلينج.",
-            en:"Enjoy a boat trip to Big Giftun with time for swimming, relaxing and snorkeling.",
-            de:"Genießen Sie eine Bootstour nach Big Giftun mit Zeit zum Schwimmen und Schnorcheln.",
-            ru:"Насладитесь поездкой на Большой Гифтун с купанием, отдыхом и снорклингом."
-        },
-        itinerary:{
-            ar:["Pickup من الفندق","الذهاب إلى المارينا","الإبحار إلى جفتون","وقت للشاطئ والسباحة","سنوركلينج","العودة إلى المارينا","العودة إلى الفندق"],
-            en:["Hotel pickup","Transfer to marina","Boat ride to Giftun","Beach and swimming time","Snorkeling","Return to marina","Hotel drop-off"],
-            de:["Hotelabholung","Transfer zur Marina","Bootsfahrt nach Giftun","Strand und Schwimmen","Schnorcheln","Rückkehr zur Marina","Hoteltransfer"],
-            ru:["Трансфер из отеля","Поездка к марине","Переезд на Гифтун","Пляж и купание","Снорклинг","Возвращение в марину","Возвращение в отель"]
-        },
-        included:{
-            ar:["التوصيل حسب البرنامج","القارب","معدات السنوركل","وجبة حسب البرنامج"],
-            en:["Transportation according to program","Boat trip","Snorkeling equipment","Meal according to program"],
-            de:["Transport gemäß Programm","Bootsfahrt","Schnorchelausrüstung","Mahlzeit gemäß Programm"],
-            ru:["Трансфер по программе","Лодка","Снаряжение для снорклинга","Питание по программе"]
-        },
-        notIncluded:{
-            ar:["المصاريف الشخصية","أي خدمات إضافية"],
-            en:["Personal expenses","Extra services"],
-            de:["Persönliche Ausgaben","Zusatzleistungen"],
-            ru:["Личные расходы","Дополнительные услуги"]
-        },
-        image:"https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=85"
-    },
-
-    {
-        id:8,
-        category:"sea",
-        title:{ar:"Small Giftun Island",en:"Small Giftun Island",de:"Kleine Giftun-Insel",ru:"Малый Гифтун"},
-        intro:{ar:"رحلة بحرية إلى جفتون الصغيرة لمحبي المياه الصافية والسنوركلينج.",en:"A sea trip to Small Giftun Island for clear water and snorkeling.",de:"Eine Bootstour zur kleinen Giftun-Insel mit klarem Wasser und Schnorcheln.",ru:"Морская поездка на Малый Гифтун с чистой водой и снорклингом."},
-        duration:{ar:"يوم كامل",en:"Full Day",de:"Ganztägig",ru:"Целый день"},
-        pickup:{ar:"من الفندق",en:"Hotel Pickup",de:"Hotelabholung",ru:"Трансфер из отеля"},
-        days:{ar:"حسب الجدول",en:"According to schedule",de:"Nach Fahrplan",ru:"По расписанию"},
-        type:{ar:"مشتركة / خاصة",en:"Shared / Private",de:"Gemeinsam / Privat",ru:"Групповая / Индивидуальная"},
-        description:{ar:"استكشف منطقة جفتون الصغيرة واستمتع بالسباحة والسنوركلينج ومشاهدة الحياة البحرية.",en:"Explore Small Giftun and enjoy swimming, snorkeling and Red Sea marine life.",de:"Entdecken Sie Small Giftun mit Schwimmen, Schnorcheln und Meeresleben.",ru:"Исследуйте Малый Гифтун, купайтесь и наблюдайте морскую жизнь."},
-        itinerary:{ar:["Pickup","التحرك إلى المارينا","الإبحار","التوقف للسنوركلينج","السباحة والاسترخاء","العودة"],en:["Pickup","Transfer to marina","Boat trip","Snorkeling stop","Swimming and relaxation","Return"],de:["Abholung","Transfer zur Marina","Bootsfahrt","Schnorchelstopp","Schwimmen und Entspannen","Rückkehr"],ru:["Трансфер","Поездка к марине","Морская прогулка","Остановка для снорклинга","Купание и отдых","Возвращение"]},
-        included:{ar:["التوصيل","القارب","معدات السنوركل","الوجبة حسب البرنامج"],en:["Transportation","Boat","Snorkeling equipment","Meal according to program"],de:["Transport","Boot","Schnorchelausrüstung","Mahlzeit gemäß Programm"],ru:["Трансфер","Лодка","Снаряжение","Питание по программе"]},
-        notIncluded:{ar:["المصاريف الشخصية"],en:["Personal expenses"],de:["Persönliche Ausgaben"],ru:["Личные расходы"]},
-        image:"https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1200&q=85"
-    },
-
-    {
-        id:9,
-        category:"sea",
-        title:{ar:"Magawish Island",en:"Magawish Island",de:"Magawish-Insel",ru:"Остров Магавиш"},
-        intro:{ar:"رحلة إلى منطقة جزيرة مجاويش للاستمتاع بالشاطئ والمياه والسنوركلينج.",en:"A trip to Magawish Island for beach time, swimming and snorkeling.",de:"Eine Tour zur Magawish-Insel mit Strand, Schwimmen und Schnorcheln.",ru:"Поездка на остров Магавиш с пляжем, купанием и снорклингом."},
-        duration:{ar:"يوم كامل",en:"Full Day",de:"Ganztägig",ru:"Целый день"},
-        pickup:{ar:"من الفندق",en:"Hotel Pickup",de:"Hotelabholung",ru:"Трансфер из отеля"},
-        days:{ar:"حسب الجدول",en:"According to schedule",de:"Nach Fahrplan",ru:"По расписанию"},
-        type:{ar:"مشتركة / خاصة",en:"Shared / Private",de:"Gemeinsam / Privat",ru:"Групповая / Индивидуальная"},
-        description:{ar:"اقضِ يومًا على البحر في مجاويش مع السباحة والسنوركلينج والاسترخاء.",en:"Spend a Red Sea day at Magawish with swimming, snorkeling and relaxation.",de:"Verbringen Sie einen Tag in Magawish mit Schwimmen, Schnorcheln und Entspannung.",ru:"Проведите день на море в Магавише с купанием, снорклингом и отдыхом."},
-        itinerary:{ar:["Pickup","الذهاب إلى المارينا","الإبحار","وقت الشاطئ","سنوركلينج","العودة"],en:["Pickup","Transfer to marina","Boat trip","Beach time","Snorkeling","Return"],de:["Abholung","Transfer zur Marina","Bootsfahrt","Strandzeit","Schnorcheln","Rückkehr"],ru:["Трансфер","Поездка к марине","Морская прогулка","Пляж","Снорклинг","Возвращение"]},
-        included:{ar:["التوصيل","القارب","معدات السنوركل","وجبة حسب البرنامج"],en:["Transportation","Boat","Snorkeling equipment","Meal according to program"],de:["Transport","Boot","Schnorchelausrüstung","Mahlzeit gemäß Programm"],ru:["Трансфер","Лодка","Снаряжение","Питание по программе"]},
-        notIncluded:{ar:["المصاريف الشخصية","أي خدمات إضافية"],en:["Personal expenses","Extra services"],de:["Persönliche Ausgaben","Zusatzleistungen"],ru:["Личные расходы","Дополнительные услуги"]},
-        image:"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=85"
-    },
-
-    {
-        id:10,
-        category:"sea",
-        title:{ar:"Abu Minqar Island",en:"Abu Minqar Island",de:"Abu-Minqar-Insel",ru:"Остров Абу Минкар"},
-        intro:{ar:"رحلة بحرية إلى أبو منقار لمحبي البحر والسباحة واستكشاف الطبيعة.",en:"A Red Sea excursion to Abu Minqar for swimming and marine scenery.",de:"Eine Red-Sea-Tour zur Abu-Minqar-Insel für Schwimmen und Natur.",ru:"Морская экскурсия на Абу Минкар для купания и отдыха на природе."},
-        duration:{ar:"يوم كامل",en:"Full Day",de:"Ganztägig",ru:"Целый день"},
-        pickup:{ar:"من الفندق",en:"Hotel Pickup",de:"Hotelabholung",ru:"Трансфер из отеля"},
-        days:{ar:"حسب الجدول",en:"According to schedule",de:"Nach Fahrplan",ru:"По расписанию"},
-        type:{ar:"حسب البرنامج",en:"According to program",de:"Nach Programm",ru:"По программе"},
-        description:{ar:"استكشف أبو منقار في رحلة بحرية تعتمد تفاصيلها على البرنامج والظروف البحرية.",en:"Explore Abu Minqar on a sea excursion planned according to the available program and sea conditions.",de:"Entdecken Sie Abu Minqar je nach Programm und Seebedingungen.",ru:"Посетите Абу Минкар в рамках программы с учетом морских условий."},
-        itinerary:{ar:["Pickup","التحرك إلى المارينا","الإبحار","توقف بحري حسب البرنامج","سباحة أو سنوركلينج","العودة"],en:["Pickup","Transfer to marina","Boat trip","Sea stop according to program","Swimming or snorkeling","Return"],de:["Abholung","Transfer zur Marina","Bootsfahrt","Stopp gemäß Programm","Schwimmen oder Schnorcheln","Rückkehr"],ru:["Трансфер","Поездка к марине","Морская прогулка","Остановка по программе","Купание или снорклинг","Возвращение"]},
-        included:{ar:["التوصيل حسب البرنامج","القارب","معدات بحرية حسب البرنامج"],en:["Transportation according to program","Boat","Marine equipment according to program"],de:["Transport gemäß Programm","Boot","Ausrüstung gemäß Programm"],ru:["Трансфер по программе","Лодка","Снаряжение по программе"]},
-        notIncluded:{ar:["المصاريف الشخصية","أي خدمات غير مذكورة"],en:["Personal expenses","Services not listed"],de:["Persönliche Ausgaben","Nicht aufgeführte Leistungen"],ru:["Личные расходы","Неуказанные услуги"]},
-        image:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=85"
-    },
-
-    {
-        id:11,
-        category:"sea",
-        title:{ar:"Umm Qamar Island",en:"Umm Qamar Island",de:"Umm-Qamar-Insel",ru:"Остров Умм-Камар"},
-        intro:{ar:"وجهة بحرية لمحبي الغوص والسنوركلينج والحياة البحرية.",en:"A Red Sea destination for snorkeling, diving and marine life enthusiasts.",de:"Ein Ziel am Roten Meer für Schnorchel-, Tauch- und Meeresliebhaber.",ru:"Морское направление для снорклинга, дайвинга и наблюдения за морской жизнью."},
-        duration:{ar:"حسب البرنامج",en:"According to program",de:"Nach Programm",ru:"По программе"},
-        pickup:{ar:"من الفندق",en:"Hotel Pickup",de:"Hotelabholung",ru:"Трансфер из отеля"},
-        days:{ar:"حسب الجدول",en:"According to schedule",de:"Nach Fahrplan",ru:"По расписанию"},
-        type:{ar:"بحسب البرنامج",en:"Program dependent",de:"Je nach Programm",ru:"По программе"},
-        description:{ar:"رحلة بحرية إلى منطقة أم قمر للاستمتاع بالشعاب والحياة البحرية وفق البرنامج المتاح.",en:"A sea excursion to the Umm Qamar area for reefs and marine life, subject to the available program.",de:"Eine Bootstour zur Umm-Qamar-Region mit Riffen und Meeresleben, je nach Programm.",ru:"Морская экскурсия в район Умм-Камар к рифам и морской жизни по программе."},
-        itinerary:{ar:["Pickup","التحرك إلى المارينا","الإبحار","توقف للسنوركلينج أو الغوص","استراحة","العودة"],en:["Pickup","Transfer to marina","Boat trip","Snorkeling or diving stop","Break","Return"],de:["Abholung","Transfer zur Marina","Bootsfahrt","Schnorchel- oder Tauchstopp","Pause","Rückkehr"],ru:["Трансфер","Поездка к марине","Морская прогулка","Остановка для снорклинга или дайвинга","Отдых","Возвращение"]},
-        included:{ar:["التوصيل حسب البرنامج","القارب","المعدات حسب النشاط"],en:["Transportation according to program","Boat","Equipment according to activity"],de:["Transport gemäß Programm","Boot","Ausrüstung je nach Aktivität"],ru:["Трансфер по программе","Лодка","Снаряжение по активности"]},
-        notIncluded:{ar:["المصاريف الشخصية","أي رسوم إضافية غير مذكورة"],en:["Personal expenses","Additional unlisted fees"],de:["Persönliche Ausgaben","Nicht aufgeführte Zusatzkosten"],ru:["Личные расходы","Неуказанные дополнительные сборы"]},
-        image:"https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=85"
-    },
-
-    {
-        id:12,
-        category:"sea",
-        title:{ar:"Abu Ramada Island",en:"Abu Ramada Island",de:"Abu-Ramada-Insel",ru:"Остров Абу-Рамада"},
-        intro:{ar:"رحلة بحرية إلى أبو رمادة لعشاق الشعاب المرجانية والسنوركلينج.",en:"A sea excursion to Abu Ramada for reef and snorkeling enthusiasts.",de:"Eine Bootstour nach Abu Ramada für Riff- und Schnorchelfans.",ru:"Морская экскурсия на Абу-Рамада для любителей рифов и снорклинга."},
-        duration:{ar:"حسب البرنامج",en:"According to program",de:"Nach Programm",ru:"По программе"},
-        pickup:{ar:"من الفندق",en:"Hotel Pickup",de:"Hotelabholung",ru:"Трансфер из отеля"},
-        days:{ar:"حسب الجدول",en:"According to schedule",de:"Nach Fahrplan",ru:"По расписанию"},
-        type:{ar:"بحسب البرنامج",en:"Program dependent",de:"Je nach Programm",ru:"По программе"},
-        description:{ar:"استمتع بمياه البحر الأحمر والشعاب المرجانية في منطقة أبو رمادة وفق الرحلة المتاحة.",en:"Enjoy Red Sea waters and coral reefs around Abu Ramada according to the available excursion.",de:"Genießen Sie das Rote Meer und die Korallenriffe bei Abu Ramada je nach Ausflug.",ru:"Насладитесь Красным морем и коралловыми рифами у Абу-Рамада по программе."},
-        itinerary:{ar:["Pickup","الذهاب إلى المارينا","الإبحار","توقف سنوركلينج","وقت للسباحة","العودة"],en:["Pickup","Transfer to marina","Boat trip","Snorkeling stop","Swimming time","Return"],de:["Abholung","Transfer zur Marina","Bootsfahrt","Schnorchelstopp","Schwimmzeit","Rückkehr"],ru:["Трансфер","Поездка к марине","Морская прогулка","Снорклинг","Купание","Возвращение"]},
-        included:{ar:["التوصيل","القارب","معدات النشاط حسب البرنامج"],en:["Transportation","Boat","Activity equipment according to program"],de:["Transport","Boot","Ausrüstung gemäß Programm"],ru:["Трансфер","Лодка","Снаряжение по программе"]},
-        notIncluded:{ar:["المصاريف الشخصية"],en:["Personal expenses"],de:["Persönliche Ausgaben"],ru:["Личные расходы"]},
-        image:"https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=85"
-    },
-
-    {
-        id:13,
-        category:"sea",
-        title:{ar:"Shadwan Island",en:"Shadwan Island",de:"Shadwan-Insel",ru:"Остров Шадван"},
-        intro:{ar:"وجهة بحرية بعيدة لمحبي الطبيعة البحرية والاستكشاف.",en:"A remote Red Sea destination for marine nature and exploration.",de:"Ein abgelegenes Ziel am Roten Meer für Natur und Erkundung.",ru:"Удаленное морское направление для любителей природы и исследований."},
-        duration:{ar:"حسب البرنامج",en:"According to program",de:"Nach Programm",ru:"По программе"},
-        pickup:{ar:"من الفندق",en:"Hotel Pickup",de:"Hotelabholung",ru:"Трансфер из отеля"},
-        days:{ar:"حسب الجدول",en:"According to schedule",de:"Nach Fahrplan",ru:"По расписанию"},
-        type:{ar:"بحسب البرنامج",en:"Program dependent",de:"Je nach Programm",ru:"По программе"},
-        description:{ar:"رحلة بحرية إلى منطقة شادوان عندما تكون متاحة ضمن برنامج الرحلات، مع التركيز على الطبيعة البحرية.",en:"A sea trip toward Shadwan when available in the excursion program, focused on Red Sea nature.",de:"Eine Bootstour Richtung Shadwan, wenn sie im Programm angeboten wird, mit Fokus auf die Natur des Roten Meeres.",ru:"Морская поездка к Шадвану при наличии в программе, с акцентом на природу Красного моря."},
-        itinerary:{ar:["Pickup","التحرك إلى المارينا","الإبحار","توقف بحري حسب البرنامج","سباحة أو نشاط بحري","العودة"],en:["Pickup","Transfer to marina","Boat trip","Sea stop according to program","Swimming or marine activity","Return"],de:["Abholung","Transfer zur Marina","Bootsfahrt","Stopp gemäß Programm","Schwimmen oder Meeresaktivität","Rückkehr"],ru:["Трансфер","Поездка к марине","Морская прогулка","Остановка по программе","Купание или морская активность","Возвращение"]},
-        included:{ar:["التوصيل حسب البرنامج","القارب","الخدمات المذكورة في البرنامج"],en:["Transportation according to program","Boat","Services listed in the program"],de:["Transport gemäß Programm","Boot","Leistungen laut Programm"],ru:["Трансфер по программе","Лодка","Услуги по программе"]},
-        notIncluded:{ar:["المصاريف الشخصية","أي خدمات إضافية"],en:["Personal expenses","Extra services"],de:["Persönliche Ausgaben","Дополнительные услуги"],ru:["Личные расходы","Дополнительные услуги"]},
-        image:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85"
     },
 
     {
@@ -2578,798 +2611,159 @@ const trips = [
             ru:["Неуказанные билеты","Личные расходы"]
         },
         image:"https://images.pexels.com/photos/35433021/pexels-photo-35433021.jpeg?auto=compress&cs=tinysrgb&w=1400"
-    },
-
-    {
-        id:6,
-        category:"transfer",
-        title:{
-            ar:"Private Transfer",
-            en:"Private Transfer",
-            de:"Privater Transfer",
-            ru:"Индивидуальный трансфер"
-        },
-        intro:{
-            ar:"خدمة توصيل خاصة ومريحة من وإلى الفندق أو المطار وأي مكان آخر.",
-            en:"A comfortable private transfer from or to your hotel, airport or any destination.",
-            de:"Komfortabler privater Transfer vom Hotel, Flughafen oder zu jedem Ziel.",
-            ru:"Комфортный индивидуальный трансфер из отеля, аэропорта или в любое место."
-        },
-        duration:{
-            ar:"حسب المسافة",
-            en:"According to distance",
-            de:"Je nach Entfernung",
-            ru:"В зависимости от расстояния"
-        },
-        pickup:{
-            ar:"حسب الطلب",
-            en:"On Request",
-            de:"Auf Anfrage",
-            ru:"По запросу"
-        },
-        days:{
-            ar:"يوميًا",
-            en:"Daily",
-            de:"Täglich",
-            ru:"Ежедневно"
-        },
-        type:{
-            ar:"خاص",
-            en:"Private",
-            de:"Privat",
-            ru:"Индивидуальный"
-        },
-        description:{
-            ar:"احجز سيارة خاصة للتوصيل من وإلى المطار أو الفندق أو أي وجهة داخل المنطقة.",
-            en:"Book a private vehicle for airport, hotel or destination transfers.",
-            de:"Buchen Sie ein privates Fahrzeug für Flughafen-, Hotel- oder Zieltransfers.",
-            ru:"Закажите индивидуальный автомобиль для трансфера из аэропорта, отеля или в любую точку."
-        },
-        itinerary:{
-            ar:["تحديد مكان الاستلام","تأكيد الوقت","الاستلام","التوصيل إلى الوجهة"],
-            en:["Choose pickup location","Confirm time","Pickup","Drop-off at destination"],
-            de:["Abholort festlegen","Zeit bestätigen","Abholung","Transfer zum Ziel"],
-            ru:["Выбор места посадки","Подтверждение времени","Посадка","Трансфер к месту назначения"]
-        },
-        included:{
-            ar:["سيارة خاصة","سائق","التوصيل إلى الوجهة"],
-            en:["Private vehicle","Driver","Drop-off at destination"],
-            de:["Privates Fahrzeug","Fahrer","Transfer zum Ziel"],
-            ru:["Индивидуальный автомобиль","Водитель","Трансфер до места назначения"]
-        },
-        notIncluded:{
-            ar:["المصاريف الإضافية غير المتفق عليها"],
-            en:["Additional unagreed expenses"],
-            de:["Nicht vereinbarte Zusatzkosten"],
-            ru:["Дополнительные неоговоренные расходы"]
-        },
-        image:"https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1200&q=85"
     }
 
 ];
 
-
 /* =========================
-   EXPANDED TOUR PROGRAMS
-========================= */
-
-function createProgram(id, category, titleAr, titleEn, introAr, introEn, durationAr, durationEn, typeAr, typeEn, descriptionAr, descriptionEn, itineraryAr, itineraryEn, includedAr, includedEn, notIncludedAr, notIncludedEn, image){
-    return {
-        id,
-        category,
-        title:{ar:titleAr,en:titleEn,de:titleEn,ru:titleEn},
-        intro:{ar:introAr,en:introEn,de:introEn,ru:introEn},
-        duration:{ar:durationAr,en:durationEn,de:durationEn,ru:durationEn},
-        pickup:{ar:"من الفندق",en:"Hotel Pickup",de:"Hotel Pickup",ru:"Hotel Pickup"},
-        days:{ar:"حسب الجدول",en:"According to schedule",de:"According to schedule",ru:"According to schedule"},
-        type:{ar:typeAr,en:typeEn,de:typeEn,ru:typeEn},
-        description:{ar:descriptionAr,en:descriptionEn,de:descriptionEn,ru:descriptionEn},
-        itinerary:{ar:itineraryAr,en:itineraryEn,de:itineraryEn,ru:itineraryEn},
-        included:{ar:includedAr,en:includedEn,de:includedEn,ru:includedEn},
-        notIncluded:{ar:notIncludedAr,en:notIncludedEn,de:notIncludedEn,ru:notIncludedEn},
-        image
-    };
-}
-
-const expandedPrograms = [
-
-    /* =====================
-       LUXOR
-    ===================== */
-    createProgram(14,"luxor",
-        "الأقصر – الضفة الشرقية",
-        "Luxor East Bank Experience",
-        "جولة تشمل معبد الكرنك ومعبد الأقصر وطريق الكباش حسب البرنامج.",
-        "Explore Karnak Temple, Luxor Temple and the Avenue of Sphinxes according to the program.",
-        "يوم كامل","Full Day","خاصة / مشتركة","Private / Shared",
-        "برنامج مثالي لزيارة أهم معالم الضفة الشرقية في الأقصر، مع وقت للتصوير والاستكشاف.",
-        "A focused East Bank program covering Luxor's major temple landmarks with time for photos and exploration.",
-        ["الاستلام من الفندق","التحرك إلى الأقصر","معبد الكرنك","طريق الكباش","معبد الأقصر","استراحة","العودة"],
-        ["Hotel pickup","Drive to Luxor","Karnak Temple","Avenue of Sphinxes","Luxor Temple","Break","Return"],
-        ["التوصيل","الرحلة","تنظيم البرنامج"],
-        ["Transportation","Trip organization","Program assistance"],
-        ["تذاكر الدخول غير المذكورة","المصاريف الشخصية"],
-        ["Entrance tickets not specified","Personal expenses"],luxor_img),
-
-    createProgram(15,"luxor",
-        "الأقصر – الضفة الغربية",
-        "Luxor West Bank Highlights",
-        "زيارة وادي الملوك ومعبد حتشبسوت وتمثالي ممنون ومعالم الضفة الغربية.",
-        "Visit the Valley of the Kings, Hatshepsut Temple, Colossi of Memnon and key West Bank sites.",
-        "يوم كامل","Full Day","خاصة / مشتركة","Private / Shared",
-        "برنامج يركز على أشهر مواقع البر الغربي في الأقصر ومقابر ملوك الدولة الحديثة.",
-        "A West Bank program focused on Luxor's major royal tombs and monumental temples.",
-        ["الاستلام","وادي الملوك","معبد حتشبسوت","تمثالا ممنون","مادينة هابو حسب البرنامج","استراحة","العودة"],
-        ["Pickup","Valley of the Kings","Hatshepsut Temple","Colossi of Memnon","Medinet Habu when included","Break","Return"],
-        ["التوصيل","تنظيم الرحلة","مساعدة المرشد حسب البرنامج"],
-        ["Transportation","Trip organization","Guide assistance according to program"],
-        ["تذاكر المقابر والمعابد غير المذكورة","المصاريف الشخصية"],
-        ["Entrance tickets not specified","Personal expenses"],
-        "https://images.unsplash.com/photo-1568322445389-f64ac2515020?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(16,"luxor",
-        "الأقصر – الشرق والغرب",
-        "Luxor East & West Full Day",
-        "برنامج شامل يجمع أهم معالم الأقصر في الضفة الشرقية والغربية.",
-        "A full-day combination of Luxor's key East Bank and West Bank landmarks.",
-        "يوم كامل","Full Day","خاصة / مشتركة","Private / Shared",
-        "يجمع البرنامج بين الكرنك والأقصر ووادي الملوك وحتشبسوت وتماثيل ممنون وفق الوقت والمسار المتاح.",
-        "Combine Karnak and Luxor Temples with the Valley of the Kings, Hatshepsut Temple and Colossi of Memnon, subject to the day's route.",
-        ["الاستلام","الضفة الشرقية","الكرنك","معبد الأقصر","الضفة الغربية","وادي الملوك","حتشبسوت","ممنون","العودة"],
-        ["Pickup","East Bank","Karnak","Luxor Temple","West Bank","Valley of the Kings","Hatshepsut","Memnon","Return"],
-        ["التوصيل","تنظيم الجولة","مساعدة البرنامج"],
-        ["Transportation","Tour organization","Program assistance"],
-        ["تذاكر الدخول","المصاريف الشخصية"],
-        ["Entrance tickets","Personal expenses"],luxor_img),
-
-    createProgram(17,"luxor",
-        "الأقصر – بالون الهواء الساخن",
-        "Luxor Hot Air Balloon & West Bank",
-        "تجربة شروق مميزة فوق الأقصر مع جولة في أشهر معالم البر الغربي.",
-        "A sunrise hot-air-balloon experience combined with a West Bank sightseeing program.",
-        "حسب البرنامج","According to schedule","خاصة / مشتركة","Private / Shared",
-        "ابدأ اليوم بمشهد جوي للأقصر ثم تابع زيارة المعالم الأثرية حسب البرنامج والحالة الجوية.",
-        "Start with a sunrise balloon experience, then continue with archaeological sightseeing subject to weather and operator conditions.",
-        ["استلام مبكر","الانتقال إلى موقع البالون","رحلة البالون حسب الطقس","الإفطار/الاستراحة حسب البرنامج","وادي الملوك","حتشبسوت","العودة"],
-        ["Early pickup","Transfer to balloon site","Balloon flight subject to weather","Breakfast/break according to program","Valley of the Kings","Hatshepsut","Return"],
-        ["التوصيل","تنظيم البرنامج"],
-        ["Transportation","Program organization"],
-        ["رحلة البالون إذا لم تكن ضمن الحجز","التذاكر والمصاريف الشخصية"],
-        ["Balloon flight if not included in the booking","Tickets and personal expenses"],luxor_img),
-
-    createProgram(18,"luxor",
-        "دندرة وأبيدوس",
-        "Dendera & Abydos Day Trip",
-        "رحلة ثقافية إلى معابد دندرة وأبيدوس لعشاق التاريخ والآثار.",
-        "A cultural day trip to the temples of Dendera and Abydos for history and archaeology lovers.",
-        "يوم كامل","Full Day","خاصة","Private",
-        "برنامج خارج المسار التقليدي يركز على معابد الصعيد ويُرتب حسب الطريق والوقت المتاح.",
-        "An off-the-beaten-path Upper Egypt program focused on major temple sites, arranged around route and available time.",
-        ["الاستلام","التحرك إلى دندرة","زيارة المعبد","التحرك إلى أبيدوس حسب البرنامج","زيارة المعبد","استراحة","العودة"],
-        ["Pickup","Drive to Dendera","Temple visit","Continue to Abydos when included","Temple visit","Break","Return"],
-        ["التوصيل","تنظيم الرحلة"],
-        ["Transportation","Trip organization"],
-        ["التذاكر","المصاريف الشخصية"],
-        ["Entrance tickets","Personal expenses"],luxor_img),
-
-    /* =====================
-       CAIRO
-    ===================== */
-    createProgram(19,"cairo",
-        "أهرامات الجيزة وأبو الهول",
-        "Giza Pyramids & Sphinx",
-        "زيارة أهرامات خوفو وخفرع ومنقرع وأبو الهول ومنطقة الهرم.",
-        "Visit the Giza Pyramids, the Sphinx and the main Giza Plateau highlights.",
-        "يوم كامل","Full Day","خاصة / مشتركة","Private / Shared",
-        "برنامج القاهرة الكلاسيكي لمحبي الحضارة المصرية القديمة والتصوير.",
-        "The classic Cairo program for ancient-Egypt history and iconic photography.",
-        ["الاستلام من الفندق","التحرك إلى الجيزة","أهرامات الجيزة","أبو الهول","معبد الوادي حسب البرنامج","استراحة","العودة"],
-        ["Hotel pickup","Drive to Giza","Giza Pyramids","Great Sphinx","Valley Temple when included","Break","Return"],
-        ["التوصيل","تنظيم الرحلة"],
-        ["Transportation","Trip organization"],
-        ["تذاكر الدخول","المصاريف الشخصية"],
-        ["Entrance tickets","Personal expenses"],
-        "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(20,"cairo",
-        "المتحف المصري ووسط القاهرة",
-        "Egyptian Museum & Downtown Cairo",
-        "جولة ثقافية في المتحف المصري مع وقت لاستكشاف وسط القاهرة.",
-        "A cultural Cairo program combining the Egyptian Museum with downtown sightseeing.",
-        "يوم كامل","Full Day","خاصة / مشتركة","Private / Shared",
-        "يشمل المتحف المصري ثم جولة في وسط القاهرة حسب الوقت والمسار المتفق عليه.",
-        "Visit the Egyptian Museum followed by downtown Cairo sightseeing according to the agreed route.",
-        ["الاستلام","المتحف المصري","جولة وسط القاهرة","وقت حر حسب البرنامج","العودة"],
-        ["Pickup","Egyptian Museum","Downtown Cairo","Free time according to program","Return"],
-        ["التوصيل","تنظيم الرحلة"],
-        ["Transportation","Trip organization"],
-        ["التذاكر","المصاريف الشخصية"],
-        ["Tickets","Personal expenses"],
-        "https://images.unsplash.com/photo-1568322445389-f64ac2515020?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(21,"cairo",
-        "المتحف المصري الكبير والأهرامات",
-        "Grand Egyptian Museum & Pyramids",
-        "برنامج يجمع منطقة الأهرامات مع المتحف المصري الكبير حسب الحجوزات المتاحة.",
-        "Combine the Giza Plateau with the Grand Egyptian Museum, subject to ticket and visit availability.",
-        "يوم كامل","Full Day","خاصة / مشتركة","Private / Shared",
-        "برنامج حديث يجمع بين أشهر معالم الجيزة وتجربة المتحف المصري الكبير.",
-        "A modern Cairo program combining the Giza Plateau with the Grand Egyptian Museum experience.",
-        ["الاستلام","الأهرامات","أبو الهول","المتحف المصري الكبير","استراحة","العودة"],
-        ["Pickup","Pyramids","Sphinx","Grand Egyptian Museum","Break","Return"],
-        ["التوصيل","تنظيم الرحلة"],
-        ["Transportation","Trip organization"],
-        ["تذاكر المتحف والأهرامات","المصاريف الشخصية"],
-        ["Museum and site tickets","Personal expenses"],
-        "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(22,"cairo",
-        "القاهرة الإسلامية والقبطية",
-        "Islamic & Coptic Cairo",
-        "جولة في القاهرة التاريخية تشمل المعالم الإسلامية والقبطية والأسواق القديمة.",
-        "Explore historic Cairo through Islamic and Coptic landmarks and traditional old-city streets.",
-        "يوم كامل","Full Day","خاصة / مشتركة","Private / Shared",
-        "يمكن أن يشمل البرنامج القلعة ومسجد محمد علي ومنطقة القاهرة القديمة ومناطق قبطية حسب الوقت.",
-        "The program can include the Citadel, Mosque of Muhammad Ali and historic Coptic/Old Cairo areas.",
-        ["الاستلام","قلعة صلاح الدين","مسجد محمد علي","القاهرة القبطية حسب البرنامج","خان الخليلي","العودة"],
-        ["Pickup","Saladin Citadel","Muhammad Ali Mosque","Coptic Cairo when included","Khan el-Khalili","Return"],
-        ["التوصيل","تنظيم الجولة"],
-        ["Transportation","Tour organization"],
-        ["التذاكر","المصاريف الشخصية"],
-        ["Tickets","Personal expenses"],
-        "https://images.unsplash.com/photo-1572252009286-268acec5ca0a?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(23,"cairo",
-        "سقارة ودهشور وممفيس",
-        "Saqqara, Memphis & Dahshur",
-        "جولة في مراحل تطور بناء الأهرامات من سقارة إلى دهشور مع زيارة ممفيس حسب البرنامج.",
-        "Explore Saqqara, Memphis and Dahshur and trace the evolution of Egyptian pyramid building.",
-        "يوم كامل","Full Day","خاصة","Private",
-        "برنامج أثري يركز على أقدم وأهم مناطق الجبانة الملكية حول القاهرة.",
-        "An archaeology-focused program covering key sites of the ancient Memphis necropolis.",
-        ["الاستلام","سقارة والهرم المدرج","ممفيس","دهشور","الهرم المنحني/الأحمر حسب البرنامج","العودة"],
-        ["Pickup","Saqqara Step Pyramid","Memphis","Dahshur","Bent/Red Pyramid according to program","Return"],
-        ["التوصيل","تنظيم الجولة"],
-        ["Transportation","Tour organization"],
-        ["التذاكر","المصاريف الشخصية"],
-        ["Tickets","Personal expenses"],
-        "https://images.unsplash.com/photo-1568322445389-f64ac2515020?auto=format&fit=crop&w=1400&q=85"),
-
-    /* =====================
-       SAFARI
-    ===================== */
-    createProgram(24,"safari",
-        "سفاري ATV – 3 ساعات",
-        "3-Hour ATV Desert Safari",
-        "قيادة ATV في الصحراء مع وقت للمغامرة والتصوير وتجربة بدوية حسب البرنامج.",
-        "A focused ATV desert adventure with riding time, photo stops and a Bedouin-style experience.",
-        "حوالي 3 ساعات","Around 3 Hours","مشتركة","Shared",
-        "برنامج مناسب لمن يريد تجربة قيادة الـATV بدون يوم سفاري طويل.",
-        "A compact safari for travelers who want ATV riding without a full-day program.",
-        ["الاستلام","شرح السلامة","قيادة ATV","محطة تصوير","تجربة بدوية حسب البرنامج","العودة"],
-        ["Pickup","Safety briefing","ATV ride","Photo stop","Bedouin experience when included","Return"],
-        ["التوصيل","معدات السلامة حسب البرنامج"],
-        ["Transportation","Safety equipment according to program"],
-        ["المصاريف الشخصية","الصور والفيديو الاحترافي"],
-        ["Personal expenses","Professional photos and videos"],
-        "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(25,"safari",
-        "Super Safari – ATV وBuggy وجيب",
-        "Super Safari – ATV, Buggy & Jeep",
-        "برنامج سفاري شامل يجمع ATV وBuggy وجيب وجمل وقرية بدوية وعشاء وعرض حسب البرنامج.",
-        "A full safari combining ATV, buggy, 4x4 jeep, camel ride, Bedouin village, dinner and entertainment.",
-        "حوالي 6 ساعات","Around 6 Hours","مشتركة","Shared",
-        "برنامج شامل للمغامرة والصحراء والأجواء البدوية في رحلة واحدة.",
-        "An all-in-one desert adventure combining driving, culture and an evening camp experience.",
-        ["الاستلام","ATV","Buggy","جيب 4x4","قرية بدوية","جمل","عشاء وعرض","العودة"],
-        ["Pickup","ATV","Buggy","4x4 Jeep","Bedouin village","Camel ride","Dinner & show","Return"],
-        ["التوصيل","معدات السلامة","العشاء والمشروبات حسب البرنامج"],
-        ["Transportation","Safety equipment","Dinner and drinks according to program"],
-        ["الصور الاحترافية","المصاريف الشخصية"],
-        ["Professional photos","Personal expenses"],
-        "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(26,"safari",
-        "Buggy Desert Adventure",
-        "Buggy Desert Adventure",
-        "قيادة Buggy في مسارات الصحراء مع محطات تصوير حسب البرنامج.",
-        "Drive a dune buggy through desert tracks with scenic photo stops.",
-        "حوالي 3 ساعات","Around 3 Hours","مشتركة","Shared",
-        "تجربة قيادة بعجلة قيادة وقضبان حماية مناسبة لمن يريد مغامرة مختلفة عن الـATV.",
-        "A steering-wheel buggy experience for travelers who want a different driving adventure from a quad bike.",
-        ["الاستلام","شرح السلامة","Buggy ride","محطة تصوير","العودة"],
-        ["Pickup","Safety briefing","Buggy ride","Photo stop","Return"],
-        ["التوصيل","معدات السلامة حسب البرنامج"],
-        ["Transportation","Safety equipment according to program"],
-        ["الصور والمصاريف الشخصية"],
-        ["Photos and personal expenses"],
-        "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(27,"safari",
-        "سفاري جيب 4x4",
-        "4x4 Jeep Desert Safari",
-        "جولة بالجيب داخل الصحراء مع مناظر الجبال ومحطات حسب البرنامج.",
-        "A 4x4 desert journey with mountain landscapes and planned stops.",
-        "حوالي 5 ساعات","Around 5 Hours","مشتركة","Shared",
-        "مناسب لمن يريد اكتشاف الصحراء بدون قيادة مركبة بنفسه.",
-        "Ideal for guests who want to explore the desert without driving their own vehicle.",
-        ["الاستلام","التحرك بالجيب","مناظر الصحراء والجبال","قرية بدوية حسب البرنامج","استراحة","العودة"],
-        ["Pickup","4x4 departure","Desert and mountain views","Bedouin village when included","Break","Return"],
-        ["التوصيل","المرشد حسب البرنامج"],
-        ["Transportation","Guide according to program"],
-        ["المصاريف الشخصية","الصور"],
-        ["Personal expenses","Photos"],
-        "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(28,"safari",
-        "سفاري النجوم والعشاء البدوي",
-        "Stargazing & Bedouin Dinner Safari",
-        "أمسية صحراوية لمشاهدة السماء والنجوم مع عشاء وأجواء بدوية حسب البرنامج.",
-        "An evening desert experience with stargazing, Bedouin dinner and a camp atmosphere.",
-        "حوالي 4–5 ساعات","Around 4–5 Hours","مشتركة","Shared",
-        "برنامج مسائي هادئ يركز على الصحراء بعد الغروب والسماء والنجوم.",
-        "An evening-focused experience built around the desert after sunset and the night sky.",
-        ["الاستلام","التحرك للصحراء","غروب الشمس","العشاء البدوي","جلسة النجوم","العودة"],
-        ["Pickup","Drive to desert","Sunset","Bedouin dinner","Stargazing session","Return"],
-        ["التوصيل","العشاء حسب البرنامج"],
-        ["Transportation","Dinner according to program"],
-        ["الصور الاحترافية","المصاريف الشخصية"],
-        ["Professional photos","Personal expenses"],
-        "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(29,"safari",
-        "ركوب الجمال في الصحراء",
-        "Camel Riding Desert Experience",
-        "تجربة ركوب الجمال والتعرف على أجواء الصحراء والقرية البدوية حسب البرنامج.",
-        "A camel-riding experience with desert scenery and a Bedouin-style stop.",
-        "1–2 ساعة","1–2 Hours","مشتركة","Shared",
-        "برنامج بسيط ومناسب لمن يريد تجربة الصحراء بطريقة هادئة وتقليدية.",
-        "A relaxed traditional way to experience the desert without a long motorized safari.",
-        ["الاستلام","الوصول إلى منطقة الجمال","شرح قصير","ركوب الجمال","تصوير","العودة"],
-        ["Pickup","Arrive at camel area","Short briefing","Camel ride","Photos","Return"],
-        ["التوصيل","ركوب الجمال حسب البرنامج"],
-        ["Transportation","Camel ride according to program"],
-        ["المصاريف الشخصية","الصور الاحترافية"],
-        ["Personal expenses","Professional photos"],
-        "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1400&q=85"),
-
-    /* =====================
-       SEA / ISLANDS
-    ===================== */
-    createProgram(30,"sea","جزيرة جفتون الكبيرة","Giftun El Kabir Island","رحلة بحرية إلى جفتون الكبيرة مع وقت للسباحة والسنوركلينج والشاطئ حسب البرنامج.","A sea trip to Giftun El Kabir for swimming, snorkeling and beach time according to the program.","يوم كامل","Full Day","بحرية / مشتركة","Sea / Shared","برنامج بحري إلى واحدة من جزر أرخبيل الغردقة المعروفة بالرحلات اليومية.","A sea program to one of the best-known islands in the Hurghada archipelago.",["الاستلام","المارينا","الإبحار","سنوركلينج","وقت الشاطئ","العودة"],["Pickup","Marina","Sailing","Snorkeling","Beach time","Return"],["التوصيل","القارب","معدات السنوركلينج حسب البرنامج"],["Transportation","Boat","Snorkeling equipment according to program"],["المصاريف الشخصية","الأنشطة الإضافية"],["Personal expenses","Optional activities"],"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(31,"sea","جزيرة جفتون الصغيرة","Giftun El Saghir Island","برنامج بحري إلى جفتون الصغيرة مع توقفات للسباحة والسنوركلينج حسب خط الرحلة.","A sea program around Giftun El Saghir with swimming and snorkeling stops depending on the route.","يوم كامل","Full Day","بحرية / مشتركة","Sea / Shared","تُعرض كوجهة بحرية ضمن مسارات الرحلات، مع مراعاة حالة البحر والبرنامج المتاح.","A marine destination that may be included in excursion routes subject to sea conditions and operator schedules.",["الاستلام","المارينا","الإبحار","توقف بحري","سنوركلينج","العودة"],["Pickup","Marina","Sailing","Sea stop","Snorkeling","Return"],["التوصيل","القارب","معدات البحر حسب البرنامج"],["Transportation","Boat","Sea equipment according to program"],["المصاريف الشخصية","الأنشطة الإضافية"],["Personal expenses","Optional activities"],"https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(32,"sea","جزيرة مجاويش","Magawish Island","رحلة بحرية إلى مجاويش مع السباحة والسنوركلينج ووقت للاسترخاء حسب البرنامج.","A sea trip around Magawish with swimming, snorkeling and relaxation time according to the program.","يوم كامل","Full Day","بحرية / مشتركة","Sea / Shared","وجهة بحرية معروفة في رحلات الغردقة وتُحدد نقاط التوقف حسب خط الرحلة.","A known Hurghada marine destination with stops selected according to the day's route.",["الاستلام","المارينا","الإبحار","سنوركلينج","وقت حر","العودة"],["Pickup","Marina","Sailing","Snorkeling","Free time","Return"],["التوصيل","القارب","معدات السنوركلينج"],["Transportation","Boat","Snorkeling equipment"],["المصاريف الشخصية","الأنشطة الإضافية"],["Personal expenses","Optional activities"],"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(33,"sea","جزيرة أبو منقار","Abu Mingar Island","رحلة بحرية إلى أبو منقار مع توقفات بحرية حسب خط الرحلة وحالة البحر.","A marine trip around Abu Mingar with stops depending on the route and sea conditions.","يوم كامل","Full Day","بحرية / حسب البرنامج","Sea / According to program","وجهة ضمن أرخبيل البحر الأحمر، وتوفر الزيارة تعتمد على البرنامج المسموح به.","A Red Sea archipelago destination whose visit depends on the permitted excursion route.",["الاستلام","المارينا","الإبحار","توقف بحري","سنوركلينج حسب البرنامج","العودة"],["Pickup","Marina","Sailing","Sea stop","Snorkeling when included","Return"],["التوصيل","القارب"],["Transportation","Boat"],["المصاريف الشخصية","الأنشطة غير المدرجة"],["Personal expenses","Activities not included"],"https://images.unsplash.com/photo-1498623116890-37e912163d5d?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(34,"sea","جزيرة أم قمر","Umm Qamar Island","تجربة بحرية حول أم قمر مع السنوركلينج والتوقفات البحرية حسب البرنامج.","A marine experience around Umm Qamar with snorkeling and sea stops according to the program.","يوم كامل","Full Day","بحرية / حسب البرنامج","Sea / According to program","تظهر أم قمر ضمن الوجهات البحرية التي يمكن ترتيبها حسب خط الرحلة والظروف البحرية.","Umm Qamar can be arranged as a marine destination depending on the route and sea conditions.",["الاستلام","المارينا","الإبحار","توقف سنوركلينج","وقت حر","العودة"],["Pickup","Marina","Sailing","Snorkeling stop","Free time","Return"],["التوصيل","القارب","معدات البحر حسب البرنامج"],["Transportation","Boat","Sea equipment according to program"],["المصاريف الشخصية"],["Personal expenses"],"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(35,"sea","جزيرة أبو رمادة","Abu Ramada Island","رحلة بحرية للسنوركلينج ومشاهدة الشعاب حول أبو رمادة حسب البرنامج.","A snorkeling-focused marine trip around Abu Ramada according to the excursion route.","يوم كامل","Full Day","بحرية / مشتركة","Sea / Shared","تشتهر المنطقة بمواقع الشعاب والسنوركلينج، وتُحدد نقاط التوقف حسب المشغل وحالة البحر.","The area is associated with reef and snorkeling trips, with stops selected by the operator and sea conditions.",["الاستلام","المارينا","الإبحار","سنوركلينج","استراحة على القارب","العودة"],["Pickup","Marina","Sailing","Snorkeling","Boat break","Return"],["التوصيل","القارب","معدات السنوركلينج"],["Transportation","Boat","Snorkeling equipment"],["المصاريف الشخصية","الأنشطة الإضافية"],["Personal expenses","Optional activities"],"https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(36,"sea","جزيرة شادوان","Shadwan Island","برنامج بحري إلى شادوان حسب التراخيص ومسار الرحلة والظروف البحرية.","A marine program around Shadwan subject to route, permissions and sea conditions.","حسب البرنامج","According to program","بحرية / حسب التوافر","Sea / Subject to availability","شادوان من أكبر جزر البحر الأحمر المصرية، والزيارات السياحية إليها ليست مثل برامج الجزر الشاطئية المعتادة.","Shadwan is one of the larger Egyptian Red Sea islands; excursion access is not the same as standard beach-island trips.",["الاستلام","المارينا","الإبحار","توقفات بحرية حسب البرنامج","العودة"],["Pickup","Marina","Sailing","Marine stops according to program","Return"],["التوصيل","القارب حسب البرنامج"],["Transportation","Boat according to program"],["المصاريف الشخصية","أي تصاريح أو أنشطة غير مدرجة"],["Personal expenses","Any permits or activities not included"],"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(37,"sea","جزيرة أشرفي","Ashrafi Island","وجهة بحرية ضمن أرخبيل الغردقة، تُرتب زيارتها فقط إذا كان مسار الرحلة يسمح بذلك.","A Hurghada archipelago destination arranged only when the excursion route allows it.","حسب البرنامج","According to program","بحرية / حسب التوافر","Sea / Subject to availability","جزيرة مذكورة ضمن أرخبيل الغردقة في بيانات بيئية رسمية، وليست برنامج شاطئ يومي ثابتًا.","An island documented within the Hurghada archipelago; it is not a standard fixed daily beach program.",["الاستلام","المارينا","الإبحار","توقف بحري إذا كان متاحًا","العودة"],["Pickup","Marina","Sailing","Marine stop if available","Return"],["التوصيل","القارب حسب البرنامج"],["Transportation","Boat according to program"],["المصاريف الشخصية","أي تصاريح أو أنشطة غير مدرجة"],["Personal expenses","Permits or activities not included"],"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(38,"sea","جزيرة قيسوم","Qeisum Island","وجهة بحرية ضمن أرخبيل الغردقة تُزار فقط وفق مسار الرحلة والتوافر.","A Hurghada archipelago destination visited only when route and availability allow.","حسب البرنامج","According to program","بحرية / حسب التوافر","Sea / Subject to availability","جزيرة مذكورة ضمن أرخبيل الغردقة في المصدر البيئي الرسمي، وليست من رحلات الشاطئ اليومية القياسية.","An island named in the official environmental archipelago data, not a standard daily beach excursion.",["الاستلام","المارينا","الإبحار","توقف حسب المسار","العودة"],["Pickup","Marina","Sailing","Stop according to route","Return"],["التوصيل","القارب حسب البرنامج"],["Transportation","Boat according to program"],["المصاريف الشخصية"],["Personal expenses"],"https://images.unsplash.com/photo-1498623116890-37e912163d5d?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(39,"sea","جوبال الصغيرة","Gubal El Saghir","وجهة بحرية ضمن أرخبيل البحر الأحمر، مع التوقفات حسب المسار والتوافر.","A Red Sea archipelago destination with stops subject to route and availability.","حسب البرنامج","According to program","بحرية / حسب التوافر","Sea / Subject to availability","جزيرة من جزر الأرخبيل المسجلة بيئيًا، ولا تُعرض كرحلة شاطئية يومية ثابتة.","An environmentally documented archipelago island, not a standard fixed beach excursion.",["الاستلام","المارينا","الإبحار","توقف حسب البرنامج","العودة"],["Pickup","Marina","Sailing","Stop according to program","Return"],["التوصيل","القارب حسب البرنامج"],["Transportation","Boat according to program"],["المصاريف الشخصية"],["Personal expenses"],"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(40,"sea","جوبال الكبيرة","Gubal El Kabir","وجهة بحرية ضمن الأرخبيل تُرتب حسب المسار والتوافر وحالة البحر.","A Hurghada-region archipelago destination arranged according to route, availability and sea conditions.","حسب البرنامج","According to program","بحرية / حسب التوافر","Sea / Subject to availability","جزيرة مسجلة ضمن أرخبيل الغردقة في البيانات البيئية الرسمية.","An island documented in the official Hurghada archipelago data.",["الاستلام","المارينا","الإبحار","توقف حسب المسار","العودة"],["Pickup","Marina","Sailing","Stop according to route","Return"],["التوصيل","القارب حسب البرنامج"],["Transportation","Boat according to program"],["المصاريف الشخصية"],["Personal expenses"],"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(41,"sea","أم الهيمات الصغيرة","Um El Heimat El Saghir","جزيرة صغيرة ضمن أرخبيل الغردقة، وتظهر في الموقع كوجهة حسب التوافر.","A small island within the Hurghada archipelago, shown as a subject-to-availability destination.","حسب البرنامج","According to program","بحرية / حسب التوافر","Sea / Subject to availability","جزيرة موثقة ضمن أرخبيل الغردقة، وليست من برامج الشاطئ اليومية الثابتة.","A documented archipelago island, not a standard daily beach excursion.",["الاستلام","المارينا","الإبحار","توقف حسب التوافر","العودة"],["Pickup","Marina","Sailing","Stop subject to availability","Return"],["التوصيل","القارب حسب البرنامج"],["Transportation","Boat according to program"],["المصاريف الشخصية"],["Personal expenses"],"https://images.unsplash.com/photo-1498623116890-37e912163d5d?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(42,"sea","أم الهيمات الكبيرة","Um El Heimat El Kabir","جزيرة ضمن أرخبيل الغردقة، وتُرتب زيارتها فقط إذا سمح مسار الرحلة.","An archipelago island arranged only when the excursion route permits.","حسب البرنامج","According to program","بحرية / حسب التوافر","Sea / Subject to availability","جزيرة مسجلة في بيانات أرخبيل الغردقة البيئية.","An island listed in the Hurghada archipelago environmental data.",["الاستلام","المارينا","الإبحار","توقف حسب المسار","العودة"],["Pickup","Marina","Sailing","Stop according to route","Return"],["التوصيل","القارب حسب البرنامج"],["Transportation","Boat according to program"],["المصاريف الشخصية"],["Personal expenses"],"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(43,"sea","جزيرة طويلة – Tawila","Tawila Island","وجهة بحرية ضمن الأرخبيل، وتُعرض فقط وفق خط الرحلة والتوافر.","A Hurghada archipelago destination offered only according to route and availability.","حسب البرنامج","According to program","بحرية / حسب التوافر","Sea / Subject to availability","تُذكر طويلة ضمن الجزر الرئيسية في البيانات البيئية لأرخبيل الغردقة.","Tawila is one of the islands specifically named in the environmental archipelago data.",["الاستلام","المارينا","الإبحار","توقف بحري حسب البرنامج","العودة"],["Pickup","Marina","Sailing","Marine stop according to program","Return"],["التوصيل","القارب حسب البرنامج"],["Transportation","Boat according to program"],["المصاريف الشخصية"],["Personal expenses"],"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(44,"sea","سيول الصغيرة","Siyul El Saghir","جزيرة صغيرة ضمن الأرخبيل، وليست برنامج شاطئ يومي ثابتًا.","A small archipelago island, not a standard fixed daily beach excursion.","حسب البرنامج","According to program","بحرية / حسب التوافر","Sea / Subject to availability","الزيارة تعتمد على المسار والتصاريح والظروف البحرية.","Access depends on route, permissions and sea conditions.",["الاستلام","المارينا","الإبحار","توقف إذا كان متاحًا","العودة"],["Pickup","Marina","Sailing","Stop if available","Return"],["التوصيل","القارب حسب البرنامج"],["Transportation","Boat according to program"],["المصاريف الشخصية"],["Personal expenses"],"https://images.unsplash.com/photo-1498623116890-37e912163d5d?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(45,"sea","سيول الكبيرة","Siyul El Kabir","وجهة بحرية ضمن الأرخبيل وتُرتب حسب التوافر ومسار الرحلة.","An archipelago destination arranged according to availability and route.","حسب البرنامج","According to program","بحرية / حسب التوافر","Sea / Subject to availability","جزيرة مسجلة ضمن الجزر المذكورة في البيانات البيئية الرسمية.","An island listed in the official environmental archipelago data.",["الاستلام","المارينا","الإبحار","توقف حسب البرنامج","العودة"],["Pickup","Marina","Sailing","Stop according to program","Return"],["التوصيل","القارب حسب البرنامج"],["Transportation","Boat according to program"],["المصاريف الشخصية"],["Personal expenses"],"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(46,"sea","أم جاويش الكبيرة","Um Gawish El Kabir","جزيرة ضمن أرخبيل الغردقة وتُدرج كوجهة حسب المسار والتوافر.","An archipelago island listed as a route-dependent destination.","حسب البرنامج","According to program","بحرية / حسب التوافر","Sea / Subject to availability","جزيرة موثقة في بيانات الأرخبيل البيئية، وليست رحلة شاطئية يومية قياسية.","A documented archipelago island, not a standard daily beach excursion.",["الاستلام","المارينا","الإبحار","توقف حسب المسار","العودة"],["Pickup","Marina","Sailing","Stop according to route","Return"],["التوصيل","القارب حسب البرنامج"],["Transportation","Boat according to program"],["المصاريف الشخصية"],["Personal expenses"],"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(47,"sea","أم جاويش الصغيرة","Um Gawish El Saghir","جزيرة صغيرة ضمن الأرخبيل وتُرتب الزيارة حسب البرنامج والتوافر.","A small archipelago island arranged according to program and availability.","حسب البرنامج","According to program","بحرية / حسب التوافر","Sea / Subject to availability","جزيرة مذكورة ضمن قائمة الجزر في البيانات البيئية الرسمية.","An island named in the official environmental archipelago list.",["الاستلام","المارينا","الإبحار","توقف إذا كان متاحًا","العودة"],["Pickup","Marina","Sailing","Stop if available","Return"],["التوصيل","القارب حسب البرنامج"],["Transportation","Boat according to program"],["المصاريف الشخصية"],["Personal expenses"],"https://images.unsplash.com/photo-1498623116890-37e912163d5d?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(48,"sea","أبو منقار – Archipelago Route","Abu Mingar Archipelago Route","برنامج بحري حول أبو منقار ضمن مسار الجزر حسب التوافر.","A marine route around Abu Mingar within the archipelago, subject to availability.","حسب البرنامج","According to program","بحرية / حسب التوافر","Sea / Subject to availability","أبو منقار مذكورة ضمن الجزر التي تظهر في بيانات أرخبيل الغردقة الرسمية.","Abu Mingar is named among the islands in the official Hurghada archipelago data.",["الاستلام","المارينا","الإبحار","توقف بحري","العودة"],["Pickup","Marina","Sailing","Marine stop","Return"],["التوصيل","القارب حسب البرنامج"],["Transportation","Boat according to program"],["المصاريف الشخصية"],["Personal expenses"],"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85"),
-
-    /* Additional sea programs */
-    createProgram(49,"sea","Mahmya Beach","Mahmya Beach Day","يوم شاطئي على جزيرة/محمية بحرية مع السباحة والسنوركلينج حسب البرنامج.","A beach and snorkeling day at Mahmya according to the excursion program.","يوم كامل","Full Day","بحرية / مشتركة","Sea / Shared","برنامج شاطئي من رحلات الغردقة مع وقت للسباحة والاسترخاء والسنوركلينج.","A popular Hurghada beach program with time for swimming, relaxing and snorkeling.",["الاستلام","المارينا","الإبحار","الشاطئ","سنوركلينج","العودة"],["Pickup","Marina","Sailing","Beach","Snorkeling","Return"],["التوصيل","القارب","معدات البحر حسب البرنامج"],["Transportation","Boat","Sea equipment according to program"],["المصاريف الشخصية","الأنشطة الإضافية"],["Personal expenses","Optional activities"],"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85"),
-
-    createProgram(50,"sea","Dolphin House & Snorkeling","Dolphin House & Snorkeling","رحلة سنوركلينج في مواقع بحرية مع فرصة لمشاهدة الدلافين في بيئتها الطبيعية حسب الظروف.","A snorkeling trip to marine sites with a chance to encounter dolphins in their natural environment, subject to conditions.","يوم كامل","Full Day","بحرية / مشتركة","Sea / Shared","برنامج بحري يعتمد على حالة البحر وتعليمات الطاقم، مع عدم ضمان مشاهدة الدلافين.","A marine program dependent on sea conditions and crew guidance; dolphin sightings are never guaranteed.",["الاستلام","المارينا","الإبحار","توقفات سنوركلينج","وقت على القارب","العودة"],["Pickup","Marina","Sailing","Snorkeling stops","Boat time","Return"],["التوصيل","القارب","معدات السنوركلينج حسب البرنامج"],["Transportation","Boat","Snorkeling equipment according to program"],["المصاريف الشخصية","الصور والأنشطة الإضافية"],["Personal expenses","Photos and optional activities"],"https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1400&q=85")
-];
-
-trips.push(...expandedPrograms);
-
-
-/* =========================
-   TRANSLATION
+   TRANSLATION & UI FUNCTIONS
 ========================= */
 
 function changeLanguage(lang){
-
-    if(!translations[lang]){
-        lang = "ar";
-    }
-
+    if(!translations[lang]){ lang = "ar"; }
     currentLanguage = lang;
-
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
     document.body.dir = lang === "ar" ? "rtl" : "ltr";
 
     document.querySelectorAll("[data-i18n]").forEach(element=>{
-
         const key = element.getAttribute("data-i18n");
-
         if(translations[lang][key]){
             element.textContent = translations[lang][key];
         }
-
     });
 
     const selector = document.querySelector(".language-select");
-
-    if(selector){
-        selector.value = lang;
-    }
+    if(selector){ selector.value = lang; }
 
     renderFeaturedTrips();
-
     const categoryPage = document.getElementById("categoryPage");
-
     if(categoryPage.style.display === "block"){
         const currentCategory = categoryPage.getAttribute("data-category");
-
-        if(currentCategory){
-            renderCategory(currentCategory);
-        }
+        if(currentCategory){ renderCategory(currentCategory); }
     }
 }
 
-
-/* =========================
-   CATEGORY LABEL
-========================= */
-
 function getCategoryName(category){
-
-    const names = {
-        sea:"sea",
-        safari:"safari",
-        cairo:"cairo",
-        luxor:"luxor",
-        transfer:"transfer"
-    };
-
+    const names = { sea:"sea", safari:"safari", cairo:"cairo", luxor:"luxor", transfer:"transfer" };
     return translations[currentLanguage][names[category]];
 }
 
-
-/* =========================
-   TRIP CARD
-========================= */
-
 function createTripCard(trip){
-
     return `
         <div class="trip-card">
-
             <div class="trip-image">
-
                 <img src="${trip.image}" alt="${trip.title[currentLanguage]}">
-
-                <div class="trip-category">
-                    ${getCategoryName(trip.category)}
-                </div>
-
+                <div class="trip-category">${getCategoryName(trip.category)}</div>
             </div>
-
             <div class="trip-content">
-
                 <h3>${trip.title[currentLanguage]}</h3>
-
-                <p>
-                    ${trip.intro[currentLanguage]}
-                </p>
-
+                <p>${trip.intro[currentLanguage]}</p>
                 <div class="trip-meta">
                     <span>⏱ ${trip.duration[currentLanguage]}</span>
                     <span>🚐 ${trip.type[currentLanguage]}</span>
                 </div>
-
-                <button
-                    class="btn btn-primary"
-                    onclick="openTrip(${trip.id})">
+                <button class="btn btn-primary" onclick="openTrip(${trip.id})">
                     ${translations[currentLanguage].discoverTrips}
                 </button>
-
             </div>
-
         </div>
     `;
 }
 
-
-/* =========================
-   FEATURED
-========================= */
-
 function renderFeaturedTrips(){
-
     const container = document.getElementById("featuredTrips");
-
     if(!container) return;
-
-    container.innerHTML = trips
-        .slice(0,6)
-        .map(createTripCard)
-        .join("");
+    container.innerHTML = trips.slice(0,6).map(createTripCard).join("");
 }
 
-
-/* =========================
-   OPEN CATEGORY
-========================= */
-
 function openCategory(category){
-
     const home = document.getElementById("homeContent");
     const page = document.getElementById("categoryPage");
-
     home.classList.add("hidden");
-
     page.style.display = "block";
     page.setAttribute("data-category",category);
-
     renderCategory(category);
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
+    window.scrollTo({top:0,behavior:"smooth"});
     document.getElementById("navLinks").classList.remove("active");
 }
 
-
-/* =========================
-   RENDER CATEGORY
-========================= */
-
 function renderCategory(category){
-
     const filtered = trips.filter(trip=>trip.category === category);
-
-    const titleKey = category;
-
-    document.getElementById("categoryTitle").textContent =
-        translations[currentLanguage][titleKey];
-
-    document.getElementById("categoryDescription").textContent =
-        getCategoryDescription(category);
-
-    document.getElementById("categoryTrips").innerHTML =
-        filtered.map(createTripCard).join("");
+    document.getElementById("categoryTitle").textContent = translations[currentLanguage][category];
+    document.getElementById("categoryDescription").textContent = getCategoryDescription(category);
+    document.getElementById("categoryTrips").innerHTML = filtered.map(createTripCard).join("");
 }
 
-
-/* =========================
-   CATEGORY DESCRIPTION
-========================= */
-
 function getCategoryDescription(category){
-
     const descriptions = {
-
-        sea:{
-            ar:"استمتع بأجمل الرحلات البحرية في البحر الأحمر.",
-            en:"Enjoy unforgettable sea experiences in the Red Sea.",
-            de:"Genießen Sie unvergessliche Erlebnisse am Roten Meer.",
-            ru:"Насладитесь незабываемыми морскими экскурсиями на Красном море."
-        },
-
-        safari:{
-            ar:"اكتشف الصحراء المصرية واستمتع بالمغامرات.",
-            en:"Explore the Egyptian desert and enjoy exciting adventures.",
-            de:"Entdecken Sie die ägyptische Wüste und erleben Sie Abenteuer.",
-            ru:"Исследуйте египетскую пустыню и наслаждайтесь приключениями."
-        },
-
-        cairo:{
-            ar:"اكتشف القاهرة والأهرامات والحضارة المصرية القديمة.",
-            en:"Discover Cairo, the pyramids and ancient Egyptian civilization.",
-            de:"Entdecken Sie Kairo, die Pyramiden und das alte Ägypten.",
-            ru:"Откройте Каир, пирамиды и древнюю египетскую цивилизацию."
-        },
-
-        luxor:{
-            ar:"استكشف الأقصر ومعابد الحضارة المصرية القديمة.",
-            en:"Explore Luxor and the temples of ancient Egyptian civilization.",
-            de:"Entdecken Sie Luxor und die Tempel des alten Ägypten.",
-            ru:"Исследуйте Луксор и храмы Древнего Египта."
-        },
-
-        transfer:{
-            ar:"خدمة توصيل خاصة ومريحة إلى أي وجهة.",
-            en:"Comfortable private transfers to any destination.",
-            de:"Komfortable private Transfers zu jedem Ziel.",
-            ru:"Комфортные индивидуальные трансферы в любую точку."
-        }
-
+        sea:{ ar:"استمتع بأجمل الرحلات البحرية في البحر الأحمر.", en:"Enjoy unforgettable sea experiences in the Red Sea.", de:"Genießen Sie unvergessliche Erlebnisse am Roten Meer.", ru:"Насладитесь незабываемыми морскими экскурсиями на Красном море." },
+        safari:{ ar:"اكتشف الصحراء المصرية واستمتع بالمغامرات.", en:"Explore the Egyptian desert and enjoy exciting adventures.", de:"Entdecken Sie die ägyptische Wüste und erleben Sie Abenteuer.", ru:"Исследуйте египетскую пустыню и наслаждайтесь приключениями." },
+        cairo:{ ar:"اكتشف القاهرة والأهرامات والحضارة المصرية القديمة.", en:"Discover Cairo, the pyramids and ancient Egyptian civilization.", de:"Entdecken Sie Kairo, die Pyramiden und das alte Ägypten.", ru:"Откройте Каир, пирамиды и древнюю египетскую цивилизацию." },
+        luxor:{ ar:"استكشف الأقصر ومعابد الحضارة المصرية القديمة.", en:"Explore Luxor and the temples of ancient Egyptian civilization.", de:"Entdecken Sie Luxor und die Tempel des alten Ägypten.", ru:"Исследуйте Луксор и храмы Древнего Египта." },
+        transfer:{ ar:"خدمة توصيل خاصة ومريحة بين جميع مناطق البحر الأحمر والمطارات.", en:"Comfortable private transfers across all Red Sea regions and airports.", de:"Komfortable private Transfers in der Region des Roten Meeres und zu Flughäfen.", ru:"Комфортные индивидуальные трансферы по всему региону Красного моря и в аэропорты." }
     };
-
     return descriptions[category][currentLanguage];
 }
 
-
-/* =========================
-   OPEN TRIP
-========================= */
-
 function openTrip(id){
-
     const trip = trips.find(item=>item.id === id);
-
     if(!trip) return;
-
     document.getElementById("modalImage").src = trip.image;
     document.getElementById("modalImage").alt = trip.title[currentLanguage];
+    document.getElementById("modalTitle").textContent = trip.title[currentLanguage];
+    document.getElementById("modalIntro").textContent = trip.intro[currentLanguage];
+    document.getElementById("modalDuration").textContent = trip.duration[currentLanguage];
+    document.getElementById("modalPickup").textContent = trip.pickup[currentLanguage];
+    document.getElementById("modalDays").textContent = trip.days[currentLanguage];
+    document.getElementById("modalType").textContent = trip.type[currentLanguage];
+    document.getElementById("modalDescription").textContent = trip.description[currentLanguage];
+    document.getElementById("modalItinerary").innerHTML = trip.itinerary[currentLanguage].map(item=>`<li>${item}</li>`).join("");
+    document.getElementById("modalIncluded").innerHTML = trip.included[currentLanguage].map(item=>`<li>${item}</li>`).join("");
+    document.getElementById("modalNotIncluded").innerHTML = trip.notIncluded[currentLanguage].map(item=>`<li>${item}</li>`).join("");
 
-    document.getElementById("modalTitle").textContent =
-        trip.title[currentLanguage];
-
-    document.getElementById("modalIntro").textContent =
-        trip.intro[currentLanguage];
-
-    document.getElementById("modalDuration").textContent =
-        trip.duration[currentLanguage];
-
-    document.getElementById("modalPickup").textContent =
-        trip.pickup[currentLanguage];
-
-    document.getElementById("modalDays").textContent =
-        trip.days[currentLanguage];
-
-    document.getElementById("modalType").textContent =
-        trip.type[currentLanguage];
-
-    document.getElementById("modalDescription").textContent =
-        trip.description[currentLanguage];
-
-    document.getElementById("modalItinerary").innerHTML =
-        trip.itinerary[currentLanguage]
-            .map(item=>`<li>${item}</li>`)
-            .join("");
-
-    document.getElementById("modalIncluded").innerHTML =
-        trip.included[currentLanguage]
-            .map(item=>`<li>${item}</li>`)
-            .join("");
-
-    document.getElementById("modalNotIncluded").innerHTML =
-        trip.notIncluded[currentLanguage]
-            .map(item=>`<li>${item}</li>`)
-            .join("");
-
-    const message =
-        `Hello AKA 👋%0A%0A` +
-        `I would like to book:%0A` +
-        `${trip.title[currentLanguage]}%0A%0A` +
-        `Please send me the available details and booking options.`;
-
-    document.getElementById("modalWhatsApp").href =
-        `https://wa.me/201274692093?text=${message}`;
-
+    const message = `Hello 👋%0A%0AI would like to book:%0A${trip.title[currentLanguage]}%0A%0APlease send me details.`;
+    document.getElementById("modalWhatsApp").href = `https://wa.me/201274692093?text=${message}`;
     document.getElementById("tripModal").classList.add("active");
-
     document.body.style.overflow = "hidden";
 }
 
-
-/* =========================
-   CLOSE MODAL
-========================= */
-
 function closeModal(){
-
     document.getElementById("tripModal").classList.remove("active");
-
     document.body.style.overflow = "";
 }
 
-
-/* =========================
-   HOME
-========================= */
-
 function goHome(){
-
     const home = document.getElementById("homeContent");
     const page = document.getElementById("categoryPage");
-
     home.classList.remove("hidden");
     page.style.display = "none";
-
     document.getElementById("navLinks").classList.remove("active");
-
-    setTimeout(()=>{
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
-    },50);
+    setTimeout(()=>{ window.scrollTo({top:0,behavior:"smooth"}); },50);
 }
-
-
-/* =========================
-   MENU
-========================= */
 
 function toggleMenu(){
-
-    document
-        .getElementById("navLinks")
-        .classList.toggle("active");
+    document.getElementById("navLinks").classList.toggle("active");
 }
 
-
-/* =========================
-   FAQ
-========================= */
-
 function toggleFaq(button){
-
     const item = button.parentElement;
-
     document.querySelectorAll(".faq-item").forEach(faq=>{
-
-        if(faq !== item){
-            faq.classList.remove("active");
-        }
-
+        if(faq !== item){ faq.classList.remove("active"); }
     });
-
     item.classList.toggle("active");
 }
 
-
-/* =========================
-   MODAL OUTSIDE CLICK
-========================= */
-
 document.getElementById("tripModal").addEventListener("click",function(event){
-
-    if(event.target === this){
-        closeModal();
-    }
-
+    if(event.target === this){ closeModal(); }
 });
-
-
-/* =========================
-   ESC KEY
-========================= */
 
 document.addEventListener("keydown",function(event){
-
-    if(event.key === "Escape"){
-        closeModal();
-    }
-
+    if(event.key === "Escape"){ closeModal(); }
 });
 
-
-/* =========================
-   INITIALIZE
-========================= */
-
 document.addEventListener("DOMContentLoaded",function(){
-
     changeLanguage("en");
-
 });
 
 </script>
