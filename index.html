@@ -64,10 +64,9 @@ button{
     left:0;
     width:100%;
     z-index:1000;
-    background:rgba(255,255,255,.98);
+    background:rgba(255,255,255,.95);
     backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(226,232,240,.9);
-    box-shadow:0 4px 20px rgba(0,0,0,.03);
+    border-bottom:1px solid rgba(226,232,240,.8);
 }
 
 .nav-inner{
@@ -124,69 +123,53 @@ button{
 }
 
 .language-select{
-    border:2px solid var(--primary);
+    border:1px solid var(--border);
     background:white;
     border-radius:10px;
-    padding:8px 12px;
+    padding:9px 12px;
     outline:none;
     color:var(--dark);
-    font-weight:800;
-    font-size:14px;
-    cursor:pointer;
+    font-weight:700;
 }
 
-/* صندوق اللغة الواضح للموبايل */
 .mobile-lang-box {
     display: none;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
     width: 100%;
-    margin-bottom: 12px;
-    background: #edfafa;
-    padding: 12px;
-    border-radius: 12px;
-    border: 1px solid var(--primary);
 }
 
-.mobile-lang-box label {
-    display: block;
-    font-size: 13px;
-    color: var(--dark);
-    font-weight: 800;
-    margin-bottom: 5px;
-}
-
-.mobile-lang-select {
+.mobile-lang-box select {
     width: 100%;
     padding: 10px;
     border-radius: 10px;
     border: 1px solid var(--border);
-    background: white;
-    font-weight: 800;
+    background: var(--light);
+    font-weight: 700;
     color: var(--dark);
     outline: none;
-    font-size: 15px;
 }
 
 .menu-btn{
     display:none;
-    width:44px;
-    height:44px;
+    width:42px;
+    height:42px;
     border:0;
     border-radius:12px;
     background:#edfafa;
     color:var(--dark);
-    font-size:24px;
-    align-items:center;
-    justify-content:center;
+    font-size:22px;
 }
 
 /* =========================
-   VIEWS SYSTEM (إخفاء وإظهار الصفحات)
+   VIEWS SYSTEM
 ========================= */
 .app-view {
     display: none;
-    min-height: calc(100vh - 76px);
-    padding-top: 96px;
-    padding-bottom: 80px;
+    min-height: 100vh;
+    padding-top: 110px;
+    padding-bottom: 90px;
 }
 
 .app-view.active {
@@ -194,10 +177,11 @@ button{
 }
 
 /* =========================
-   HERO (للصفحة الرئيسية)
+   HERO
 ========================= */
 .hero{
-    min-height:650px;
+    min-height:720px;
+    padding-top:76px;
     display:flex;
     align-items:center;
     position:relative;
@@ -206,13 +190,11 @@ button{
         linear-gradient(90deg,rgba(5,31,43,.88),rgba(5,31,43,.35)),
         url("https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1800&q=85")
         center/cover no-repeat;
-    border-radius:0 0 35px 35px;
-    margin-bottom:60px;
+    margin-top: -110px;
 }
 
 .hero-content{
     max-width:720px;
-    padding: 40px 0;
 }
 
 .hero-badge{
@@ -227,14 +209,14 @@ button{
 }
 
 .hero h1{
-    font-size:clamp(38px,5vw,65px);
-    line-height:1.1;
+    font-size:clamp(42px,6vw,72px);
+    line-height:1.05;
     margin-bottom:22px;
     font-weight:900;
 }
 
 .hero p{
-    font-size:18px;
+    font-size:19px;
     line-height:1.8;
     color:#e2edf2;
     max-width:650px;
@@ -280,10 +262,10 @@ button{
 }
 
 /* =========================
-   SECTIONS GENERAL
+   SECTION HEADS
 ========================= */
-.section-space{
-    padding:50px 0;
+section{
+    padding:90px 0;
 }
 
 .section-head{
@@ -300,7 +282,7 @@ button{
 }
 
 .section-head h2{
-    font-size:36px;
+    font-size:38px;
     color:var(--dark);
     margin-bottom:12px;
 }
@@ -311,19 +293,16 @@ button{
 }
 
 /* =========================
-   CATEGORIES GRID
+   CATEGORIES GRID (6 أقسام الآن متناسقة تماماً)
 ========================= */
 .categories{
     background:var(--light);
-    padding:70px 0;
-    border-radius:var(--radius);
-    margin-bottom:60px;
 }
 
 .category-grid{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:18px;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
 }
 
 .category-card{
@@ -357,19 +336,19 @@ button{
     display:flex;
     flex-direction:column;
     justify-content:flex-end;
-    padding:20px;
+    padding:22px;
     color:white;
-    background:linear-gradient(transparent,rgba(0,0,0,.8));
+    background:linear-gradient(transparent,rgba(0,0,0,.78));
 }
 
 .category-overlay h3{
-    font-size:21px;
-    margin-bottom:6px;
+    font-size:23px;
+    margin-bottom:7px;
 }
 
 .category-overlay p{
     color:#e2e8f0;
-    font-size:13px;
+    font-size:14px;
 }
 
 /* =========================
@@ -396,7 +375,7 @@ button{
 }
 
 .trip-image{
-    height:220px;
+    height:230px;
     position:relative;
     overflow:hidden;
 }
@@ -430,16 +409,15 @@ button{
 
 .trip-content h3{
     color:var(--dark);
-    font-size:20px;
+    font-size:22px;
     margin-bottom:10px;
 }
 
 .trip-content p{
     color:#64748b;
     line-height:1.7;
-    min-height:50px;
+    min-height:55px;
     margin-bottom:18px;
-    font-size:14px;
 }
 
 .trip-meta{
@@ -460,23 +438,25 @@ button{
 /* =========================
    WHY / ABOUT / REVIEWS / FAQ / CONTACT
 ========================= */
+.why{ background:var(--light); }
 .why-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
-.why-card{ background:var(--light); padding:28px; border-radius:var(--radius); text-align:center; box-shadow:0 7px 25px rgba(15,61,86,.03); }
-.why-icon{ width:60px; height:60px; margin:0 auto 18px; border-radius:18px; display:flex; align-items:center; justify-content:center; background:white; font-size:28px; box-shadow:0 5px 15px rgba(0,0,0,.05); }
+.why-card{ background:white; padding:28px; border-radius:var(--radius); text-align:center; box-shadow:0 7px 25px rgba(15,61,86,.05); }
+.why-icon{ width:60px; height:60px; margin:0 auto 18px; border-radius:18px; display:flex; align-items:center; justify-content:center; background:#e7fafa; font-size:28px; }
 .why-card h3{ color:var(--dark); margin-bottom:10px; }
 .why-card p{ line-height:1.7; color:#64748b; font-size:14px; }
 
 .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
-.about-image{ height:450px; border-radius:30px; overflow:hidden; box-shadow:var(--shadow); }
+.about-image{ height:500px; border-radius:30px; overflow:hidden; box-shadow:var(--shadow); }
 .about-image img{ width:100%; height:100%; object-fit:cover; }
 .about-content span{ color:var(--primary); font-weight:900; }
-.about-content h2{ color:var(--dark); font-size:38px; margin:12px 0 20px; }
+.about-content h2{ color:var(--dark); font-size:40px; margin:12px 0 20px; }
 .about-content p{ line-height:1.9; color:#64748b; margin-bottom:16px; }
 
+.reviews{ background:var(--light); }
 .review-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-.review-card{ background:var(--light); padding:27px; border-radius:var(--radius); box-shadow:0 7px 25px rgba(15,61,86,.03); }
+.review-card{ background:white; padding:27px; border-radius:var(--radius); box-shadow:0 7px 25px rgba(15,61,86,.05); }
 .stars{ color:#f59e0b; margin-bottom:14px; font-size:18px; }
-.review-card p{ line-height:1.8; color:#475569; margin-bottom:20px; font-size:14px; }
+.review-card p{ line-height:1.8; color:#475569; margin-bottom:20px; }
 .reviewer{ font-weight:900; color:var(--dark); }
 
 .faq-list{ max-width:850px; margin:auto; }
@@ -487,40 +467,27 @@ button{
 .faq-item.active .faq-question span{ transform:rotate(45deg); }
 .faq-question span{ font-size:25px; transition:.2s; }
 
-.cta{ padding:70px 0; background:linear-gradient(135deg,rgba(9,44,60,.96),rgba(14,165,168,.82)), url("https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1600&q=80") center/cover; color:white; border-radius:30px; margin:40px 0; }
-.cta-box{ text-align:center; max-width:800px; margin:auto; }
-.cta h2{ font-size:38px; margin-bottom:15px; }
-.cta p{ line-height:1.8; color:#e5f5f6; margin-bottom:25px; }
-
 .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:30px; }
-.contact-card{ background:var(--light); border-radius:var(--radius); padding:35px; }
-.contact-card h3{ color:var(--dark); margin-bottom:18px; font-size:22px; }
+.contact-card{ background:var(--light); border-radius:var(--radius); padding:30px; }
+.contact-card h3{ color:var(--dark); margin-bottom:18px; }
 .contact-item{ display:flex; gap:13px; align-items:flex-start; margin-bottom:20px; }
-.contact-icon{ width:45px; height:45px; min-width:45px; display:flex; align-items:center; justify-content:center; border-radius:13px; background:white; box-shadow:0 4px 10px rgba(0,0,0,.04); }
+.contact-icon{ width:45px; height:45px; min-width:45px; display:flex; align-items:center; justify-content:center; border-radius:13px; background:white; }
 .contact-item strong{ display:block; color:var(--dark); margin-bottom:4px; }
 .contact-item span{ color:#64748b; font-size:14px; }
 
 /* =========================
-   BACK BUTTON & DETAIL PAGE
+   BACK BUTTON & TRIP DETAILS
 ========================= */
 .back-btn{
     border:0;
-    background:var(--light);
+    background:white;
     color:var(--dark);
-    padding:12px 20px;
+    padding:12px 18px;
     border-radius:12px;
     font-weight:800;
-    box-shadow:0 4px 15px rgba(15,61,86,.06);
+    box-shadow:0 5px 20px rgba(15,61,86,.07);
     margin-bottom:25px;
     cursor:pointer;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    transition:.2s;
-}
-.back-btn:hover{
-    background:var(--primary);
-    color:white;
 }
 
 .trip-detail-box{
@@ -528,10 +495,9 @@ button{
     border-radius:25px;
     overflow:hidden;
     box-shadow:var(--shadow);
-    border:1px solid var(--border);
 }
 .trip-detail-image{
-    height:420px;
+    height:350px;
 }
 .trip-detail-image img{
     width:100%;
@@ -539,29 +505,28 @@ button{
     object-fit:cover;
 }
 .trip-detail-content{
-    padding:40px;
+    padding:30px;
 }
 .trip-detail-content h1{
     color:var(--dark);
-    font-size:34px;
-    margin-bottom:15px;
+    font-size:32px;
+    margin-bottom:10px;
 }
 .trip-detail-intro{
     color:#64748b;
     line-height:1.8;
-    font-size:17px;
-    margin-bottom:30px;
+    margin-bottom:25px;
 }
 .details-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-    margin-bottom:35px;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-bottom:25px;
 }
 .detail{
     background:var(--light);
-    border-radius:15px;
-    padding:18px;
+    border-radius:13px;
+    padding:15px;
 }
 .detail strong{
     display:block;
@@ -571,15 +536,13 @@ button{
 }
 .detail span{
     color:#64748b;
-    font-weight:600;
 }
 .trip-section{
-    margin-top:30px;
+    margin-top:25px;
 }
 .trip-section h3{
     color:var(--dark);
     margin-bottom:12px;
-    font-size:20px;
 }
 .trip-section p, .trip-section li{
     color:#64748b;
@@ -589,8 +552,8 @@ button{
     padding-right:20px;
 }
 .trip-book-area{
-    margin-top:40px;
-    padding-top:30px;
+    margin-top:30px;
+    padding-top:25px;
     border-top:1px solid var(--border);
 }
 
@@ -613,9 +576,8 @@ button{
    RESPONSIVE
 ========================= */
 @media(max-width:1050px){
-    .category-grid{ grid-template-columns:repeat(3,1fr); }
+    .category-grid{ grid-template-columns:repeat(2,1fr); }
     .why-grid{ grid-template-columns:repeat(2,1fr); }
-    .details-grid{ grid-template-columns:repeat(2,1fr); }
 }
 
 @media(max-width:850px){
@@ -627,38 +589,35 @@ button{
         display:none;
         flex-direction:column;
         align-items:stretch;
-        padding:20px;
+        padding:18px;
         background:white;
         border-radius:15px;
         box-shadow:var(--shadow);
     }
     .nav-links.active{ display:flex; }
-    .nav-links a{ padding:12px 0; border-bottom:1px solid #f1f5f9; }
-    
+    .nav-links a{ padding:12px; }
     .mobile-lang-box{ display:block; }
-    .menu-btn{ display:flex; }
+    .menu-btn{ display:block; }
     .nav-actions .language-select{ display:none; }
     
     .trip-grid{ grid-template-columns:repeat(2,1fr); }
     .about-grid, .contact-grid{ grid-template-columns:1fr; }
-    .about-image{ height:350px; }
+    .about-image{ height:380px; }
     .review-grid{ grid-template-columns:1fr; }
     .footer-grid{ grid-template-columns:1fr 1fr; }
 }
 
 @media(max-width:600px){
-    .hero{ min-height:580px; }
-    .hero h1{ font-size:35px; }
-    .hero p{ font-size:15px; }
+    .hero{ min-height:650px; }
+    .hero h1{ font-size:43px; }
+    .hero p{ font-size:16px; }
     .hero-buttons{ flex-direction:column; }
     .hero-buttons .btn{ width:100%; }
-    .section-head h2{ font-size:28px; }
+    .section-head h2{ font-size:30px; }
     .category-grid, .trip-grid{ grid-template-columns:1fr; }
-    .category-card{ height:250px; }
-    .why-grid, .footer-grid, .details-grid{ grid-template-columns:1fr; }
-    .trip-detail-image{ height:240px; }
-    .trip-detail-content{ padding:20px; }
-    .trip-detail-content h1{ font-size:24px; }
+    .category-card{ height:260px; }
+    .why-grid, .footer-grid{ grid-template-columns:1fr; }
+    .details-grid{ grid-template-columns:1fr; }
 }
 </style>
 </head>
@@ -676,22 +635,21 @@ button{
         </div>
 
         <nav class="nav-links" id="navLinks">
-            <div class="mobile-lang-box">
-                <label data-i18n="langLabel">Select Language / اختر اللغة</label>
-                <select class="mobile-lang-select" onchange="changeLanguage(this.value)">
-                    <option value="en">English</option>
-                    <option value="ar">العربية</option>
-                    <option value="de">Deutsch</option>
-                    <option value="ru">Русский</option>
-                </select>
-            </div>
-
             <a onclick="switchView('homeView')" data-i18n="home">الرئيسية</a>
             <a onclick="switchView('categoriesView')" data-i18n="categoriesNav">الرحلات</a>
             <a onclick="switchView('aboutView')" data-i18n="aboutNav">من نحن</a>
             <a onclick="switchView('reviewsView')" data-i18n="reviewsNav">آراء العملاء</a>
             <a onclick="switchView('faqView')" data-i18n="faqNav">الأسئلة</a>
             <a onclick="switchView('contactView')" data-i18n="contactNav">تواصل معنا</a>
+            
+            <div class="mobile-lang-box">
+                <select class="language-select-mobile" onchange="changeLanguage(this.value)">
+                    <option value="en">English</option>
+                    <option value="ar">العربية</option>
+                    <option value="de">Deutsch</option>
+                    <option value="ru">Русский</option>
+                </select>
+            </div>
         </nav>
 
         <div class="nav-actions">
@@ -711,23 +669,22 @@ button{
      VIEW 1: HOME PAGE
 ========================= -->
 <div id="homeView" class="app-view active">
-    <div class="container">
-        <section class="hero">
-            <div class="container" style="width:100%">
-                <div class="hero-content">
-                    <div class="hero-badge" data-i18n="heroBadge">اكتشف جمال مصر مع AKA</div>
-                    <h1 data-i18n="heroTitle">مغامرتك في مصر تبدأ من هنا</h1>
-                    <p data-i18n="heroText">رحلات بحرية، سفاري، القاهرة، الأقصر وترانسيـفرات بخدمة احترافية وتجربة لا تُنسى.</p>
-                    <div class="hero-buttons">
-                        <button class="btn btn-primary" onclick="switchView('categoriesView')" data-i18n="explore">اكتشف الرحلات</button>
-                        <a href="https://wa.me/201274692093" target="_blank" class="btn btn-light" data-i18n="bookWhatsApp">احجز عبر واتساب</a>
-                    </div>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge" data-i18n="heroBadge">اكتشف جمال مصر مع AKA</div>
+                <h1 data-i18n="heroTitle">مغامرتك في مصر تبدأ من هنا</h1>
+                <p data-i18n="heroText">رحلات بحرية، سفاري، القاهرة، الأقصر وترانسيـفرات بخدمة احترافية وتجربة لا تُنسى.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="switchView('categoriesView')" data-i18n="explore">اكتشف الرحلات</button>
+                    <a href="https://wa.me/201274692093" target="_blank" class="btn btn-light" data-i18n="bookWhatsApp">احجز عبر واتساب</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Categories Preview -->
-        <section class="categories">
+    <section class="categories">
+        <div class="container">
             <div class="section-head">
                 <span data-i18n="discover">اكتشف</span>
                 <h2 data-i18n="categoriesTitle">اختار تجربتك</h2>
@@ -736,7 +693,7 @@ button{
 
             <div class="category-grid">
                 <div class="category-card" onclick="openCategory('transfer')">
-                    <img src="https://images.pexels.com/photos/4606807/pexels-photo-4606807.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Transfers">
+                    <img src="TRANSFER.jpeg" alt="Transfers">
                     <div class="category-overlay">
                         <h3 data-i18n="transfer">الترانسيـفر</h3>
                         <p data-i18n="transferDesc">توصيل خاص لأي مكان</p>
@@ -759,6 +716,14 @@ button{
                     </div>
                 </div>
 
+                <div class="category-card" onclick="openCategory('hurghada')">
+                    <img src="HURGADA2.jpg" alt="Hurghada">
+                    <div class="category-overlay">
+                        <h3 data-i18n="hurghada">رحلات الغردقة</h3>
+                        <p data-i18n="hurghadaDesc">جولة المدينة والمعالم والمارينا</p>
+                    </div>
+                </div>
+
                 <div class="category-card" onclick="openCategory('cairo')">
                     <img src="https://images.unsplash.com/photo-1568322445389-f64ac2515020?auto=format&fit=crop&w=900&q=80" alt="Cairo">
                     <div class="category-overlay">
@@ -775,10 +740,11 @@ button{
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Why Choose Us -->
-        <section class="section-space">
+    <section class="why">
+        <div class="container">
             <div class="section-head">
                 <span data-i18n="why">لماذا AKA؟</span>
                 <h2 data-i18n="whyTitle">تجربة مختلفة من البداية للنهاية</h2>
@@ -805,13 +771,13 @@ button{
                     <p data-i18n="why4Text">احجز رحلتك بسهولة مباشرة عبر واتساب.</p>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 </div>
 
 
 <!-- =========================
-     VIEW 2: CATEGORIES PAGE (جميع الأقسام)
+     VIEW 2: CATEGORIES PAGE
 ========================= -->
 <div id="categoriesView" class="app-view">
     <div class="container">
@@ -823,7 +789,7 @@ button{
         </div>
         <div class="category-grid">
             <div class="category-card" onclick="openCategory('transfer')">
-                <img src="https://images.pexels.com/photos/4606807/pexels-photo-4606807.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Transfers">
+                <img src="TRANSFER.jpeg" alt="Transfers">
                 <div class="category-overlay">
                     <h3 data-i18n="transfer">الترانسيـفر</h3>
                     <p data-i18n="transferDesc">توصيل خاص لأي مكان</p>
@@ -841,6 +807,13 @@ button{
                 <div class="category-overlay">
                     <h3 data-i18n="safari">رحلات السفاري</h3>
                     <p data-i18n="safariDesc">الصحراء والـ ATV والبدو</p>
+                </div>
+            </div>
+            <div class="category-card" onclick="openCategory('hurghada')">
+                <img src="HURGADA2.jpg" alt="Hurghada">
+                <div class="category-overlay">
+                    <h3 data-i18n="hurghada">رحلات الغردقة</h3>
+                    <p data-i18n="hurghadaDesc">جولة المدينة والمعالم والمارينا</p>
                 </div>
             </div>
             <div class="category-card" onclick="openCategory('cairo')">
@@ -863,7 +836,7 @@ button{
 
 
 <!-- =========================
-     VIEW 3: SPECIFIC CATEGORY TRIPS PAGE (رحلات قسم معين)
+     VIEW 3: CATEGORY TRIPS PAGE
 ========================= -->
 <div id="categoryTripsView" class="app-view">
     <div class="container">
@@ -878,7 +851,7 @@ button{
 
 
 <!-- =========================
-     VIEW 4: TRIP DETAIL PAGE (تفاصيل الرحلة الفردية)
+     VIEW 4: TRIP DETAIL PAGE
 ========================= -->
 <div id="tripDetailView" class="app-view">
     <div class="container">
@@ -950,7 +923,7 @@ button{
         <button class="back-btn" onclick="switchView('homeView')">← <span data-i18n="backHome">الرئيسية</span></button>
         <div class="about-grid">
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=85" alt="Egypt">
+                <img src="AKA.jpeg" alt="Egypt">
             </div>
             <div class="about-content">
                 <span data-i18n="aboutSmall">عن AKA</span>
@@ -1108,9 +1081,6 @@ button{
 
 
 <script>
-/* =========================
-   TRANSLATIONS & DATA
-========================= */
 let currentLanguage = "en";
 let activeCategory = "sea";
 
@@ -1123,6 +1093,7 @@ const translations = {
         discover:"اكتشف", categoriesTitle:"اختار تجربتك", categoriesText:"اختر نوع الرحلة التي تناسبك واستكشف جميع الخيارات المتاحة.",
         sea:"الرحلات البحرية", seaDesc:"بحر وجزر وغطس ودلافين",
         safari:"رحلات السفاري", safariDesc:"الصحراء والـ ATV والبدو",
+        hurghada:"رحلات الغردقة", hurghadaDesc:"جولة المدينة والمعالم والمارينا",
         cairo:"رحلات القاهرة", cairoDesc:"الأهرامات والمتحف والحضارة",
         luxor:"رحلات الأقصر", luxorDesc:"المعابد والنيل والحضارة القديمة",
         transfer:"الترانسيـفر", transferDesc:"التوصيل بين (الجونة، سهل حشيش، مكادي، سوما باي، سفاجا، القصير والمطارات)",
@@ -1156,6 +1127,7 @@ const translations = {
         discover:"Discover", categoriesTitle:"Choose Your Experience", categoriesText:"Choose the type of experience that suits you and explore all available options.",
         sea:"Sea Trips", seaDesc:"Sea, islands, snorkeling and dolphins",
         safari:"Safari Trips", safariDesc:"Desert, ATV and Bedouin experience",
+        hurghada:"Hurghada Trips", hurghadaDesc:"City tour, landmarks and Marina",
         cairo:"Cairo Trips", cairoDesc:"Pyramids, museums and ancient history",
         luxor:"Luxor Trips", luxorDesc:"Temples, Nile and ancient civilization",
         transfer:"Transfers", transferDesc:"Transfers for El Gouna, Sahl Hasheesh, Makadi, Soma Bay, Safaga, Al Quseir & Airports",
@@ -1189,6 +1161,7 @@ const translations = {
         discover:"Entdecken", categoriesTitle:"Wähle dein Erlebnis", categoriesText:"Wähle die passende Tour und entdecke unsere Angebote.",
         sea:"Bootstouren", seaDesc:"Meer, Inseln, Schnorcheln und Delfine",
         safari:"Safari", safariDesc:"Wüste, ATV und Beduinen",
+        hurghada:"Hurghada Ausflüge", hurghadaDesc:"Stadtrundfahrt und Marina",
         cairo:"Kairo", cairoDesc:"Pyramiden, Museen und Geschichte",
         luxor:"Luxor", luxorDesc:"Tempel, Nil und alte Zivilisation",
         transfer:"Transfers", transferDesc:"Transfers nach El Gouna, Sahl Hasheesh, Makadi, Soma Bay, Safaga, Al Quseir & Flughäfen",
@@ -1222,6 +1195,7 @@ const translations = {
         discover:"Откройте", categoriesTitle:"Выберите впечатление", categoriesText:"Выберите подходящий тип экскурсии и изучите наши предложения.",
         sea:"Морские экскурсии", seaDesc:"Море, острова, снорклинг и дельфины",
         safari:"Сафари", safariDesc:"Пустыня, ATV и бедуины",
+        hurghada:"Экскурсии в Хургаде", hurghadaDesc:"Обзорная экскурсия и марина",
         cairo:"Каир", cairoDesc:"Пирамиды, музеи и история",
         luxor:"Луксор", luxorDesc:"Храмы, Нил и древняя цивилизация",
         transfer:"Трансферы", transferDesc:"Трансферы в Эль-Гуну, Сахл-Хашиш, Макади, Сома-Бей, Сафагу, Эль-Кусейр и аэропорты",
@@ -1267,10 +1241,10 @@ const trips = [
         },
         included:{ ar:["سيارة خاصة مكيفة","سائق محترف","متابعة مواعيد الطيران"], en:["Modern private AC vehicle","Professional driver","Flight tracking"], de:["Klimatisiertes Fahrzeug","Professioneller Fahrer","Flugverfolgung"], ru:["Автомобиль с кондиционером","Профессиональный водитель","Отслеживание рейсов"] },
         notIncluded:{ ar:["المصاريف غير المتفق عليها"], en:["Unagreed expenses"], de:["Zusatzkosten"], ru:["Неоговоренные расходы"] },
-        image:"https://images.pexels.com/photos/4606807/pexels-photo-4606807.jpeg?auto=compress&cs=tinysrgb&w=1200"
+        image:"MESHO.jpeg"
     },
     {
-        id:51, category:"cairo",
+        id:51, category:"hurghada",
         title:{ ar:"جولة مدينة الغردقة", en:"Hurghada City Tour", de:"Hurghada Stadtrundfahrt", ru:"Обзорная экскурсия по Хургаде" },
         intro:{ ar:"اكتشف معالم مدينة الغردقة، المارينا، المسجد الكبير، والأسواق التقليدية في جولة ممتعة.", en:"Explore Hurghada's highlights, Marina, Grand Mosque, and traditional markets.", de:"Entdecken Sie die Highlights von Hurghada, Marina und Moschee.", ru:"Исследуйте достопримечательности Хургады, марину и мечеть." },
         duration:{ ar:"نصف يوم", en:"Half Day", de:"Halbtägig", ru:"Пол дня" },
@@ -1286,7 +1260,7 @@ const trips = [
         },
         included:{ ar:["التوصيل من وإلى الفندق","مرشد سياحي"], en:["Hotel pickup and drop-off","Tour guide"], de:["Hoteltransfer","Reiseleiter"], ru:["Трансфер из/в отель","Гид"] },
         notIncluded:{ ar:["المصاريف الشخصية والمشتريات"], en:["Personal expenses"], de:["Persönliche Ausgaben"], ru:["Личные расходы"] },
-        image:"https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=85"
+        image:"HURGADA.jpg"
     },
     {
         id:1, category:"sea",
@@ -1300,7 +1274,7 @@ const trips = [
         itinerary:{ ar:["الاستلام من الفندق","التوجه إلى المارينا","رحلة بحرية","زيارة أورانج باي","السباحة والاسترخاء"], en:["Hotel pickup","Transfer to marina","Boat trip","Orange Bay visit","Swimming"], de:["Hotelabholung","Fahrt zur Marina","Bootsfahrt","Besuch Orange Bay","Schwimmen"], ru:["Трансфер из отеля","Поездка к марине","Морская прогулка","Посещение Orange Bay","Купание"] },
         included:{ ar:["التوصيل","رحلة بحرية","معدات السنوركل","وجبة الغداء"], en:["Transportation","Boat trip","Snorkeling gear","Lunch"], de:["Transport","Bootsfahrt","Schnorchelausrüstung","Mittagessen"], ru:["Трансфер","Морская прогулка","Снаряжение","Обед"] },
         notIncluded:{ ar:["المصاريف الشخصية"], en:["Personal expenses"], de:["Persönliche Ausgaben"], ru:["Личные расходы"] },
-        image:"https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=85"
+        image:"ORANGE.jpg"
     },
     {
         id:2, category:"sea",
@@ -1361,7 +1335,7 @@ const trips = [
 ];
 
 /* =========================
-   ROUTER FUNCTIONS
+   ROUTER & UI LOGIC
 ========================= */
 function switchView(viewId){
     document.querySelectorAll(".app-view").forEach(v => v.classList.remove("active"));
@@ -1419,6 +1393,7 @@ function getCategoryDescription(category){
     const descs = {
         sea:{ ar:"استمتع بأجمل الرحلات البحرية في البحر الأحمر.", en:"Enjoy unforgettable sea experiences in the Red Sea.", de:"Genießen Sie unvergessliche Erlebnisse am Roten Meer.", ru:"Насладитесь незабываемыми морскими экскурсиями на Красном море." },
         safari:{ ar:"اكتشف الصحراء المصرية واستمتع بالمغامرات.", en:"Explore the Egyptian desert and enjoy exciting adventures.", de:"Entdecken Sie die ägyptische Wüste und erleben Sie Abenteuer.", ru:"Исследуйте египетскую пустыню и наслаждайтесь приключениями." },
+        hurghada:{ ar:"اكتشف معالم مدينة الغردقة والأسواق والمارينا.", en:"Explore Hurghada city highlights, markets and Marina.", de:"Entdecken Sie die Highlights von Hurghada.", ru:"Исследуйте достопримечательности Хургады." },
         cairo:{ ar:"اكتشف القاهرة والأهرامات والحضارة المصرية القديمة.", en:"Discover Cairo, the pyramids and ancient Egyptian civilization.", de:"Entdecken Sie Kairo, die Pyramiden und das alte Ägypten.", ru:"Откройте Каир, пирамиды и древнюю египетскую цивилизацию." },
         luxor:{ ar:"استكشف الأقصر ومعابد الحضارة المصرية القديمة.", en:"Explore Luxor and the temples of ancient Egyptian civilization.", de:"Entdecken Sie Luxor und die Tempel des alten Ägypten.", ru:"Исследуйте Луксор и храмы Древнего Египта." },
         transfer:{ ar:"خدمة توصيل خاصة ومريحة بين جميع مناطق البحر الأحمر والمطارات.", en:"Comfortable private transfers across all Red Sea regions and airports.", de:"Komfortable private Transfers in der Region des Roten Meeres und zu Flughäfen.", ru:"Комфортные индивидуальные трансферы по всему региону Красного моря и в аэропорты." }
@@ -1462,11 +1437,10 @@ function changeLanguage(lang){
         }
     });
 
-    document.querySelectorAll(".language-select, .mobile-lang-select").forEach(sel => {
+    document.querySelectorAll(".language-select, .language-select-mobile").forEach(sel => {
         sel.value = lang;
     });
 
-    // لو المستخدم فاتح صفحة قسم معين حالياً، نحدث نصوصها
     if(document.getElementById("categoryTripsView").classList.contains("active")){
         openCategory(activeCategory);
     }
