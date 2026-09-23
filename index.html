@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -57,7 +56,7 @@ button{
 }
 
 /* =========================
-   NAVBAR
+   NAVBAR & LOGO
 ========================= */
 .navbar{
     position:fixed;
@@ -81,23 +80,15 @@ button{
 .logo{
     display:flex;
     align-items:center;
-    gap:10px;
-    font-size:25px;
-    font-weight:900;
-    color:var(--dark);
+    gap:10x;
     cursor:pointer;
 }
 
-.logo-mark{
-    width:42px;
-    height:42px;
-    border-radius:13px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:white;
-    background:linear-gradient(135deg,var(--primary),#20c9cc);
-    box-shadow:0 8px 20px rgba(14,165,168,.25);
+.brand-logo-img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px;
 }
 
 .nav-links{
@@ -294,7 +285,7 @@ section{
 }
 
 /* =========================
-   CATEGORIES GRID (6 أقسام الآن متناسقة تماماً)
+   CATEGORIES GRID
 ========================= */
 .categories{
     background:var(--light);
@@ -625,14 +616,12 @@ section{
 
 <body>
 
-<!-- =========================
-     NAVBAR
-========================= -->
+<!-- NAVBAR -->
 <header class="navbar">
     <div class="container nav-inner">
         <div class="logo" onclick="switchView('homeView')">
-            <div class="logo-mark">AKA</div>
-            <span>AKA</span>
+            <!-- إصلاح مسار اللوجو مع خاصية الفول باك للصور -->
+            <img src="logo.png" alt="AKA Logo" class="brand-logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50?text=AKA+Tours';">
         </div>
 
         <nav class="nav-links" id="navLinks">
@@ -665,10 +654,7 @@ section{
     </div>
 </header>
 
-
-<!-- =========================
-     VIEW 1: HOME PAGE
-========================= -->
+<!-- VIEW 1: HOME PAGE -->
 <div id="homeView" class="app-view active">
     <section class="hero">
         <div class="container">
@@ -694,7 +680,7 @@ section{
 
             <div class="category-grid">
                 <div class="category-card" onclick="openCategory('transfer')">
-                    <img src="TRANSFER.jpeg" alt="Transfers">
+                    <img src="TRANSFER.jpeg" alt="Transfers" onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=900';">
                     <div class="category-overlay">
                         <h3 data-i18n="transfer">الترانسيـفر</h3>
                         <p data-i18n="transferDesc">توصيل خاص لأي مكان</p>
@@ -704,8 +690,8 @@ section{
                 <div class="category-card" onclick="openCategory('sea')">
                     <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&q=80" alt="Sea Trips">
                     <div class="category-overlay">
-                        <h3 data-i18n="sea">الرحلات البحرية</h3>
-                        <p data-i18n="seaDesc">بحر وجزر وغطس ودلافين</p>
+                        <h3 data-i18n="sea">الرحلات البحرية والسبيد بوت</h3>
+                        <p data-i18n="seaDesc">بحر، جزر، غطس، سبيد بوت ودلافين</p>
                     </div>
                 </div>
 
@@ -718,7 +704,7 @@ section{
                 </div>
 
                 <div class="category-card" onclick="openCategory('hurghada')">
-                    <img src="HURGADA2.jpg" alt="Hurghada">
+                    <img src="HURGADA2.jpg" alt="Hurghada" onerror="this.src='https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=900';">
                     <div class="category-overlay">
                         <h3 data-i18n="hurghada">رحلات الغردقة</h3>
                         <p data-i18n="hurghadaDesc">جولة المدينة والمعالم والمارينا</p>
@@ -776,10 +762,7 @@ section{
     </section>
 </div>
 
-
-<!-- =========================
-     VIEW 2: CATEGORIES PAGE
-========================= -->
+<!-- VIEW 2: CATEGORIES PAGE -->
 <div id="categoriesView" class="app-view">
     <div class="container">
         <button class="back-btn" onclick="switchView('homeView')">← <span data-i18n="backHome">الرئيسية</span></button>
@@ -790,7 +773,7 @@ section{
         </div>
         <div class="category-grid">
             <div class="category-card" onclick="openCategory('transfer')">
-                <img src="TRANSFER.jpeg" alt="Transfers">
+                <img src="TRANSFER.jpeg" alt="Transfers" onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=900';">
                 <div class="category-overlay">
                     <h3 data-i18n="transfer">الترانسيـفر</h3>
                     <p data-i18n="transferDesc">توصيل خاص لأي مكان</p>
@@ -799,8 +782,8 @@ section{
             <div class="category-card" onclick="openCategory('sea')">
                 <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&q=80" alt="Sea Trips">
                 <div class="category-overlay">
-                    <h3 data-i18n="sea">الرحلات البحرية</h3>
-                    <p data-i18n="seaDesc">بحر وجزر وغطس ودلافين</p>
+                    <h3 data-i18n="sea">الرحلات البحرية والسبيد بوت</h3>
+                    <p data-i18n="seaDesc">بحر، جزر، غطس، سبيد بوت ودلافين</p>
                 </div>
             </div>
             <div class="category-card" onclick="openCategory('safari')">
@@ -811,7 +794,7 @@ section{
                 </div>
             </div>
             <div class="category-card" onclick="openCategory('hurghada')">
-                <img src="HURGADA2.jpg" alt="Hurghada">
+                <img src="HURGADA2.jpg" alt="Hurghada" onerror="this.src='https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=900';">
                 <div class="category-overlay">
                     <h3 data-i18n="hurghada">رحلات الغردقة</h3>
                     <p data-i18n="hurghadaDesc">جولة المدينة والمعالم والمارينا</p>
@@ -835,10 +818,7 @@ section{
     </div>
 </div>
 
-
-<!-- =========================
-     VIEW 3: CATEGORY TRIPS PAGE
-========================= -->
+<!-- VIEW 3: CATEGORY TRIPS PAGE -->
 <div id="categoryTripsView" class="app-view">
     <div class="container">
         <button class="back-btn" onclick="switchView('categoriesView')">← <span data-i18n="back">رجوع</span></button>
@@ -850,10 +830,7 @@ section{
     </div>
 </div>
 
-
-<!-- =========================
-     VIEW 4: TRIP DETAIL PAGE
-========================= -->
+<!-- VIEW 4: TRIP DETAIL PAGE -->
 <div id="tripDetailView" class="app-view">
     <div class="container">
         <button class="back-btn" onclick="goBackToCategory()">← <span data-i18n="back">رجوع</span></button>
@@ -915,16 +892,13 @@ section{
     </div>
 </div>
 
-
-<!-- =========================
-     VIEW 5: ABOUT PAGE
-========================= -->
+<!-- VIEW 5: ABOUT PAGE -->
 <div id="aboutView" class="app-view">
     <div class="container">
         <button class="back-btn" onclick="switchView('homeView')">← <span data-i18n="backHome">الرئيسية</span></button>
         <div class="about-grid">
             <div class="about-image">
-                <img src="AKA.jpeg" alt="Egypt">
+                <img src="AKA.jpeg" alt="Egypt" onerror="this.src='https://images.unsplash.com/photo-1539650116574-8efeb43e2750?w=900';">
             </div>
             <div class="about-content">
                 <span data-i18n="aboutSmall">عن AKA</span>
@@ -937,10 +911,7 @@ section{
     </div>
 </div>
 
-
-<!-- =========================
-     VIEW 6: REVIEWS PAGE
-========================= -->
+<!-- VIEW 6: REVIEWS PAGE -->
 <div id="reviewsView" class="app-view">
     <div class="container">
         <button class="back-btn" onclick="switchView('homeView')">← <span data-i18n="backHome">الرئيسية</span></button>
@@ -968,10 +939,7 @@ section{
     </div>
 </div>
 
-
-<!-- =========================
-     VIEW 7: FAQ PAGE
-========================= -->
+<!-- VIEW 7: FAQ PAGE -->
 <div id="faqView" class="app-view">
     <div class="container">
         <button class="back-btn" onclick="switchView('homeView')">← <span data-i18n="backHome">الرئيسية</span></button>
@@ -1000,10 +968,7 @@ section{
     </div>
 </div>
 
-
-<!-- =========================
-     VIEW 8: CONTACT PAGE
-========================= -->
+<!-- VIEW 8: CONTACT PAGE -->
 <div id="contactView" class="app-view">
     <div class="container">
         <button class="back-btn" onclick="switchView('homeView')">← <span data-i18n="backHome">الرئيسية</span></button>
@@ -1036,16 +1001,10 @@ section{
     </div>
 </div>
 
-
-<!-- =========================
-     WHATSAPP FLOAT
-========================= -->
+<!-- WHATSAPP FLOAT -->
 <a class="whatsapp-float" href="https://wa.me/201274692093" target="_blank" aria-label="WhatsApp">☎</a>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 <footer class="footer">
     <div class="container">
         <div class="footer-grid">
@@ -1080,7 +1039,6 @@ section{
     </div>
 </footer>
 
-
 <script>
 let currentLanguage = "en";
 let activeCategory = "sea";
@@ -1092,7 +1050,7 @@ const translations = {
         heroText:"رحلات بحرية، سفاري، القاهرة، الأقصر وترانسيـفرات بخدمة احترافية وتجربة لا تُنسى.",
         explore:"اكتشف الرحلات", bookWhatsApp:"احجز عبر واتساب",
         discover:"اكتشف", categoriesTitle:"اختار تجربتك", categoriesText:"اختر نوع الرحلة التي تناسبك واستكشف جميع الخيارات المتاحة.",
-        sea:"الرحلات البحرية", seaDesc:"بحر وجزر وغطس ودلافين",
+        sea:"الرحلات البحرية والسبيد بوت", seaDesc:"بحر، جزر، غطس، سبيد بوت ودلافين",
         safari:"رحلات السفاري", safariDesc:"الصحراء والـ ATV والبدو",
         hurghada:"رحلات الغردقة", hurghadaDesc:"جولة المدينة والمعالم والمارينا",
         cairo:"رحلات القاهرة", cairoDesc:"الأهرامات والمتحف والحضارة",
@@ -1126,7 +1084,7 @@ const translations = {
         heroText:"Sea trips, safari, Cairo, Luxor and transfers with professional service and unforgettable experiences.",
         explore:"Explore Tours", bookWhatsApp:"Book via WhatsApp",
         discover:"Discover", categoriesTitle:"Choose Your Experience", categoriesText:"Choose the type of experience that suits you and explore all available options.",
-        sea:"Sea Trips", seaDesc:"Sea, islands, snorkeling and dolphins",
+        sea:"Sea & Speedboat Trips", seaDesc:"Sea, islands, snorkeling, speedboats and dolphins",
         safari:"Safari Trips", safariDesc:"Desert, ATV and Bedouin experience",
         hurghada:"Hurghada Trips", hurghadaDesc:"City tour, landmarks and Marina",
         cairo:"Cairo Trips", cairoDesc:"Pyramids, museums and ancient history",
@@ -1160,7 +1118,7 @@ const translations = {
         heroText:"Bootstouren, Safari, Kairo, Luxor und Transfers mit professionellem Service.",
         explore:"Ausflüge entdecken", bookWhatsApp:"Über WhatsApp buchen",
         discover:"Entdecken", categoriesTitle:"Wähle dein Erlebnis", categoriesText:"Wähle die passende Tour und entdecke unsere Angebote.",
-        sea:"Bootstouren", seaDesc:"Meer, Inseln, Schnorcheln und Delfine",
+        sea:"Bootstouren & Speedboat", seaDesc:"Meer, Inseln, Schnorcheln, Speedboat und Delfine",
         safari:"Safari", safariDesc:"Wüste, ATV und Beduinen",
         hurghada:"Hurghada Ausflüge", hurghadaDesc:"Stadtrundfahrt und Marina",
         cairo:"Kairo", cairoDesc:"Pyramiden, Museen und Geschichte",
@@ -1194,7 +1152,7 @@ const translations = {
         heroText:"Морские экскурсии, сафари, Каир, Луксор и трансферы с профессиональным сервисом.",
         explore:"Смотреть экскурсии", bookWhatsApp:"Забронировать в WhatsApp",
         discover:"Откройте", categoriesTitle:"Выберите впечатление", categoriesText:"Выберите подходящий тип экскурсии и изучите наши предложения.",
-        sea:"Морские экскурсии", seaDesc:"Море, острова, снорклинг и дельфины",
+        sea:"Морские прогулки и спидботы", seaDesc:"Море, острова, снорклинг, спидботы и дельфины",
         safari:"Сафари", safariDesc:"Пустыня, ATV и бедуины",
         hurghada:"Экскурсии в Хургаде", hurghadaDesc:"Обзорная экскурсия и марина",
         cairo:"Каир", cairoDesc:"Пирамиды, музеи и история",
@@ -1244,17 +1202,76 @@ const trips = [
         notIncluded:{ ar:["المصاريف غير المتفق عليها"], en:["Unagreed expenses"], de:["Zusatzkosten"], ru:["Неоговоренные расходы"] },
         image:"MESHO.jpeg"
     },
+    // تم نقل رحلات السبيد بوت داخل قسم sea وترقيمها
+    {
+        id:7, category:"sea",
+        title:{ ar:"رحلة سبيد بوت (3 ساعات)", en:"Speedboat Trip (3 Hours)", de:"Speedboat Tour (3 Stunden)", ru:"Прогулка на спидботе (3 часа)" },
+        intro:{ ar:"رحلة سبيد بوت سريعة وممتازة لزيارة (جزيرة أو اتنين) مع وقت للسنوركلينج وسوفت درينك ومياه منعشة.", en:"A fast and exciting speedboat trip to visit islands, enjoy snorkeling, soft drinks and refreshing water.", de:"Eine schnelle Speedboat-Tour zu Inseln mit Schnorcheln und Getränken.", ru:"Быстрая поездка на спидботе по островам со снорклингом и напитками." },
+        duration:{ ar:"3 ساعات", en:"3 Hours", de:"3 Stunden", ru:"3 часа" },
+        pickup:{ ar:"من الفندق", en:"Hotel Pickup", de:"Hotelabholung", ru:"Трансфер из отеля" },
+        days:{ ar:"يوميًا", en:"Daily", de:"Täglich", ru:"Ежедневно" },
+        type:{ ar:"خاصة / مشتركة", en:"Private / Shared", de:"Privat / Gemeinsam", ru:"Индивидуальная / Групповая" },
+        description:{ ar:"استمتع بمغامرة بحرية سريعة بالسبيد بوت لمدّة 3 ساعات، تشمل زيارة جزيرة أو جزيرتين، التوقف لممارسة رياضة السنوركلينج وسط الشعاب المرجانية، مع تقديم سوفت درينك ومياه طوال الرحلة.", en:"Enjoy a 3-hour fast speedboat adventure visiting 1 or 2 islands, snorkeling stops, and soft drinks included.", de:"Genießen Sie ein 3-stündiges Speedboat-Abenteuer zu Inseln mit Schnorcheln und Getränken.", ru:"Насладитесь 3-часовой поездкой на спидботе по островам со снорклингом и напитками." },
+        itinerary:{
+            ar:["الاستلام من الفندق والتوجة للمارينا","ركوب السبيد بوت والانطلاق","زيارة جزيرة أو جزرتين رائعتين","وقفات للسنوركلينج ومشاهدة الأسماك","العودة مع تقديم المشروبات الباردة"],
+            en:["Hotel pickup and transfer to marina","Speedboat departure","Visit 1 or 2 islands","Snorkeling stops","Return with refreshing drinks"],
+            de:["Hotelabholung zur Marina","Abfahrt mit dem Speedboat","Besuch von 1-2 Inseln","Schnorchelstopps","Rückfahrt mit Getränken"],
+            ru:["Трансфер из отеля к марине","Выезд на спидботе","Посещение 1-2 островов","Остановки для снорклинга","Возвращение с напитками"]
+        },
+        included:{ ar:["السبيد بوت الخاص/المشترك","معدات السنوركلينج","سوفت درينك ومياه معدنية","مرشد بحري"], en:["Speedboat","Snorkeling equipment","Soft drinks & water","Marine guide"], de:["Speedboat","Schnorchelausrüstung","Erfrischungsgetränke & Wasser","Guide"], ru:["Спидбот","Снаряжение для снорклинга","Напитки и вода","Гид"] },
+        notIncluded:{ ar:["رسوم دخول المح محمية (إن وجدت)"], en:["Protected area fees (if any)"], de:["Naturschutzgebietsgebühren"], ru:["Сборы за охраняемую территорию"] },
+        image:"speed2.jpg"
+    },
+    {
+        id:8, category:"sea",
+        title:{ ar:"رحلة سبيد بوت (4 ساعات مع وجبة)", en:"Speedboat Trip (4 Hours)", de:"Speedboat Tour (4 Stunden mit Essen)", ru:"Прогулка на спидботе (4 часа с обедом)" },
+        intro:{ ar:"رحلة سبيد بوت ممتعة لمدة 4 ساعات تشمل زيارة جزر، سنوركلينج، سوفت درينك، ومياه، بالإضافة إلى وجبة خفيفة ولذيذة.", en:"An extended 4-hour speedboat trip including islands, snorkeling, soft drinks, water and a delicious meal.", de:"Eine 4-stündige Speedboat-Tour mit Inseln, Schnorcheln, Getränken und Mahlzeit.", ru:"Расширенная 4-часовая поездка на спидботе с островами, снорклингом, напитками и обедом." },
+        duration:{ ar:"4 ساعات", en:"4 Hours", de:"4 Stunden", ru:"4 часа" },
+        pickup:{ ar:"من الفندق", en:"Hotel Pickup", de:"Hotelabholung", ru:"Трансфер из отеля" },
+        days:{ ar:"يوميًا", en:"Daily", de:"Täglich", ru:"Ежедневно" },
+        type:{ ar:"خاصة / مشتركة", en:"Private / Shared", de:"Privat / Gemeinsam", ru:"Индивидуальная / Групповая" },
+        description:{ ar:"تجربة سبيد بوت مميزة لمدة 4 ساعات لمن يرغب في قضاء وقت أطول بالبحر، تشمل زيارة الجزر، السنوركلينج، المشروبات، ووجبة شهية على الشاطئ أو المركب.", en:"A premium 4-hour speedboat experience with extended island visits, snorkeling, drinks, and a meal.", de:"Ein erstklassiges 4-stündiges Speedboat-Erlebnis mit Inseln, Schnorcheln, Getränken und Mahlzeit.", ru:"Премиальная 4-часовая поездка на спидботе с посещением островов, снорклингом, напитками и едой." },
+        itinerary:{
+            ar:["الاستلام من الفندق","الانطلاق بالسبيد بوت","جولة لزيارة جزيرة أو اتنين","وقت إضافي للسنوركلينج والاستجمام","تناول الوجبة والمشروبات","العودة للمارينا والفندق"],
+            en:["Hotel pickup","Speedboat departure","Island tour (1-2 islands)","Extended snorkeling time","Meal and drinks","Return to marina"],
+            de:["Hotelabholung","Speedboat-Abfahrt","Inseltour","Erweiterte Schnorchelzeit","Mahlzeit & Getränke","Rückkehr"],
+            ru:["Трансфер из отеля","Выезд на спидботе","Тур по островам","Расширенное время для снорклинга","Обед и напитки","Возвращение"]
+        },
+        included:{ ar:["السبيد بوت","معدات السنوركلينج","وجبة خفيفة / غداء","سوفت درينك ومياه"], en:["Speedboat","Snorkeling gear","Meal / Lunch","Soft drinks & water"], de:["Speedboat","Schnorchelausrüstung","Mahlzeit / Mittagessen","Getränke & Wasser"], ru:["Спидбот","Снаряжение","Обед","Напитки и вода"] },
+        notIncluded:{ ar:["المصاريف الشخصية"], en:["Personal expenses"], de:["Persönliche Ausgaben"], ru:["Личные расходы"] },
+        image:"speed1.jpg"
+    },
+    // إضافة رحلة "هولا هولا" داخل قسم sea
+    {
+        id:9, category:"sea",
+        title:{ ar:"رحلة شاطئ هولا هولا (Hula Hula Island)", en:"Hula Hula Beach Trip", de:"Hula Hula Strandtour", ru:"Поездка на пляж Хула Хула" },
+        intro:{ ar:"تجربة استوائية ساحرة على جزيرة وشاطئ هولا هولا مع وقت للاسترخاء والسنوركلينج ووجبة غداء ممتازة.", en:"A magical tropical experience on Hula Hula island with relaxation, snorkeling and lunch.", de:"Ein tropisches Erlebnis auf der Hula Hula Insel mit Schnorcheln und Mittagessen.", ru:"Тропический отдых на острове Хула Хула со снорклингом и обедом." },
+        duration:{ ar:"يوم كامل", en:"Full Day", de:"Ganztägig", ru:"Целый день" },
+        pickup:{ ar:"من الفندق", en:"Hotel Pickup", de:"Hotelabholung", ru:"Трансфер из отеля" },
+        days:{ ar:"يوميًا", en:"Daily", de:"Täglich", ru:"Ежедневно" },
+        type:{ ar:"مشتركة / خاصة", en:"Shared / Private", de:"Gemeinsam / Privat", ru:"Групповая / Индивидуальная" },
+        description:{ ar:"استمتع بيوم ممتع واستثنائي على شاطئ جزيرة هولا هولا الرائعة ذات الأجواء الاستوائية والمناظر الخلابة، تشمل الرحلة السنوركلينج لرؤية الشعاب المرجانية، وقضاء أحلى الأوقات على الشاطئ مع تقديم وجبة الغداء والمشروبات.", en:"Enjoy an exceptional day on Hula Hula beach island with tropical vibes, snorkeling stop, and a delicious lunch included.", de:"Genießen Sie einen wunderschönen Tag auf der Insel Hula Hula mit Schnorcheln und Mittagessen.", ru:"Проведите незабываемый день на пляже острова Хула Хула со снорклингом и обедом." },
+        itinerary:{
+            ar:["الاستلام من الفندق صباحاً والتوجه للمارينا","الإبحار نحو شاطئ هولا هولا","التوقف في عرض البحر للسنوركلينج","نزول الشاطئ والاسترخاء والتصوير","تناول وجبة الغداء والمشروبات المنعشة","العودة للمارينا ثم الفندق"],
+            en:["Morning pickup from hotel to marina","Sailing to Hula Hula beach","Snorkeling stop open sea","Island drop-off & relax time","Delicious lunch & drinks","Return to marina & hotel"],
+            de:["Morgenabholung zur Marina","Fahrt zur Hula Hula Insel","Schnorchelstopp","Zeit auf der Insel","Mittagessen & Getränke","Rückfahrt"],
+            ru:["Утренний трансфер в марину","Отплытие на остров Хула Хула","Остановка для снорклинга","Отдых на пляже","Обед и напитки","Возвращение"]
+        },
+        included:{ ar:["التوصيل من وإلى الفندق","المركب ومعدات السنوركلينج","رسوم دخول جزيرة هولا هولا","وجبة غداء ومشروبات طوال اليوم"], en:["Hotel transfers","Boat & snorkeling equipment","Hula Hula island entrance","Lunch & drinks all day"], de:["Hoteltransfers","Boot & Schnorchelausrüstung","Inseleintritt Hula Hula","Mittagessen & Getränke"], ru:["Трансфер","Лодка и снаряжение","Вход на остров","Обед и напитки"] },
+        notIncluded:{ ar:["المصاريف الشخصية والصور"], en:["Personal expenses & photos"], de:["Persönliche Ausgaben"], ru:["Личные расходы"] },
+        image:"HULA HULA.jpg"
+    },
     {
         id:51, category:"hurghada",
         title:{ ar:"جولة مدينة الغردقة", en:"Hurghada City Tour", de:"Hurghada Stadtrundfahrt", ru:"Обзорная экскурсия по Хургаде" },
-        intro:{ ar:"اكتشف معالم مدينة الغردقة، المارينا، المسجد الكبير، والأسواق التقليدية في جولة ممتعة.", en:"Explore Hurghada's highlights, Marina, Grand Mosque, and traditional markets.", de:"Entdecken Sie die Highlights von Hurghada, Marina und Moschee.", ru:"Исследуйте достопримечательности Хургады, марину и мечеть." },
-        duration:{ ar:"نصف يوم", en:"Half Day", de:"Halbtägig", ru:"Пол дня" },
+        intro:{ ar:"اكتشف معالم مدينة الغردقة، المارينا، المسجد الكبير، والأسوق التقليدية في جولة ممتعة.", en:"Explore Hurghada's highlights, Marina, Grand Mosque, and traditional markets.", de:"Entdecken Sie die Highlights von Hurghada, Marina und Moschee.", ru:"Исследуйте достопримечательности Хургады, марину и мечеть." },
+        duration:{ ar:"عدة ساعات", en:"Several Hours", de:"Mehrere Stunden", ru:"Несколько часов" },
         pickup:{ ar:"من الفندق", en:"Hotel Pickup", de:"Hotelabholung", ru:"Трансфер из отеля" },
         days:{ ar:"يوميًا", en:"Daily", de:"Täglich", ru:"Ежедневно" },
         type:{ ar:"مشتركة / خاصة", en:"Shared / Private", de:"Gemeinsam / Privat", ru:"Групповая / Индивидуальная" },
         description:{ ar:"جولة سياحية استكشافية داخل مدينة الغردقة للتعرف على الحياة المحلية وزيارة أشهر معالم المدينة.", en:"An exploratory city tour in Hurghada to experience local life and visit landmarks.", de:"Eine Entdeckungstour durch Hurghada.", ru:"Обзорная экскурсия по Хургаде." },
         itinerary:{
-            ar:["الاستلام من الفندق","زيارة المسجد الكبير وكنيسة العذراء","جولة في ممشى المارينا","التسوق في الأسواق التقليدية"],
+            ar:["الاستلام من الفندق","زيارة المسجد الكبير وكنيسة العذراء","جولة في ممشى المارينا","التسوق في الأسوق التقليدية"],
             en:["Hotel pickup","Visit Grand Mosque & Church","Tour around Marina","Shopping in traditional bazaars"],
             de:["Abholung vom Hotel","Besuch Moschee und Kirche","Rundgang Marina","Einkaufszeit"],
             ru:["Трансфер из отеля","Посещение мечети и церкви","Прогулка по марине","Время для покупок"]
@@ -1335,31 +1352,44 @@ const trips = [
     }
 ];
 
-/* =========================
-   ROUTER & UI LOGIC
-========================= */
-function switchView(viewId){
+/* ROUTER, HISTORY API & UI LOGIC */
+function switchView(viewId, pushHistory = true){
     document.querySelectorAll(".app-view").forEach(v => v.classList.remove("active"));
-    document.getElementById(viewId).classList.add("active");
+    const target = document.getElementById(viewId);
+    if(target) {
+        target.classList.add("active");
+    }
     document.getElementById("navLinks").classList.remove("active");
     window.scrollTo({top:0, behavior:"smooth"});
+
+    if(pushHistory){
+        if(viewId === 'homeView'){
+            history.pushState({ view: 'homeView' }, '', window.location.pathname);
+        } else {
+            history.pushState({ view: viewId }, '', '#' + viewId);
+        }
+    }
 }
 
-function openCategory(catKey){
+function openCategory(catKey, pushHistory = true){
     activeCategory = catKey;
     document.querySelectorAll(".app-view").forEach(v => v.classList.remove("active"));
     document.getElementById("categoryTripsView").classList.add("active");
 
-    document.getElementById("catPageTitle").textContent = translations[currentLanguage][catKey];
+    document.getElementById("catPageTitle").textContent = translations[currentLanguage][catKey] || catKey;
     document.getElementById("catPageDesc").textContent = getCategoryDescription(catKey);
 
     const filtered = trips.filter(t => t.category === catKey);
     document.getElementById("catPageTrips").innerHTML = filtered.map(createTripCard).join("");
     window.scrollTo({top:0, behavior:"smooth"});
     document.getElementById("navLinks").classList.remove("active");
+
+    if(pushHistory){
+        history.pushState({ view: 'categoryTripsView', category: catKey }, '', '#category-' + catKey);
+    }
 }
 
-function openTripDetail(tripId){
+function openTripDetail(tripId, pushHistory = true){
     const trip = trips.find(t => t.id === tripId);
     if(!trip) return;
 
@@ -1384,6 +1414,10 @@ function openTripDetail(tripId){
     document.getElementById("detailWhatsAppBtn").href = `https://wa.me/201274692093?text=${msg}`;
 
     window.scrollTo({top:0, behavior:"smooth"});
+
+    if(pushHistory){
+        history.pushState({ view: 'tripDetailView', tripId: tripId }, '', '#trip-' + tripId);
+    }
 }
 
 function goBackToCategory(){
@@ -1392,22 +1426,22 @@ function goBackToCategory(){
 
 function getCategoryDescription(category){
     const descs = {
-        sea:{ ar:"استمتع بأجمل الرحلات البحرية في البحر الأحمر.", en:"Enjoy unforgettable sea experiences in the Red Sea.", de:"Genießen Sie unvergessliche Erlebnisse am Roten Meer.", ru:"Насладитесь незабываемыми морскими экскурсиями на Красном море." },
+        sea:{ ar:"استمتع بأجمل الرحلات البحرية ورحلات السبيد بوت والجزر في البحر الأحمر.", en:"Enjoy unforgettable sea & speedboat experiences in the Red Sea.", de:"Genießen Sie unvergessliche Erlebnisse am Roten Meer.", ru:"Насладитесь незабываемыми морскими экскурсиями на Красном море." },
         safari:{ ar:"اكتشف الصحراء المصرية واستمتع بالمغامرات.", en:"Explore the Egyptian desert and enjoy exciting adventures.", de:"Entdecken Sie die ägyptische Wüste und erleben Sie Abenteuer.", ru:"Исследуйте египетскую пустыню и наслаждайтесь приключениями." },
         hurghada:{ ar:"اكتشف معالم مدينة الغردقة والأسواق والمارينا.", en:"Explore Hurghada city highlights, markets and Marina.", de:"Entdecken Sie die Highlights von Hurghada.", ru:"Исследуйте достопримечательности Хургады." },
         cairo:{ ar:"اكتشف القاهرة والأهرامات والحضارة المصرية القديمة.", en:"Discover Cairo, the pyramids and ancient Egyptian civilization.", de:"Entdecken Sie Kairo, die Pyramiden und das alte Ägypten.", ru:"Откройте Каир, пирамиды и древнюю египетскую цивилизацию." },
         luxor:{ ar:"استكشف الأقصر ومعابد الحضارة المصرية القديمة.", en:"Explore Luxor and the temples of ancient Egyptian civilization.", de:"Entdecken Sie Luxor und die Tempel des alten Ägypten.", ru:"Исследуйте Луксор и храмы Древнего Египта." },
         transfer:{ ar:"خدمة توصيل خاصة ومريحة بين جميع مناطق البحر الأحمر والمطارات.", en:"Comfortable private transfers across all Red Sea regions and airports.", de:"Komfortable private Transfers in der Region des Roten Meeres und zu Flughäfen.", ru:"Комфортные индивидуальные трансферы по всему региону Красного моря и в аэропорты." }
     };
-    return descs[category][currentLanguage];
+    return descs[category] ? descs[category][currentLanguage] : "";
 }
 
 function createTripCard(trip){
     return `
         <div class="trip-card">
             <div class="trip-image">
-                <img src="${trip.image}" alt="${trip.title[currentLanguage]}">
-                <div class="trip-category">${translations[currentLanguage][trip.category]}</div>
+                <img src="${trip.image}" alt="${trip.title[currentLanguage]}" onerror="this.src='https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=900';">
+                <div class="trip-category">${translations[currentLanguage][trip.category] || trip.category}</div>
             </div>
             <div class="trip-content">
                 <h3>${trip.title[currentLanguage]}</h3>
@@ -1425,7 +1459,7 @@ function createTripCard(trip){
 }
 
 function changeLanguage(lang){
-    if(!translations[lang]) lang = "ar";
+    if(!translations[lang]) lang = "en";
     currentLanguage = lang;
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
@@ -1443,7 +1477,7 @@ function changeLanguage(lang){
     });
 
     if(document.getElementById("categoryTripsView").classList.contains("active")){
-        openCategory(activeCategory);
+        openCategory(activeCategory, false);
     }
 }
 
@@ -1459,7 +1493,23 @@ function toggleFaq(button){
     item.classList.toggle("active");
 }
 
+/* Mobile Back Button Handler (History API) */
+window.addEventListener('popstate', function(event) {
+    if (event.state && event.state.view) {
+        if(event.state.view === 'categoryTripsView' && event.state.category){
+            openCategory(event.state.category, false);
+        } else if(event.state.view === 'tripDetailView' && event.state.tripId){
+            openTripDetail(event.state.tripId, false);
+        } else {
+            switchView(event.state.view, false);
+        }
+    } else {
+        switchView('homeView', false);
+    }
+});
+
 document.addEventListener("DOMContentLoaded", function(){
+    history.replaceState({ view: 'homeView' }, '', window.location.pathname);
     changeLanguage("en");
 });
 </script>
