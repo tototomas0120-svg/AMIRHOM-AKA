@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - الحجوزات</title>
+    <!-- مكتبة تصدير الـ PDF المجانية -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body { font-family: Tahoma, sans-serif; background: #f4f7f6; padding: 20px; margin: 0; }
+        .container { max-width: 1050px; margin: auto; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h2 { color: #333; text-align: center; margin-bottom: 20px; }
+        
+        .stats-box { background: #e9ecef; padding: 12px; border-radius: 6px; text-align: center; font-size: 16px; font-weight: bold; color: #495057; margin-bottom: 15px; }
+        
+        .controls-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; gap: 10px; flex-wrap: wrap; }
+        .search-input { padding: 10px; width: 280px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px; }
+        
+        .btn-action { background-color: #28a745; color: white; border: none; padding: 10px 18px; border-radius: 5px; cursor: pointer; font-size: 14px; font-weight: bold; transition: 0.2s; }
+        .btn-action:hover { background-color: #218838; }
+        .btn-refresh { background-color: #007bff; }
+        .btn-refresh:hover { background-color: #0056b3; }
+        
+        /* أزرار الحالات والجدول */
+        .btn-delete { background-color: #dc3545; padding: 6px 12px; font-size: 12px; }
+        .btn-delete:hover { background-color: #c82333; }
+        
+        .badge-paid { background-color: #28a745; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; }
+        .badge-unpaid { background-color: #ffc107; color: #333; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; font-size: 14px; }
+        th { background-color: #007bff; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .loading { text-align: center; color: #666; font-size: 16px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>لوحة تحكم الحجوزات (Admin Dashboard)</h2>
+
+    <!-- عداد إحصائيات الحجوزات -->
+    <div id="statsBox" class="stats-box">إجمالي الحجوزات: جاري التحميل...</div>
+    
+    <div class="controls-bar">
+        <div>
+            <input type="text" id="searchInput" class="search-input" placeholder="ابحث باسم العميل أو رقم التليفون..." onkeyup="filterTable()">
+        </div>
+        <div>
+            <button class="btn-action btn-refresh" onclick="loadBookings()">تحديث البيانات 🔄</button>
+            <button class="btn-action" onclick="exportToPDF()">تحميل تقرير (PDF)</button>
+        </div>
+    </div>
+    
+    <div id="loadingMsg" class="loading">جاري جلب الحجوزات من قاعدة البيانات...</div>
+
+    <table id="bookingsTable" style="display: none;">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>اسم العميل</th>
+                <th>رقم الهاتف</th>
+                <th>تفاصيل / الرحلة</th>
+                <th>وقت الحجز</th>
+                <th>حالة الدفع</th>
+                <th>الإجراءات</th>
+            </tr>
+        </thead>
+        <tbody id="bookingsBody">
+            <!-- سيتم تعبئة البيانات تلقائياً من Firebase -->
+        </tbody>
+    </table>
+</div>
+
+<!-- ربط Firebase وإحضار الحجوزات -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, getDocs, deleteDoc, doc, updateDoc, query } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // الإعدادات الخاصة بمشروعك AKA Tours
+    const firebaseConfig = {
+        apiKey: "AIzaSyChpeC1F0wRSeE27DuyxO-NDgLTZ8yV9Qw",
+        authDomain: "aka-tours.firebaseapp.com",
+        projectId: "aka-tours",
+        storageBucket: "aka-tours.firebasestorage.app",
+        messagingSenderId: "97256049801",
+        appId: "1:97256049801:web:d9e31a0c2c03dc3fae8a58",
+        measurementId: "G-RV8MG7XE0B"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    let allBookings = [];
+
+    window.loadBookings = async function() {
+        const tbody = document.getElementById("bookingsBody");
+        const loadingMsg = document.getElementById("loadingMsg");
+        const table = document.getElementById("bookingsTable");
+        const statsBox = document.getElementById("statsBox");
+
+        loadingMsg.style.display = "block";
+        loadingMsg.innerHTML = "جاري جلب الحجوزات...";
+        table.style.display = "none";
+
+        try {
+            const q = query(collection(db, "bookings"));
+            const querySnapshot = await getDocs(q);
+
+            tbody.innerHTML = "";
+            allBookings = [];
+            let index = 1;
+
+            if (querySnapshot.empty) {
+                loadingMsg.innerHTML = "قاعدة البيانات فارغة، لا توجد حجوزات مسجلة حتى الآن.";
+                statsBox.innerHTML = "إجمالي الحجوزات: 0";
+                return;
+            }
+
+            querySnapshot.forEach((docSnap) => {
+                const data = docSnap.data();
+                data.id = docSnap.id;
+                allBookings.push(data);
+
+                // تحديد حالة الدفع (لو مش موجودة افتراضياً تبقي غير مدفوع false)
+                const isPaid = data.isPaid === true;
+                const paymentBtnClass = isPaid ? "badge-paid" : "badge-unpaid";
+                const paymentText = isPaid ? "تم الدفع ✅" : "لم يُدفع ⏳";
+
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${index++}</td>
+                    <td>${data.clientName || 'غير محدد'}</td>
+                    <td>${data.clientPhone || 'غير محدد'}</td>
+                    <td>${data.tripTitle || 'حجز عادي'}</td>
+                    <td>${data.createdAt ? (typeof data.createdAt.toDate === 'function' ? new Date(data.createdAt.toDate()).toLocaleString() : data.createdAt) : 'حديث'}</td>
+                    <td>
+                        <button class="${paymentBtnClass}" onclick="togglePayment('${data.id}', ${isPaid})">${paymentText}</button>
+                    </td>
+                    <td>
+                        <button class="btn-action btn-delete" onclick="deleteBooking('${data.id}')">حذف 🗑️</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            statsBox.innerHTML = `إجمالي الحجوزات المسجلة: ${allBookings.length}`;
+            loadingMsg.style.display = "none";
+            table.style.display = "table";
+
+        } catch (error) {
+            console.error("خطأ في جلب البيانات: ", error);
+            loadingMsg.innerHTML = "حدث خطأ أثناء تحميل الحجوزات!";
+        }
+    }
+
+    // دالة تبديل حالة الدفع وتحديثها في Firebase
+    window.togglePayment = async function(docId, currentStatus) {
+        try {
+            const newStatus = !currentStatus;
+            const bookingRef = doc(db, "bookings", docId);
+            await updateDoc(bookingRef, {
+                isPaid: newStatus
+            });
+            loadBookings(); // تحديث الجدول فورا لتعديل الزر
+        } catch (error) {
+            console.error("خطأ في تحديث حالة الدفع: ", error);
+            alert("حدث خطأ أثناء تحديث حالة الدفع.");
+        }
+    }
+
+    // دالة حذف الحجز
+    window.deleteBooking = async function(docId) {
+        if (confirm("هل أنت متأكد من رغبتك في حذف هذا الحجز نهائياً؟")) {
+            try {
+                await deleteDoc(doc(db, "bookings", docId));
+                loadBookings();
+            } catch (error) {
+                console.error("خطأ في الحذف: ", error);
+                alert("حدث خطأ أثناء محاولة الحذف.");
+            }
+        }
+    }
+
+    // دالة البحث التفاعلي في الجدول
+    window.filterTable = function() {
+        let input = document.getElementById("searchInput").value.toLowerCase();
+        let rows = document.getElementById("bookingsBody").getElementsByTagName("tr");
+
+        for (let i = 0; i < rows.length; i++) {
+            let nameCol = rows[i].getElementsByTagName("td")[1];
+            let phoneCol = rows[i].getElementsByTagName("td")[2];
+            let tripCol = rows[i].getElementsByTagName("td")[3];
+            
+            if (nameCol || phoneCol || tripCol) {
+                let nameValue = nameCol.textContent || nameCol.innerText;
+                let phoneValue = phoneCol.textContent || phoneCol.innerText;
+                let tripValue = tripCol.textContent || tripCol.innerText;
+
+                if (nameValue.toLowerCase().indexOf(input) > -1 || 
+                    phoneValue.toLowerCase().indexOf(input) > -1 || 
+                    tripValue.toLowerCase().indexOf(input) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    // تشغيل الدالة تلقائياً أول ما الصفحة تفتح
+    loadBookings();
+
+    // دالة تصدير ملف الـ PDF (محدثة لتشمل حالة الدفع)
+    window.exportToPDF = function() {
+        if(allBookings.length === 0) {
+            alert("لا توجد حجوزات لتصديرها حالياً!");
+            return;
+        }
+
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(16);
+        doc.text("Booking Report - AKA Tours Admin", 20, 20);
+
+        doc.setFontSize(11);
+        doc.setFont("helvetica", "normal");
+        let y = 30;
+
+        allBookings.forEach((b, index) => {
+            y += 10;
+            if (y > 280) { 
+                doc.addPage();
+                y = 20;
+            }
+            let paidStatus = b.isPaid ? "Paid" : "Unpaid";
+            let line = `${index + 1}. Name: ${b.clientName || ''} | Phone: ${b.clientPhone || ''} | Trip: ${b.tripTitle || ''} | Status: ${paidStatus}`;
+            doc.text(line, 20, y);
+        });
+
+        doc.save("bookings-report.pdf");
+    }
+</script>
+
+</body>
+</html>
