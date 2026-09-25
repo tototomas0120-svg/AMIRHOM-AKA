@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="AKA Egypt Tours - رحلات وسفاري وانتقالات في مصر">
 <title>AKA | Egypt Tours</title>
+<!-- مكتبة طباعة وتحويل الـ PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
 *{
@@ -22,8 +24,9 @@
     --light:#f5fbfc;
     --white:#fff;
     --border:#e2e8f0;
-    --shadow:0 15px 40px rgba(9,44,60,.10);
+    --shadow:0 15px 40px rgba(9,44,60,.12);
     --radius:22px;
+    --glow-color: rgba(14, 165, 168, 0.4);
 }
 
 html{
@@ -64,9 +67,11 @@ button{
     left:0;
     width:100%;
     z-index:1000;
-    background:rgba(255,255,255,.95);
-    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
     border-bottom:1px solid rgba(226,232,240,.8);
+    box-shadow: 0 4px 20px rgba(0,0,0,.03);
 }
 
 .nav-inner{
@@ -80,15 +85,21 @@ button{
 .logo{
     display:flex;
     align-items:center;
-    gap:10x;
+    gap:10px;
     cursor:pointer;
+    user-select: none;
 }
 
 .brand-logo-img {
-    height: 100px;
+    height: 70px;
     width: auto;
     object-fit: contain;
     border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.brand-logo-img:hover {
+    transform: scale(1.05);
 }
 
 .nav-links{
@@ -102,10 +113,26 @@ button{
     font-weight:700;
     transition:.25s;
     cursor:pointer;
+    position:relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
 }
 
 .nav-links a:hover{
     color:var(--primary);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-actions{
@@ -122,6 +149,13 @@ button{
     outline:none;
     color:var(--dark);
     font-weight:700;
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+
+.language-select:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px var(--glow-color);
 }
 
 .mobile-lang-box {
@@ -152,6 +186,12 @@ button{
     background:#edfafa;
     color:var(--dark);
     font-size:22px;
+    transition: 0.3s;
+}
+
+.menu-btn:hover {
+    background: var(--primary);
+    color: white;
 }
 
 /* =========================
@@ -162,10 +202,16 @@ button{
     min-height: 100vh;
     padding-top: 110px;
     padding-bottom: 90px;
+    animation: fadeIn 0.4s ease-in-out;
 }
 
 .app-view.active {
     display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* =========================
@@ -179,7 +225,7 @@ button{
     position:relative;
     color:white;
     background:
-        linear-gradient(90deg,rgba(5,31,43,.88),rgba(5,31,43,.35)),
+        linear-gradient(90deg,rgba(5,31,43,.9),rgba(5,31,43,.4)),
         url("https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1800&q=85")
         center/cover no-repeat;
     margin-top: -110px;
@@ -191,13 +237,14 @@ button{
 
 .hero-badge{
     display:inline-flex;
-    padding:9px 16px;
-    border:1px solid rgba(255,255,255,.3);
-    background:rgba(255,255,255,.12);
+    padding:9px 18px;
+    border:1px solid rgba(255,255,255,.35);
+    background:rgba(255,255,255,.15);
     border-radius:999px;
     margin-bottom:20px;
-    backdrop-filter:blur(8px);
+    backdrop-filter:blur(10px);
     font-weight:700;
+    box-shadow: 0 0 15px rgba(255,255,255,0.1);
 }
 
 .hero h1{
@@ -205,6 +252,7 @@ button{
     line-height:1.05;
     margin-bottom:22px;
     font-weight:900;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .hero p{
@@ -224,10 +272,10 @@ button{
 .btn{
     border:0;
     border-radius:13px;
-    padding:14px 22px;
+    padding:14px 24px;
     font-weight:800;
     font-size:15px;
-    transition:.25s;
+    transition:all 0.3s ease;
     display:inline-flex;
     align-items:center;
     justify-content:center;
@@ -237,20 +285,25 @@ button{
 .btn-primary{
     background:var(--primary);
     color:white;
+    box-shadow: 0 4px 15px rgba(14, 165, 168, 0.4);
 }
 
 .btn-primary:hover{
     background:#0b8e91;
-    transform:translateY(-2px);
+    transform:translateY(-3px);
+    box-shadow: 0 6px 20px rgba(14, 165, 168, 0.6);
 }
 
 .btn-light{
     background:white;
     color:var(--dark);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .btn-light:hover{
-    transform:translateY(-2px);
+    transform:translateY(-3px);
+    background:#f8fafc;
+    box-shadow: 0 6px 20px rgba(255,255,255,0.2);
 }
 
 /* =========================
@@ -271,6 +324,9 @@ section{
     font-weight:900;
     display:block;
     margin-bottom:10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 14px;
 }
 
 .section-head h2{
@@ -294,7 +350,7 @@ section{
 .category-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:22px;
+    gap:25px;
 }
 
 .category-card{
@@ -304,22 +360,25 @@ section{
     overflow:hidden;
     cursor:pointer;
     box-shadow:var(--shadow);
-    transition:.3s;
+    transition:all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(226,232,240,0.6);
 }
 
 .category-card:hover{
-    transform:translateY(-7px);
+    transform:translateY(-8px);
+    box-shadow: 0 20px 40px rgba(14, 165, 168, 0.25);
+    border-color: var(--primary);
 }
 
 .category-card img{
     width:100%;
     height:100%;
     object-fit:cover;
-    transition:.5s;
+    transition:transform 0.6s ease;
 }
 
 .category-card:hover img{
-    transform:scale(1.08);
+    transform:scale(1.1);
 }
 
 .category-overlay{
@@ -328,19 +387,21 @@ section{
     display:flex;
     flex-direction:column;
     justify-content:flex-end;
-    padding:22px;
+    padding:25px;
     color:white;
-    background:linear-gradient(transparent,rgba(0,0,0,.78));
+    background:linear-gradient(transparent,rgba(5,31,43,.85));
 }
 
 .category-overlay h3{
     font-size:23px;
     margin-bottom:7px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
 .category-overlay p{
     color:#e2e8f0;
     font-size:14px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
 }
 
 /* =========================
@@ -357,13 +418,14 @@ section{
     border-radius:var(--radius);
     overflow:hidden;
     background:white;
-    box-shadow:0 8px 25px rgba(15,61,86,.06);
-    transition:.3s;
+    box-shadow:0 8px 25px rgba(15,61,86,.05);
+    transition:all 0.4s ease;
 }
 
 .trip-card:hover{
-    transform:translateY(-6px);
-    box-shadow:var(--shadow);
+    transform:translateY(-8px);
+    box-shadow: 0 20px 35px rgba(14, 165, 168, 0.2);
+    border-color: var(--primary);
 }
 
 .trip-image{
@@ -376,7 +438,7 @@ section{
     width:100%;
     height:100%;
     object-fit:cover;
-    transition:.4s;
+    transition:transform 0.5s ease;
 }
 
 .trip-card:hover .trip-image img{
@@ -387,22 +449,25 @@ section{
     position:absolute;
     top:15px;
     right:15px;
-    background:rgba(255,255,255,.94);
+    background:rgba(255,255,255,.95);
+    backdrop-filter: blur(5px);
     color:var(--primary-dark);
     border-radius:999px;
-    padding:7px 12px;
+    padding:7px 14px;
     font-size:12px;
     font-weight:900;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .trip-content{
-    padding:22px;
+    padding:25px;
 }
 
 .trip-content h3{
     color:var(--dark);
-    font-size:22px;
+    font-size:21px;
     margin-bottom:10px;
+    line-height: 1.4;
 }
 
 .trip-content p{
@@ -410,6 +475,7 @@ section{
     line-height:1.7;
     min-height:55px;
     margin-bottom:18px;
+    font-size: 14px;
 }
 
 .trip-meta{
@@ -417,53 +483,64 @@ section{
     gap:15px;
     flex-wrap:wrap;
     margin-bottom:18px;
-    color:#64748b;
+    color:#475569;
     font-size:13px;
+    font-weight: 700;
 }
 
 .trip-meta span{
     display:flex;
     align-items:center;
-    gap:5px;
+    gap:6px;
+    background: var(--light);
+    padding: 6px 12px;
+    border-radius: 8px;
 }
 
 /* =========================
    WHY / ABOUT / REVIEWS / FAQ / CONTACT
 ========================= */
 .why{ background:var(--light); }
-.why-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
-.why-card{ background:white; padding:28px; border-radius:var(--radius); text-align:center; box-shadow:0 7px 25px rgba(15,61,86,.05); }
-.why-icon{ width:60px; height:60px; margin:0 auto 18px; border-radius:18px; display:flex; align-items:center; justify-content:center; background:#e7fafa; font-size:28px; }
-.why-card h3{ color:var(--dark); margin-bottom:10px; }
+.why-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+.why-card{ background:white; padding:30px 24px; border-radius:var(--radius); text-align:center; box-shadow:0 8px 25px rgba(15,61,86,.04); border: 1px solid rgba(226,232,240,0.6); transition: all 0.3s ease; }
+.why-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(14, 165, 168, 0.15); border-color: var(--primary); }
+.why-icon{ width:65px; height:65px; margin:0 auto 18px; border-radius:20px; display:flex; align-items:center; justify-content:center; background:#e7fafa; font-size:28px; box-shadow: 0 4px 15px rgba(14, 165, 168, 0.2); }
+.why-card h3{ color:var(--dark); margin-bottom:10px; font-size: 18px; }
 .why-card p{ line-height:1.7; color:#64748b; font-size:14px; }
 
 .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
-.about-image{ height:500px; border-radius:30px; overflow:hidden; box-shadow:var(--shadow); }
-.about-image img{ width:100%; height:100%; object-fit:cover; }
-.about-content span{ color:var(--primary); font-weight:900; }
-.about-content h2{ color:var(--dark); font-size:40px; margin:12px 0 20px; }
+.about-image{ height:500px; border-radius:30px; overflow:hidden; box-shadow:var(--shadow); position: relative; }
+.about-image::after { content:''; position: absolute; inset:0; border: 2px solid var(--primary); border-radius: 30px; pointer-events: none; transform: translate(12px, 12px); z-index: -1; opacity: 0.4; }
+.about-image img{ width:100%; height:100%; object-fit:cover; transition: transform 0.5s; }
+.about-image:hover img { transform: scale(1.03); }
+.about-content span{ color:var(--primary); font-weight:900; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
+.about-content h2{ color:var(--dark); font-size:38px; margin:12px 0 20px; }
 .about-content p{ line-height:1.9; color:#64748b; margin-bottom:16px; }
 
 .reviews{ background:var(--light); }
 .review-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-.review-card{ background:white; padding:27px; border-radius:var(--radius); box-shadow:0 7px 25px rgba(15,61,86,.05); }
-.stars{ color:#f59e0b; margin-bottom:14px; font-size:18px; }
-.review-card p{ line-height:1.8; color:#475569; margin-bottom:20px; }
-.reviewer{ font-weight:900; color:var(--dark); }
+.review-card{ background:white; padding:30px; border-radius:var(--radius); box-shadow:0 8px 25px rgba(15,61,86,.04); border: 1px solid rgba(226,232,240,0.6); transition: all 0.3s ease; }
+.review-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(14, 165, 168, 0.15); }
+.stars{ color:#f59e0b; margin-bottom:14px; font-size:18px; letter-spacing: 2px; }
+.review-card p{ line-height:1.8; color:#475569; margin-bottom:20px; font-style: italic; }
+.reviewer{ font-weight:900; color:var(--dark); display: flex; align-items: center; gap: 8px; }
+.reviewer::before { content: '👤'; font-size: 14px; }
 
 .faq-list{ max-width:850px; margin:auto; }
-.faq-item{ border:1px solid var(--border); border-radius:15px; margin-bottom:12px; overflow:hidden; background:white; }
-.faq-question{ width:100%; padding:20px; border:0; background:white; color:var(--dark); font-size:16px; font-weight:800; display:flex; justify-content:space-between; align-items:center; text-align:right; cursor:pointer; }
-.faq-answer{ display:none; padding:0 20px 20px; line-height:1.8; color:#64748b; }
-.faq-item.active .faq-answer{ display:block; }
-.faq-item.active .faq-question span{ transform:rotate(45deg); }
-.faq-question span{ font-size:25px; transition:.2s; }
+.faq-item{ border:1px solid var(--border); border-radius:16px; margin-bottom:14px; overflow:hidden; background:white; box-shadow: 0 4px 15px rgba(0,0,0,.02); transition: all 0.3s ease; }
+.faq-item:hover { border-color: var(--primary); }
+.faq-question{ width:100%; padding:20px 24px; border:0; background:white; color:var(--dark); font-size:16px; font-weight:800; display:flex; justify-content:space-between; align-items:center; text-align:right; cursor:pointer; transition: background 0.2s; }
+.faq-question:hover { background: var(--light); }
+.faq-answer{ display:none; padding:0 24px 22px; line-height:1.8; color:#64748b; }
+.faq-item.active .faq-answer{ display:block; animation: fadeIn 0.3s ease; }
+.faq-item.active .faq-question span{ transform:rotate(45deg); color: var(--primary); }
+.faq-question span{ font-size:24px; transition:transform 0.3s ease, color 0.3s; color: #94a3b8; }
 
 .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:30px; }
-.contact-card{ background:var(--light); border-radius:var(--radius); padding:30px; }
-.contact-card h3{ color:var(--dark); margin-bottom:18px; }
-.contact-item{ display:flex; gap:13px; align-items:flex-start; margin-bottom:20px; }
-.contact-icon{ width:45px; height:45px; min-width:45px; display:flex; align-items:center; justify-content:center; border-radius:13px; background:white; }
+.contact-card{ background:var(--light); border-radius:var(--radius); padding:35px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,.02); }
+.contact-card h3{ color:var(--dark); margin-bottom:22px; font-size: 22px; }
+.contact-item{ display:flex; gap:16px; align-items:flex-start; margin-bottom:22px; }
+.contact-icon{ width:50px; height:50px; min-width:50px; display:flex; align-items:center; justify-content:center; border-radius:14px; background:white; box-shadow: 0 4px 15px rgba(0,0,0,.05); font-size: 20px; }
 .contact-item strong{ display:block; color:var(--dark); margin-bottom:4px; }
 .contact-item span{ color:#64748b; font-size:14px; }
 
@@ -474,22 +551,35 @@ section{
     border:0;
     background:white;
     color:var(--dark);
-    padding:12px 18px;
+    padding:12px 20px;
     border-radius:12px;
     font-weight:800;
-    box-shadow:0 5px 20px rgba(15,61,86,.07);
+    box-shadow:0 5px 20px rgba(15,61,86,.08);
     margin-bottom:25px;
     cursor:pointer;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateX(-3px);
 }
 
 .trip-detail-box{
     background:white;
-    border-radius:25px;
+    border-radius:28px;
     overflow:hidden;
     box-shadow:var(--shadow);
+    border: 1px solid var(--border);
 }
 .trip-detail-image{
-    height:350px;
+    height:400px;
 }
 .trip-detail-image img{
     width:100%;
@@ -497,72 +587,166 @@ section{
     object-fit:cover;
 }
 .trip-detail-content{
-    padding:30px;
+    padding:40px;
 }
 .trip-detail-content h1{
     color:var(--dark);
-    font-size:32px;
-    margin-bottom:10px;
+    font-size:34px;
+    margin-bottom:12px;
 }
 .trip-detail-intro{
     color:#64748b;
     line-height:1.8;
-    margin-bottom:25px;
+    margin-bottom:30px;
+    font-size: 17px;
 }
 .details-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:12px;
-    margin-bottom:25px;
+    gap:16px;
+    margin-bottom:30px;
 }
 .detail{
     background:var(--light);
-    border-radius:13px;
-    padding:15px;
+    border-radius:16px;
+    padding:18px;
+    border: 1px solid rgba(226,232,240,0.6);
 }
 .detail strong{
     display:block;
     color:var(--dark);
-    margin-bottom:5px;
+    margin-bottom:6px;
     font-size:13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 .detail span{
-    color:#64748b;
+    color:#475569;
+    font-weight: 600;
 }
 .trip-section{
-    margin-top:25px;
+    margin-top:30px;
 }
 .trip-section h3{
     color:var(--dark);
-    margin-bottom:12px;
+    margin-bottom:14px;
+    font-size: 20px;
+    position: relative;
+    padding-bottom: 8px;
+}
+.trip-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
 }
 .trip-section p, .trip-section li{
     color:#64748b;
     line-height:1.8;
 }
 .trip-section ul{
-    padding-right:20px;
+    padding-right:22px;
+    padding-left: 22px;
+}
+.trip-section li {
+    margin-bottom: 8px;
 }
 .trip-book-area{
-    margin-top:30px;
-    padding-top:25px;
+    margin-top:35px;
+    padding-top:30px;
     border-top:1px solid var(--border);
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Firebase Booking Form Integration in Detail Page */
+.firebase-booking-card {
+    background: var(--light);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    margin-top: 20px;
+}
+.firebase-booking-card h4 {
+    color: var(--dark);
+    margin-bottom: 12px;
+}
+.firebase-booking-card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+}
+.firebase-booking-card input:focus {
+    border-color: var(--primary);
 }
 
 /* =========================
-   FOOTER & WHATSAPP
+   FLOATING ACTION BUTTONS (WhatsApp & Facebook)
 ========================= */
-.footer{ background:#062533; color:#cbd5e1; padding:55px 0 25px; }
-.footer-grid{ display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:40px; margin-bottom:35px; }
-.footer h3{ color:white; margin-bottom:15px; }
-.footer p{ line-height:1.8; color:#94a3b8; }
-.footer-links{ display:flex; flex-direction:column; gap:11px; }
-.footer-links a{ color:#94a3b8; transition:.2s; cursor:pointer; }
-.footer-links a:hover{ color:white; }
-.footer-bottom{ border-top:1px solid rgba(255,255,255,.1); padding-top:22px; text-align:center; color:#94a3b8; font-size:13px; }
+.floating-buttons {
+    position: fixed;
+    left: 25px;
+    bottom: 25px;
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-.whatsapp-float{ position:fixed; left:22px; bottom:22px; width:58px; height:58px; border-radius:50%; background:#25d366; color:white; display:flex; align-items:center; justify-content:center; font-size:28px; z-index:900; box-shadow:0 8px 25px rgba(37,211,102,.35); transition:.25s; }
-.whatsapp-float:hover{ transform:scale(1.08); }
+.float-btn {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.float-btn:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-float {
+    background: #25d366;
+    animation: pulseWpp 2s infinite;
+}
+
+.facebook-float {
+    background: #1877f2;
+}
+
+@keyframes pulseWpp {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer{ background:#062533; color:#cbd5e1; padding:65px 0 25px; position: relative; }
+.footer::before { content: ''; position: absolute; top:0; left:0; width:100%; height:4px; background: linear-gradient(90deg, var(--primary), #0072ff); }
+.footer-grid{ display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:40px; margin-bottom:45px; }
+.footer h3{ color:white; margin-bottom:18px; font-size: 20px; }
+.footer p{ line-height:1.8; color:#94a3b8; }
+.footer-links{ display:flex; flex-direction:column; gap:12px; }
+.footer-links a{ color:#94a3b8; transition:.25s; cursor:pointer; display: inline-block; }
+.footer-links a:hover{ color:white; transform: translateX(4px); }
+.footer-bottom{ border-top:1px solid rgba(255,255,255,.08); padding-top:25px; text-align:center; color:#94a3b8; font-size:14px; }
 
 /* =========================
    RESPONSIVE
@@ -581,13 +765,15 @@ section{
         display:none;
         flex-direction:column;
         align-items:stretch;
-        padding:18px;
+        padding:22px;
         background:white;
-        border-radius:15px;
-        box-shadow:var(--shadow);
+        border-radius:20px;
+        box-shadow:0 20px 40px rgba(0,0,0,0.15);
+        border: 1px solid var(--border);
     }
-    .nav-links.active{ display:flex; }
-    .nav-links a{ padding:12px; }
+    .nav-links.active{ display:flex; animation: fadeIn 0.3s ease; }
+    .nav-links a{ padding:12px 15px; border-radius: 10px; }
+    .nav-links a:hover { background: var(--light); }
     .mobile-lang-box{ display:block; }
     .menu-btn{ display:block; }
     .nav-actions .language-select{ display:none; }
@@ -601,7 +787,7 @@ section{
 
 @media(max-width:600px){
     .hero{ min-height:650px; }
-    .hero h1{ font-size:43px; }
+    .hero h1{ font-size:40px; }
     .hero p{ font-size:16px; }
     .hero-buttons{ flex-direction:column; }
     .hero-buttons .btn{ width:100%; }
@@ -619,8 +805,8 @@ section{
 <!-- NAVBAR -->
 <header class="navbar">
     <div class="container nav-inner">
-        <div class="logo" onclick="switchView('homeView')">
-            <!-- إصلاح مسار اللوجو مع خاصية الفول باك للصور -->
+        <!-- اللوجو مع خاصية الـ 4 ضغطات للوحة التحكم -->
+        <div class="logo" id="adminLogoBtn" title="AKA Tours">
             <img src="logo.png" alt="AKA Logo" class="brand-logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50?text=AKA+Tours';">
         </div>
 
@@ -664,7 +850,7 @@ section{
                 <p data-i18n="heroText">رحلات بحرية، سفاري، القاهرة، الأقصر وترانسيـفرات بخدمة احترافية وتجربة لا تُنسى.</p>
                 <div class="hero-buttons">
                     <button class="btn btn-primary" onclick="switchView('categoriesView')" data-i18n="explore">اكتشف الرحلات</button>
-                    <a href="https://wa.me/201274692093" target="_blank" class="btn btn-light" data-i18n="bookWhatsApp">احجز عبر واتساب</a>
+                    <button class="btn btn-light" onclick="switchView('categoriesView')" data-i18n="bookWhatsApp">احجز الآن</button>
                 </div>
             </div>
         </div>
@@ -755,7 +941,7 @@ section{
                 <div class="why-card">
                     <div class="why-icon">💬</div>
                     <h3 data-i18n="why4Title">حجز سهل</h3>
-                    <p data-i18n="why4Text">احجز رحلتك بسهولة مباشرة عبر واتساب.</p>
+                    <p data-i18n="why4Text">احجز رحلتك بسهولة مباشرة عبر واتساب أو النظام الآلي.</p>
                 </div>
             </div>
         </div>
@@ -882,10 +1068,16 @@ section{
                     <ul id="detailNotIncluded"></ul>
                 </div>
 
-                <div class="trip-book-area">
-                    <a id="detailWhatsAppBtn" href="#" target="_blank" class="btn btn-primary" style="padding:16px 30px; font-size:17px;">
-                        💬 <span data-i18n="bookWhatsApp">احجز عبر واتساب</span>
-                    </a>
+                <!-- Firebase Booking Form Integration -->
+                <div class="firebase-booking-card">
+                    <h4 data-i18n="dbBookingTitle">حجز سريع عبر قاعدة البيانات وواتساب</h4>
+                    <form id="firebaseBookingForm">
+                        <input type="text" id="clientNameInput" placeholder="اسم العميل (Client Name)" required>
+                        <input type="tel" id="clientPhoneInput" placeholder="رقم الهاتف أو الواتساب (Phone)" required>
+                        <label style="display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px; color: var(--dark);">اختر تاريخ الرحلة (Trip Date):</label>
+                        <input type="date" id="clientDateInput" required>
+                        <button type="submit" class="btn btn-primary" style="width:100%; margin-top: 10px;">💬 <span data-i18n="dbSubmitBtn">تأكيد وحفظ الحجز وإرسال واتساب</span></button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -950,7 +1142,7 @@ section{
         <div class="faq-list">
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq1Q">كيف يمكنني الحجز؟</span><span>+</span></button>
-                <div class="faq-answer" data-i18n="faq1A">يمكنك الضغط على زر الحجز عبر واتساب وإرسال تفاصيل الرحلة.</div>
+                <div class="faq-answer" data-i18n="faq1A">يمكنك إدخال بياناتك وتاريخ الرحلة مباشرة لحفظها في النظام أو الحجز عبر واتساب.</div>
             </div>
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq2Q">هل يوجد Pickup من الفندق؟</span><span>+</span></button>
@@ -1001,8 +1193,35 @@ section{
     </div>
 </div>
 
-<!-- WHATSAPP FLOAT -->
-<a class="whatsapp-float" href="https://wa.me/201274692093" target="_blank" aria-label="WhatsApp">☎</a>
+<!-- VIEW 9: ADMIN DASHBOARD -->
+<div id="adminDashboardView" class="app-view">
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <button class="back-btn" onclick="switchView('homeView')" style="margin: 0;">← الرئيسية</button>
+            <button class="btn btn-primary" onclick="exportDashboardPDF()">📥 تحميل التقرير PDF</button>
+        </div>
+        
+        <div id="pdfExportArea">
+            <div class="section-head">
+                <span>لوحة التحكم</span>
+                <h2>إدارة الحجوزات والمدفوعات</h2>
+                <p>مرحباً بك يا مهندس توماس في لوحة تحكم موقع AKA Tours</p>
+            </div>
+            <div class="trip-detail-box" style="padding: 30px;">
+                <h3 style="color: var(--dark); margin-bottom: 20px;">قائمة حجز العملاء:</h3>
+                <div id="adminBookingsList" style="color: #64748b; line-height: 1.8;">
+                    جاري تحميل الحجوزات من قاعدة البيانات...
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FLOATING ACTION BUTTONS (WhatsApp & Facebook) -->
+<div class="floating-buttons">
+    <a class="float-btn whatsapp-float" href="https://wa.me/201274692093" target="_blank" aria-label="WhatsApp">☎</a>
+    <a class="float-btn facebook-float" href="https://www.facebook.com/share/1CDwyKcXDT/" target="_blank" aria-label="Facebook">f</a>
+</div>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -1024,7 +1243,7 @@ section{
             <div>
                 <h3 data-i18n="booking">الحجز</h3>
                 <div class="footer-links">
-                    <a href="https://wa.me/201274692093" target="_blank" data-i18n="bookWhatsApp">احجز عبر واتساب</a>
+                    <a onclick="switchView('categoriesView')" data-i18n="bookWhatsApp">احجز الآن</a>
                     <a onclick="switchView('faqView')" data-i18n="faqNav">الأسئلة الشائعة</a>
                 </div>
             </div>
@@ -1039,16 +1258,46 @@ section{
     </div>
 </footer>
 
+<!-- FIREBASE INTEGRATION & MAIN SCRIPT -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-analytics.js";
+    import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyChpeC1F0wRSeE27DuyX0-NDgLTZ8yV9Qw",
+        authDomain: "aka-tours.firebaseapp.com",
+        projectId: "aka-tours",
+        storageBucket: "aka-tours.firebasestorage.app",
+        messagingSenderId: "97256049801",
+        appId: "1:97256049801:web:d9e31a0c2c03dc3fae8a58",
+        measurementId: "G-RV8MG7XE0B"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getFirestore(app);
+
+    window.db = db;
+    window.addDoc = addDoc;
+    window.getDocs = getDocs;
+    window.deleteDoc = deleteDoc;
+    window.doc = doc;
+    window.updateDoc = updateDoc;
+    window.collection = collection;
+</script>
+
 <script>
 let currentLanguage = "en";
 let activeCategory = "sea";
+let selectedTripObj = null;
 
 const translations = {
     ar:{
         home:"الرئيسية", categoriesNav:"الرحلات", aboutNav:"من نحن", reviewsNav:"آراء العملاء", faqNav:"الأسئلة", contactNav:"تواصل معنا",
         heroBadge:"اكتشف جمال مصر مع AKA", heroTitle:"مغامرتك في مصر تبدأ من هنا",
         heroText:"رحلات بحرية، سفاري، القاهرة، الأقصر وترانسيـفرات بخدمة احترافية وتجربة لا تُنسى.",
-        explore:"اكتشف الرحلات", bookWhatsApp:"احجز عبر واتساب",
+        explore:"اكتشف الرحلات", bookWhatsApp:"احجز الآن",
         discover:"اكتشف", categoriesTitle:"اختار تجربتك", categoriesText:"اختر نوع الرحلة التي تناسبك واستكشف جميع الخيارات المتاحة.",
         sea:"الرحلات البحرية والسبيد بوت", seaDesc:"بحر، جزر، غطس، سبيد بوت ودلافين",
         safari:"رحلات السفاري", safariDesc:"الصحراء والـ ATV والبدو",
@@ -1068,7 +1317,7 @@ const translations = {
         contactUs:"تواصل معنا", reviewsSmall:"آراء العملاء", reviewsTitle:"تجارب من عملائنا",
         review1:"تجربة جميلة جدًا والتنظيم كان ممتازًا.", review2:"الرحلة كانت رائعة والتواصل عبر واتساب كان سهل جدًا.", review3:"خدمة ممتازة وتجربة جميلة في البحر الأحمر.",
         faqSmall:"FAQ", faqTitle:"الأسئلة الشائعة",
-        faq1Q:"كيف يمكنني الحجز؟", faq1A:"يمكنك الضغط على زر الحجز عبر واتساب وإرسال تفاصيل الرحلة.",
+        faq1Q:"كيف يمكنني الحجز؟", faq1A:"يمكنك إدخال بياناتك وتاريخ الرحلة مباشرة لحفظها في النظام.",
         faq2Q:"هل يوجد Pickup من الفندق؟", faq2A:"نعم، حسب الرحلة والمنطقة والفندق.",
         faq3Q:"هل الرحلات خاصة أم مشتركة؟", faq3A:"توجد رحلات مشتركة وخاصة حسب نوع الرحلة.",
         faq4Q:"كيف أتواصل مع AKA؟", faq4A:"التواصل والحجز متاحان مباشرة عبر واتساب.",
@@ -1076,13 +1325,14 @@ const translations = {
         locationText:"الغردقة، الجونة، سهل حشيش، مكادي، سوما باي، سفاجا، القصير، مصر", languagesLabel:"اللغات",
         readyTitle:"هل أنت جاهز للحجز؟", readyText:"أرسل لنا اسم الرحلة والتاريخ وعدد الأشخاص وسنقوم بالرد عليك عبر واتساب.", messageWhatsApp:"راسلنا على واتساب",
         footerText:"اكتشف مصر معنا واستمتع برحلات بحرية وسفاري وتجارب سياحية مميزة.", quickLinks:"روابط سريعة", booking:"الحجز",
-        back:"رجوع", backHome:"الرئيسية", duration:"المدة", pickup:"Pickup", days:"الأيام", type:"النوع", description:"الوصف", itinerary:"برنامج الرحلة", included:"يشمل", notIncluded:"لا يشمل"
+        back:"رجوع", backHome:"الرئيسية", duration:"المدة", pickup:"Pickup", days:"الأيام", type:"النوع", description:"الوصف", itinerary:"برنامج الرحلة", included:"يشمل", notIncluded:"لا يشمل",
+        dbBookingTitle:"حجز سريع عبر قاعدة البيانات وواتساب", dbSubmitBtn:"تأكيد وحفظ الحجز وإرسال واتساب"
     },
     en:{
         home:"Home", categoriesNav:"Tours", aboutNav:"About", reviewsNav:"Reviews", faqNav:"FAQ", contactNav:"Contact",
         heroBadge:"Discover Egypt with AKA", heroTitle:"Your Egyptian adventure starts here",
         heroText:"Sea trips, safari, Cairo, Luxor and transfers with professional service and unforgettable experiences.",
-        explore:"Explore Tours", bookWhatsApp:"Book via WhatsApp",
+        explore:"Explore Tours", bookWhatsApp:"Book Now",
         discover:"Discover", categoriesTitle:"Choose Your Experience", categoriesText:"Choose the type of experience that suits you and explore all available options.",
         sea:"Sea & Speedboat Trips", seaDesc:"Sea, islands, snorkeling, speedboats and dolphins",
         safari:"Safari Trips", safariDesc:"Desert, ATV and Bedouin experience",
@@ -1102,7 +1352,7 @@ const translations = {
         contactUs:"Contact Us", reviewsSmall:"Reviews", reviewsTitle:"What Our Guests Say",
         review1:"A beautiful experience and excellent organization.", review2:"The trip was amazing and communication through WhatsApp was very easy.", review3:"Excellent service and a wonderful Red Sea experience.",
         faqSmall:"FAQ", faqTitle:"Frequently Asked Questions",
-        faq1Q:"How can I book?", faq1A:"Click the WhatsApp booking button and send us your trip details.",
+        faq1Q:"How can I book?", faq1A:"Enter your details and trip date directly to save them in the system.",
         faq2Q:"Is hotel pickup available?", faq2A:"Yes, depending on the trip, area and hotel.",
         faq3Q:"Are trips private or shared?", faq3A:"Both private and shared experiences are available depending on the trip.",
         faq4Q:"How can I contact AKA?", faq4A:"You can contact and book directly through WhatsApp.",
@@ -1110,13 +1360,14 @@ const translations = {
         locationText:"Hurghada, El Gouna, Sahl Hasheesh, Makadi, Soma Bay, Safaga, Al Quseir, Egypt", languagesLabel:"Languages",
         readyTitle:"Ready to book?", readyText:"Send us the trip name, date and number of guests and we will reply through WhatsApp.", messageWhatsApp:"Message us on WhatsApp",
         footerText:"Discover Egypt with us and enjoy sea trips, safari adventures and unforgettable experiences.", quickLinks:"Quick Links", booking:"Booking",
-        back:"Back", backHome:"Home", duration:"Duration", pickup:"Pickup", days:"Days", type:"Type", description:"Description", itinerary:"Itinerary", included:"Included", notIncluded:"Not Included"
+        back:"Back", backHome:"Home", duration:"Duration", pickup:"Pickup", days:"Days", type:"Type", description:"Description", itinerary:"Itinerary", included:"Included", notIncluded:"Not Included",
+        dbBookingTitle:"Fast Booking via Database & WhatsApp", dbSubmitBtn:"Confirm, Save & Send WhatsApp"
     },
     de:{
         home:"Startseite", categoriesNav:"Ausflüge", aboutNav:"Über uns", reviewsNav:"Bewertungen", faqNav:"FAQ", contactNav:"Kontakt",
         heroBadge:"Entdecke Ägypten mit AKA", heroTitle:"Dein Ägypten-Abenteuer beginnt hier",
         heroText:"Bootstouren, Safari, Kairo, Luxor und Transfers mit professionellem Service.",
-        explore:"Ausflüge entdecken", bookWhatsApp:"Über WhatsApp buchen",
+        explore:"Ausflüge entdecken", bookWhatsApp:"Jetzt buchen",
         discover:"Entdecken", categoriesTitle:"Wähle dein Erlebnis", categoriesText:"Wähle die passende Tour und entdecke unsere Angebote.",
         sea:"Bootstouren & Speedboat", seaDesc:"Meer, Inseln, Schnorcheln, Speedboat und Delfine",
         safari:"Safari", safariDesc:"Wüste, ATV und Beduinen",
@@ -1127,7 +1378,7 @@ const translations = {
         discoverTrips:"Details anzeigen",
         why:"Warum AKA?", whyTitle:"Ein besonderes Erlebnis von Anfang bis Ende",
         why1Title:"Professioneller Service", why1Text:"Wir kümmern uns um jedes Detail deiner Reise.",
-        why2Title:"Komfortabler Transfer", why2Text:"Pickup und Transfer nach deinen Bedürfnissen.",
+        why2Title:"Komfortabler Transfer", why2Test:"Pickup und Transfer nach deinen Bedürfnissen.",
         why3Title:"Vielfältige Erlebnisse", why3Text:"Meer, Safari, historische Orte und Transfers.",
         why4Title:"Einfache Buchung", why4Text:"Buche einfach direkt über WhatsApp.",
         aboutSmall:"Über AKA", aboutTitle:"Ägypten anders entdecken",
@@ -1136,7 +1387,7 @@ const translations = {
         contactUs:"Kontakt aufnehmen", reviewsSmall:"Bewertungen", reviewsTitle:"Was unsere Gäste sagen",
         review1:"Eine wunderschöne Erfahrung und sehr gute Organisation.", review2:"Die Tour war fantastisch und die Kommunikation über WhatsApp war sehr einfach.", review3:"Ausgezeichneter Service und eine tolle Erfahrung am Roten Meer.",
         faqSmall:"FAQ", faqTitle:"Häufige Fragen",
-        faq1Q:"Wie kann ich buchen?", faq1A:"Klicke auf den WhatsApp-Button und sende uns deine Reisedaten.",
+        faq1Q:"Wie kann ich buchen?", faq1A:"Geben Sie Ihre Daten und das Reisedatum direkt ein.",
         faq2Q:"Gibt es Hotelabholung?", faq2A:"Ja, abhängig von Tour, Gebiet und Hotel.",
         faq3Q:"Sind die Touren privat oder gemeinsam?", faq3A:"Je nach Tour sind private und gemeinsame Touren verfügbar.",
         faq4Q:"Wie kann ich AKA kontaktieren?", faq4A:"Kontakt und Buchung sind direkt über WhatsApp möglich.",
@@ -1144,13 +1395,14 @@ const translations = {
         locationText:"Hurghada, El Gouna, Sahl Hasheesh, Makadi, Soma Bay, Safaga, Al Quseir, Ägypten", languagesLabel:"Sprachen",
         readyTitle:"Bereit zu buchen?", readyText:"Sende uns Tourname, Datum und Anzahl der Personen.", messageWhatsApp:"Über WhatsApp schreiben",
         footerText:"Entdecke Ägypten mit uns und genieße unvergessliche Erlebnisse.", quickLinks:"Schnellzugriff", booking:"Buchung",
-        back:"Zurück", backHome:"Startseite", duration:"Dauer", pickup:"Abholung", days:"Tage", type:"Art", description:"Beschreibung", itinerary:"Programm", included:"Inklusive", notIncluded:"Nicht inklusive"
+        back:"Zurück", backHome:"Startseite", duration:"Dauer", pickup:"Abholung", days:"Tage", type:"Art", description:"Beschreibung", itinerary:"Programm", included:"Inklusive", notIncluded:"Nicht inklusive",
+        dbBookingTitle:"Schnellbuchung über Datenbank & WhatsApp", dbSubmitBtn:"Speichern & WhatsApp senden"
     },
     ru:{
         home:"Главная", categoriesNav:"Экскурсии", aboutNav:"О нас", reviewsNav:"Отзывы", faqNav:"FAQ", contactNav:"Контакты",
         heroBadge:"Откройте Египет с AKA", heroTitle:"Ваше приключение в Египте начинается здесь",
         heroText:"Морские экскурсии, сафари, Каир, Луксор и трансферы с профессиональным сервисом.",
-        explore:"Смотреть экскурсии", bookWhatsApp:"Забронировать в WhatsApp",
+        explore:"Смотреть экскурсии", bookWhatsApp:"Забронировать",
         discover:"Откройте", categoriesTitle:"Выберите впечатление", categoriesText:"Выберите подходящий тип экскурсии и изучите наши предложения.",
         sea:"Морские прогулки и спидботы", seaDesc:"Море, острова, снорклинг, спидботы и дельфины",
         safari:"Сафари", safariDesc:"Пустыня, ATV и бедуины",
@@ -1170,7 +1422,7 @@ const translations = {
         contactUs:"Связаться с нами", reviewsSmall:"Отзывы", reviewsTitle:"Отзывы наших гостей",
         review1:"Прекрасный опыт и отличная организация.", review2:"Экскурсия была замечательной, общаться через WhatsApp было очень удобно.", review3:"Отличный сервис и прекрасный опыт на Красном море.",
         faqSmall:"FAQ", faqTitle:"Часто задаваемые вопросы",
-        faq1Q:"Как забронировать?", faq1A:"Нажмите кнопку WhatsApp и отправьте нам данные поездки.",
+        faq1Q:"Как забронировать?", faq1A:"Введите свои данные и дату поездки прямо в систему.",
         faq2Q:"Есть ли трансфер из отеля?", faq2A:"Да, в зависимости от экскурсии, района и отеля.",
         faq3Q:"Экскурсии частные или групповые?", faq3A:"В зависимости от экскурсии доступны оба варианта.",
         faq4Q:"Как связаться с AKA?", faq4A:"Связаться с нами и забронировать можно напрямую через WhatsApp.",
@@ -1178,7 +1430,8 @@ const translations = {
         locationText:"Хургада, Эль-Гуна, Сахл-Хашиш, Макади, Сома-Бей, Сафага, Эль-Кусейр, Египет", languagesLabel:"Языки",
         readyTitle:"Готовы забронировать?", readyText:"Отправьте название экскурсии, дату и количество человек.", messageWhatsApp:"Написать в WhatsApp",
         footerText:"Откройте Египет вместе с нами и получите незабываемые впечатления.", quickLinks:"Быстрые ссылки", booking:"Бронирование",
-        back:"Назад", backHome:"Главная", duration:"Продолжительность", pickup:"Трансфер", days:"Дни", type:"Тип", description:"Описание", itinerary:"Программа", included:"Включено", notIncluded:"Не включено"
+        back:"Назад", backHome:"Главная", duration:"Продолжительность", pickup:"Трансфер", days:"Дни", type:"Тип", description:"Описание", itinerary:"Программа", included:"Включено", notIncluded:"Не включено",
+        dbBookingTitle:"Быстрое бронирование через БД и WhatsApp", dbSubmitBtn:"Сохранить и отправить в WhatsApp"
     }
 };
 
@@ -1200,9 +1453,8 @@ const trips = [
         },
         included:{ ar:["سيارة خاصة مكيفة","سائق محترف","متابعة مواعيد الطيران"], en:["Modern private AC vehicle","Professional driver","Flight tracking"], de:["Klimatisiertes Fahrzeug","Professioneller Fahrer","Flugverfolgung"], ru:["Автомобиль с кондиционером","Профессиональный водитель","Отслеживание рейсов"] },
         notIncluded:{ ar:["المصاريف غير المتفق عليها"], en:["Unagreed expenses"], de:["Zusatzkosten"], ru:["Неоговоренные расходы"] },
-        image:"MESHO.jpeg"
+        image:"TRAN.jpeg"
     },
-    // تم نقل رحلات السبيد بوت داخل قسم sea وترقيمها
     {
         id:7, category:"sea",
         title:{ ar:"رحلة سبيد بوت (3 ساعات)", en:"Speedboat Trip (3 Hours)", de:"Speedboat Tour (3 Stunden)", ru:"Прогулка на спидботе (3 часа)" },
@@ -1219,29 +1471,28 @@ const trips = [
             ru:["Трансфер из отеля к марине","Выезд на спидботе","Посещение 1-2 островов","Остановки для снорклинга","Возвращение с напитками"]
         },
         included:{ ar:["السبيد بوت الخاص/المشترك","معدات السنوركلينج","سوفت درينك ومياه معدنية","مرشد بحري"], en:["Speedboat","Snorkeling equipment","Soft drinks & water","Marine guide"], de:["Speedboat","Schnorchelausrüstung","Erfrischungsgetränke & Wasser","Guide"], ru:["Спидбот","Снаряжение для снорклинга","Напитки и вода","Гид"] },
-        notIncluded:{ ar:["رسوم دخول المح محمية (إن وجدت)"], en:["Protected area fees (if any)"], de:["Naturschutzgebietsgebühren"], ru:["Сборы за охраняемую территорию"] },
+        notIncluded:{ ar:["رسوم دخول المحمية (إن وجدت) والمصاريف الشخصية"], en:["Protected area fees (if any) & personal expenses"], de:["Naturschutzgebietsgebühren"], ru:["Сборы за охраняемую территорию"] },
         image:"speed2.jpg"
     },
     {
         id:8, category:"sea",
-        title:{ ar:"رحلة سبيد بوت (4 ساعات مع وجبة)", en:"Speedboat Trip (4 Hours)", de:"Speedboat Tour (4 Stunden mit Essen)", ru:"Прогулка на спидботе (4 часа с обедом)" },
-        intro:{ ar:"رحلة سبيد بوت ممتعة لمدة 4 ساعات تشمل زيارة جزر، سنوركلينج، سوفت درينك، ومياه، بالإضافة إلى وجبة خفيفة ولذيذة.", en:"An extended 4-hour speedboat trip including islands, snorkeling, soft drinks, water and a delicious meal.", de:"Eine 4-stündige Speedboat-Tour mit Inseln, Schnorcheln, Getränken und Mahlzeit.", ru:"Расширенная 4-часовая поездка на спидботе с островами, снорклингом, напитками и обедом." },
-        duration:{ ar:"4 ساعات", en:"4 Hours", de:"4 Stunden", ru:"4 часа" },
+        title:{ ar:"رحلة سبيد بوت (4 ساعات)", en:"Speedboat Trip (4 Hours)", de:"Speedboat Tour (4 Stunden)", ru:"Прогулка на спидботе (4 часа)" },
+        intro:{ ar:"رحلة سبيد بوت ممتعة لمدة 4 ساعات تشمل زيارة جزر متعددة، سنوركلينج، سوفت درينك، ومياه منعشة.", en:"An extended 4-hour speedboat trip including islands, snorkeling, soft drinks and refreshing water.", de:"Eine erweiterte 4-stündige Speedboat-Tour mit Inseln, Schnorcheln und Getränken.", ru:"Расширенная 4-часовая поездка на спидботе с островами, снорклингом и напитками." },
+        duration:{ ar:"4 ساعات", en:"4 Hours", de:"3 Stunden -> 4 Hours", ru:"4 часа" },
         pickup:{ ar:"من الفندق", en:"Hotel Pickup", de:"Hotelabholung", ru:"Трансфер из отеля" },
         days:{ ar:"يوميًا", en:"Daily", de:"Täglich", ru:"Ежедневно" },
         type:{ ar:"خاصة / مشتركة", en:"Private / Shared", de:"Privat / Gemeinsam", ru:"Индивидуальная / Групповая" },
-        description:{ ar:"تجربة سبيد بوت مميزة لمدة 4 ساعات لمن يرغب في قضاء وقت أطول بالبحر، تشمل زيارة الجزر، السنوركلينج، المشروبات، ووجبة شهية على الشاطئ أو المركب.", en:"A premium 4-hour speedboat experience with extended island visits, snorkeling, drinks, and a meal.", de:"Ein erstklassiges 4-stündiges Speedboat-Erlebnis mit Inseln, Schnorcheln, Getränken und Mahlzeit.", ru:"Премиальная 4-часовая поездка на спидботе с посещением островов, снорклингом, напитками и едой." },
+        description:{ ar:"تجربة سبيد بوت متميزة لمدة 4 ساعات لمن يرغب في قضاء وقت أطول بالبحر واستكشاف الجزر وممارسة السنوركلينج بحرية مع تقديم المشروبات الباردة والمياه طوال الرحلة.", en:"A premium 4-hour speedboat experience with extended island visits, snorkeling, and refreshing drinks included.", de:"Ein erstklassiges 4-stündiges Speedboat-Erlebnis mit Inseln, Schnorcheln und Getränken.", ru:"Премиальная 4-часовая поездка на спидботе с посещением островов, снорклингом и напитками." },
         itinerary:{
-            ar:["الاستلام من الفندق","الانطلاق بالسبيد بوت","جولة لزيارة جزيرة أو اتنين","وقت إضافي للسنوركلينج والاستجمام","تناول الوجبة والمشروبات","العودة للمارينا والفندق"],
-            en:["Hotel pickup","Speedboat departure","Island tour (1-2 islands)","Extended snorkeling time","Meal and drinks","Return to marina"],
-            de:["Hotelabholung","Speedboat-Abfahrt","Inseltour","Erweiterte Schnorchelzeit","Mahlzeit & Getränke","Rückkehr"],
-            ru:["Трансфер из отеля","Выезд на спидботе","Тур по островам","Расширенное время для снорклинга","Обед и напитки","Возвращение"]
+            ar:["الاستلام من الفندق","الانطلاق بالسبيد بوت","جولة لزيارة عدة جزر مميزة","وقت إضافي للسنوركلينج والاستجمام","تقديم المشروبات الباردة والمياه","العودة للمارينا والفندق"],
+            en:["Hotel pickup","Speedboat departure","Island tour","Extended snorkeling time","Soft drinks & water provided","Return to marina"],
+            de:["Hotelabholung","Speedboat-Abfahrt","Inseltour","Erweiterte Schnorchelzeit","Getränke & Wasser","Rückkehr"],
+            ru:["Трансфер из отеля","Выезд на спидботе","Тур по островам","Расширенное время для снорклинга","Напитки и вода","Возвращение"]
         },
-        included:{ ar:["السبيد بوت","معدات السنوركلينج","وجبة خفيفة / غداء","سوفت درينك ومياه"], en:["Speedboat","Snorkeling gear","Meal / Lunch","Soft drinks & water"], de:["Speedboat","Schnorchelausrüstung","Mahlzeit / Mittagessen","Getränke & Wasser"], ru:["Спидбот","Снаряжение","Обед","Напитки и вода"] },
-        notIncluded:{ ar:["المصاريف الشخصية"], en:["Personal expenses"], de:["Persönliche Ausgaben"], ru:["Личные расходы"] },
+        included:{ ar:["السبيد بوت","معدات السنوركلينج","سوفت درينك ومياه معدنية","مرشد بحري"], en:["Speedboat","Snorkeling gear","Soft drinks & water","Marine guide"], de:["Speedboat","Schnorchelausrüstung","Getränke & Wasser","Guide"], ru:["Спидбот","Снаряжение","Напитки и вода","Гид"] },
+        notIncluded:{ ar:["المصاريف الشخصية ورسوم المحمية"], en:["Personal expenses & protected area fees"], de:["Persönliche Ausgaben"], ru:["Личные расходы"] },
         image:"speed1.jpg"
     },
-    // إضافة رحلة "هولا هولا" داخل قسم sea
     {
         id:9, category:"sea",
         title:{ ar:"رحلة شاطئ هولا هولا (Hula Hula Island)", en:"Hula Hula Beach Trip", de:"Hula Hula Strandtour", ru:"Поездка на пляж Хула Хула" },
@@ -1268,7 +1519,7 @@ const trips = [
         duration:{ ar:"عدة ساعات", en:"Several Hours", de:"Mehrere Stunden", ru:"Несколько часов" },
         pickup:{ ar:"من الفندق", en:"Hotel Pickup", de:"Hotelabholung", ru:"Трансфер из отеля" },
         days:{ ar:"يوميًا", en:"Daily", de:"Täglich", ru:"Ежедневно" },
-        type:{ ar:"مشتركة / خاصة", en:"Shared / Private", de:"Gemeinsam / Privat", ru:"Групповая / Индивидуальная" },
+        type:{ ar:"مشتركة / خاصة", en:"Shared / Private", de:"Gemeinsam / Privat", ru:"Индивидуальная / Групповая" },
         description:{ ar:"جولة سياحية استكشافية داخل مدينة الغردقة للتعرف على الحياة المحلية وزيارة أشهر معالم المدينة.", en:"An exploratory city tour in Hurghada to experience local life and visit landmarks.", de:"Eine Entdeckungstour durch Hurghada.", ru:"Обзорная экскурсия по Хургаде." },
         itinerary:{
             ar:["الاستلام من الفندق","زيارة المسجد الكبير وكنيسة العذراء","جولة في ممشى المارينا","التسوق في الأسوق التقليدية"],
@@ -1324,35 +1575,186 @@ const trips = [
     },
     {
         id:4, category:"cairo",
-        title:{ ar:"Cairo & Pyramids", en:"Cairo & Pyramids", de:"Kairo & Pyramiden", ru:"Каир и пирамиды" },
-        intro:{ ar:"اكتشف أهرامات الجيزة وأشهر معالم القاهرة في رحلة مليئة بالتاريخ.", en:"Discover the Giza Pyramids and highlights of Cairo.", de:"Entdecken Sie die Pyramiden von Gizeh.", ru:"Посетите пирамиды Гизы и Каир." },
-        duration:{ ar:"يوم كامل", en:"Full Day", de:"Ganztägig", ru:"Целый день" },
-        pickup:{ ar:"من الفندق", en:"Hotel Pickup", de:"Hotelabholung", ru:"Трансфер из отеля" },
-        days:{ ar:"حسب الجدول", en:"Schedule-based", de:"Nach Plan", ru:"По графику" },
-        type:{ ar:"خاصة / مشتركة", en:"Private / Shared", de:"Privat / Gemeinsam", ru:"Индивидуальная / Групповая" },
-        description:{ ar:"رحلة إلى القاهرة لزيارة أهرامات الجيزة وأبو الهول وأهم المعالم التاريخية.", en:"A trip to Cairo visiting the Giza Pyramids and Sphinx.", de:"Eine Reise nach Kairo zu den Pyramiden.", ru:"Поездка в Каир с посещением пирамид." },
-        itinerary:{ ar:["التحرك من الفندق فجراً","السفر إلى القاهرة","زيارة الأهرامات وأبو الهول","تناول الغداء","العودة"], en:["Early pickup","Drive to Cairo","Pyramids & Sphinx","Lunch","Return"], de:["Frühe Abholung","Fahrt nach Kairo","Pyramiden","Mittagessen","Rückkehr"], ru:["Ранний трансфер","Поездка в Каир","Пирамиды и Сфинкс","Обед","Возвращение"] },
-        included:{ ar:["التوصيل","الانتقالات","مرشد سياحي"], en:["Transportation","Transfers","Guide"], de:["Transport","Transfer","Guide"], ru:["Трансфер","Гиды"] },
-        notIncluded:{ ar:["تذاكر الدخول غير المذكورة"], en:["Tickets not mentioned"], de:["Tickets"], ru:["Билеты"] },
+        title:{ 
+            ar: "رحلة القاهرة والأهرامات", 
+            en: "Cairo & Pyramids Day Tour", 
+            de: "Kairo & Pyramiden Tagestour", 
+            ru: "Экскурсия в Каир и пирамиды" 
+        },
+        intro:{ 
+            ar: "اكتشف أهرامات الجيزة، أبو الهول، وأشهر معالم القاهرة في رحلة مليئة بالتاريخ.", 
+            en: "Discover the Giza Pyramids, Sphinx, and highlights of Cairo in a history-filled trip.", 
+            de: "Entdecken Sie die Pyramiden von Gizeh und die Highlights von Kairo.", 
+            ru: "Посетите пирамиды Гизы, Сфинкса и достопримечательности Каира." 
+        },
+        duration:{ 
+            ar: "يوم كامل", 
+            en: "Full Day", 
+            de: "Ganztägig", 
+            ru: "Целый день" 
+        },
+        pickup:{ 
+            ar: "من الفندق فجراً", 
+            en: "Early Hotel Pickup", 
+            de: "Frühe Hotelabholung", 
+            ru: "Ранний трансфер из отеля" 
+        },
+        days:{ 
+            ar: "حسب الجدول", 
+            en: "Schedule-based", 
+            de: "Nach Plan", 
+            ru: "По графику" 
+        },
+        type:{ 
+            ar: "خاصة / مشتركة", 
+            en: "Private / Shared", 
+            de: "Privat / Gemeinsam", 
+            ru: "Индивидуальная / Групповая" 
+        },
+        description:{ 
+            ar: "رحلة استثنائية من الغردقة إلى القاهرة لزيارة أهرامات الجيزة الخالدة، تمثال أبو الهول، ومعالم التاريخ العريقة برفقة مرشد سياحي متخصص.", 
+            en: "An exceptional trip from Hurghada to Cairo to visit the timeless Giza Pyramids, the Sphinx, and historical landmarks with an expert guide.", 
+            de: "Eine außergewöhnliche Reise von Hurghada nach Kairo zu den Pyramiden von Gizeh und historischen Sehenswürdigkeiten.", 
+            ru: "Исключительная поездка из Хургады в Каир к пирамидам Гизы и историческим достопримечательностям с гидом." 
+        },
+        itinerary:{
+            ar: [
+                "التحرك فجراً من الفندق والسفر إلى القاهرة",
+                "الوصول وزيارة أهرامات الجيزة الثلاثة وأبو الهول",
+                "الاستمتاع بتناول الغداء في مطعم متميز",
+                "جولة استكشافية لأبرز معالم القاهرة التاريخية",
+                "العودة إلى الفندق مساءً"
+            ],
+            en: [
+                "Early morning departure from hotel and travel to Cairo",
+                "Arrive and visit the three Giza Pyramids and the Sphinx",
+                "Enjoy lunch at a distinctive restaurant",
+                "Exploratory tour of Cairo's historical landmarks",
+                "Return to the hotel in the evening"
+            ],
+            de: [
+                "Frühmorgendliche Abfahrt vom Hotel und Fahrt nach Kairo",
+                "Besuch der drei Pyramiden von Gizeh und der Sphinx",
+                "Mittagessen in einem guten Restaurant",
+                "Erkundungstour durch die historischen Sehenswürdigkeiten von Kairo",
+                "Rückkehr zum Hotel am Abend"
+            ],
+            ru: [
+                "Ранний выезд из отеля и поездка в Каир",
+                "Посещение трех пирамид Гизы и Сфинкса",
+                "Обед в хорошем ресторане",
+                "Обзорная экскурсия по историческим местам Каира",
+                "Возвращение в отель вечером"
+            ]
+        },
+        included:{ 
+            ar: ["التوصيل والانتقالات الحديثة", "مرشد سياحي محترف", "وجبة الغداء"], 
+            en: ["Modern transfers", "Professional tour guide", "Lunch"], 
+            de: ["Moderne Transfers", "Professioneller Reiseleiter", "Mittagessen"], 
+            ru: ["Трансферы", "Профессиональный гид", "Обед"] 
+        },
+        notIncluded:{ 
+            ar: ["تذاكر الدخول للمواقع الداخلية (مثل هرم من الداخل) والمصاريف الشخصية"], 
+            en: ["Inner monument tickets (e.g., inside pyramids) and personal expenses"], 
+            de: ["Eintrittskarten für das Innere der Pyramiden und persönliche Ausgaben"], 
+            ru: ["Билеты внутрь пирамид и личные расходы"] 
+        },
         image:"https://images.unsplash.com/photo-1568322445389-f64ac2515020?auto=format&fit=crop&w=1200&q=85"
     },
     {
-        id:5, category:"luxor",
-        title:{ ar:"Luxor & Temples", en:"Luxor & Temples", de:"Luxor & Tempel", ru:"Луксор и храмы" },
-        intro:{ ar:"اكتشف معابد الأقصر وآثار الحضارة المصرية القديمة في رحلة تاريخية.", en:"Discover the temples of Luxor and ancient Egyptian heritage.", de:"Entdecken Sie die Tempel von Luxor.", ru:"Откройте храмы Луксора." },
-        duration:{ ar:"يوم كامل", en:"Full Day", de:"Ganztägig", ru:"Целый день" },
-        pickup:{ ar:"من الفندق", en:"Hotel Pickup", de:"Hotelabholung", ru:"Трансфер из отеля" },
-        days:{ ar:"حسب الجدول", en:"Schedule-based", de:"Nach Plan", ru:"По графику" },
-        type:{ ar:"خاصة / مشتركة", en:"Private / Shared", de:"Privat / Gemeinsam", ru:"Индивидуальная / Групповая" },
-        description:{ ar:"رحلة إلى الأقصر لاستكشاف معابد الكرنك والدير البحري ومواقع التاريخ القديم.", en:"A journey to Luxor to explore temples and archaeological sites.", de:"Reise nach Luxor zu den Tempeln.", ru:"Поездка в Луксор для осмотра храмов." },
-        itinerary:{ ar:["التحرك فجراً","السفر للأقصر","زيارة المعابد الكبرى","الغداء","العودة"], en:["Early pickup","Drive to Luxor","Temple visits","Lunch","Return"], de:["Frühe Abholung","Fahrt nach Luxor","Tempelbesuche","Mittagessen","Rückkehr"], ru:["Ранний трансфер","Поездка в Луксор","Храмы","Обед","Возвращение"] },
-        included:{ ar:["التوصيل","الانتقالات","مرشد سياحي"], en:["Transportation","Transfers","Guide"], de:["Transport","Transfer","Guide"], ru:["Трансфер","Гиды"] },
-        notIncluded:{ ar:["تذاكر الدخول غير المذكورة"], en:["Tickets not mentioned"], de:["Tickets"], ru:["Билеты"] },
-        image:"https://images.pexels.com/photos/35433021/pexels-photo-35433021.jpeg?auto=compress&cs=tinysrgb&w=1400"
+        id: 5, category: "luxor",
+        title: { 
+            ar: "رحلة الأقصر ومعابد التاريخ القديم", 
+            en: "Luxor & Temples Day Tour", 
+            de: "Luxor & Tempel Tagestour", 
+            ru: "Экскурсия в Луксор и храмы" 
+        },
+        intro: { 
+            ar: "استكشف معابد الكرنك، وادي الملوك، ومعبد حتشبسوت في رحلة تاريخية ساحرة بالأقصر.", 
+            en: "Explore Karnak Temple, Valley of the Kings, and Hatshepsut Temple in a magical historical tour.", 
+            de: "Entdecken Sie den Karnak-Tempel, das Tal der Könige und den Hatschepsut-Tempel.", 
+            ru: "Исследуйте Карнакский храм, Долину царей и храм Хатшепсут." 
+        },
+        duration: { 
+            ar: "يوم كامل", 
+            en: "Full Day", 
+            de: "Ganztägig", 
+            ru: "Целый день" 
+        },
+        pickup: { 
+            ar: "من الفندق مبكراً", 
+            en: "Early Hotel Pickup", 
+            de: "Frühe Hotelabholung", 
+            ru: "Ранний трансфер из отеля" 
+        },
+        days: { 
+            ar: "حسب الجدول", 
+            en: "Schedule-based", 
+            de: "Nach Plan", 
+            ru: "По графику" 
+        },
+        type: { 
+            ar: "خاصة / مشتركة", 
+            en: "Private / Shared", 
+            de: "Privat / Gemeinsam", 
+            ru: "Индивидуальная / Групповая" 
+        },
+        description: { 
+            ar: "رحلة استثنائية من الغردقة إلى مدينة الأقصر عاصمة التاريخ القديم، لاستكشاف أسرار الفراعنة في البر الشرقي والغربي، مع مرشد سياحي متخصص يروي لك قصص المعابد والأساطير.", 
+            en: "An exceptional trip from Hurghada to Luxor, the capital of ancient history, to explore the secrets of the Pharaohs on the East and West banks with an expert guide.", 
+            de: "Eine außergewöhnliche Reise von Hurghada nach Luxor, um die Geheimnisse der Pharaonen zu erkunden.", 
+            ru: "Исключительная поездка из Хургады в Луксор для изучения тайн фараонов." 
+        },
+        itinerary: {
+            ar: [
+                "التحرك فجراً من الفندق في سيارة مكيفة",
+                "الوصول للأقصر وزيارة معبد الكرنك العظيم في البر الشرقي",
+                "تناول الغداء في مطعم متميز",
+                "العبور للبر الغربي وزيارة وادي الملوك ومعبد الملكة حتشبسوت",
+                "التوقف عند تمثالي ممنون لالتقاط الصور التذكارية",
+                "العودة إلى الفندق مساءً"
+            ],
+            en: [
+                "Early morning departure from hotel in an AC vehicle",
+                "Arrive in Luxor and visit the grand Karnak Temple on the East Bank",
+                "Lunch at a distinctive restaurant",
+                "Cross to the West Bank to visit the Valley of the Kings and Hatshepsut Temple",
+                "Stop at the Colossi of Memnon for photos",
+                "Return to the hotel in the evening"
+            ],
+            de: [
+                "Frühmorgendliche Abfahrt vom Hotel im klimatisierten Fahrzeug",
+                "Ankunft in Luxor und Besuch des Karnak-Tempels",
+                "Mittagessen in einem guten Restaurant",
+                "Besuch des Tals der Könige und des Hatschepsut-Tempels",
+                "Stopp bei den Memnonkolossen",
+                "Rückkehr zum Hotel am Abend"
+            ],
+            ru: [
+                "Ранний выезд из отеля на машине с кондиционером",
+                "Прибытие в Луксор и посещение Карнакского храма",
+                "Обед в хорошем ресторане",
+                "Посещение Долины царей и храма Хатшепсут на Западном берегу",
+                "Остановка у Колоссов Мемнона",
+                "Возвращение в отель вечером"
+            ]
+        },
+        included: { 
+            ar: ["التوصيل والانتقالات الحديثة", "مرشد سياحي أثري متميز", "تذاكر الدخول للمواقع المذكورة", "وجبة الغداء"], 
+            en: ["Modern transfers", "Professional expert tour guide", "Entrance tickets to mentioned sites", "Lunch"], 
+            de: ["Moderne Transfers", "Professioneller Reiseleiter", "Eintrittskarten", "Mittagessen"], 
+            ru: ["Трансферы", "Профессиональный гид", "Входные билеты", "Обед"] 
+        },
+        notIncluded: { 
+            ar: ["المشروبات الشخصية والمصاريف الإضافية"], 
+            en: ["Personal drinks and extra expenses"], 
+            de: ["Persönliche Getränke und Ausgaben"], 
+            ru: ["Личные напитки и расходы"] 
+        },
+        image: "https://images.pexels.com/photos/35433021/pexels-photo-35433021.jpeg?auto=compress&cs=tinysrgb&w=1400"
     }
 ];
 
-/* ROUTER, HISTORY API & UI LOGIC */
 function switchView(viewId, pushHistory = true){
     document.querySelectorAll(".app-view").forEach(v => v.classList.remove("active"));
     const target = document.getElementById(viewId);
@@ -1392,6 +1794,7 @@ function openCategory(catKey, pushHistory = true){
 function openTripDetail(tripId, pushHistory = true){
     const trip = trips.find(t => t.id === tripId);
     if(!trip) return;
+    selectedTripObj = trip;
 
     document.querySelectorAll(".app-view").forEach(v => v.classList.remove("active"));
     document.getElementById("tripDetailView").classList.add("active");
@@ -1409,9 +1812,6 @@ function openTripDetail(tripId, pushHistory = true){
     document.getElementById("detailItinerary").innerHTML = trip.itinerary[currentLanguage].map(i => `<li>${i}</li>`).join("");
     document.getElementById("detailIncluded").innerHTML = trip.included[currentLanguage].map(i => `<li>${i}</li>`).join("");
     document.getElementById("detailNotIncluded").innerHTML = trip.notIncluded[currentLanguage].map(i => `<li>${i}</li>`).join("");
-
-    const msg = `Hello 👋%0A%0AI would like to book:%0A${trip.title[currentLanguage]}%0A%0APlease send me details.`;
-    document.getElementById("detailWhatsAppBtn").href = `https://wa.me/201274692093?text=${msg}`;
 
     window.scrollTo({top:0, behavior:"smooth"});
 
@@ -1487,31 +1887,162 @@ function toggleMenu(){
 
 function toggleFaq(button){
     const item = button.parentElement;
-    document.querySelectorAll(".faq-item").forEach(faq=>{
-        if(faq !== item) faq.classList.remove("active");
+    document.querySelectorAll(".faq-item").forEach(i => {
+        if(i !== item) i.classList.remove("active");
     });
     item.classList.toggle("active");
 }
 
-/* Mobile Back Button Handler (History API) */
+/* =========================
+   ADMIN LOGO 4-CLICKS SYSTEM
+========================= */
+let logoClickCount = 0;
+let logoTimer = null;
+
+document.getElementById("adminLogoBtn").addEventListener("click", function() {
+    logoClickCount++;
+    
+    if(logoTimer) clearTimeout(logoTimer);
+
+    if(logoClickCount === 4) {
+        logoClickCount = 0;
+        let password = prompt("أدخل كلمة المرور للوحة التحكم:");
+        if(password === "AKA123456") {
+            switchView('adminDashboardView');
+            loadAdminBookings();
+        } else if(password !== null) {
+            alert("كلمة المرور غير صحيحة!");
+        }
+        return;
+    }
+
+    logoTimer = setTimeout(() => {
+        logoClickCount = 0;
+    }, 1000);
+});
+
+async function loadAdminBookings() {
+    const container = document.getElementById("adminBookingsList");
+    container.innerHTML = "جاري التحميل...";
+    try {
+        const querySnapshot = await window.getDocs(window.collection(window.db, "bookings"));
+        if(querySnapshot.empty) {
+            container.innerHTML = "<p>لا توجد حجوزات مسجلة حتى الآن.</p>";
+            return;
+        }
+        let html = "<ul style='list-style: none; padding: 0;'>";
+        querySnapshot.forEach((docSnap) => {
+            let data = docSnap.data();
+            let docId = docSnap.id;
+            let dateStr = data.timestamp ? new Date(data.timestamp.toDate()).toLocaleString() : "وقت غير محدد";
+            let isPaid = data.paid || false;
+
+            html += `<li id="booking-${docId}" style="background: var(--light); padding: 20px; margin-bottom: 15px; border-radius: 12px; border: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                <div>
+                    <strong>الرحلة:</strong> ${data.tripName}<br>
+                    <strong>اسم العميل:</strong> ${data.clientName}<br>
+                    <strong>رقم الهاتف:</strong> ${data.clientPhone}<br>
+                    <strong>تاريخ الرحلة:</strong> ${data.tripDate || 'غير محدد'}<br>
+                    <small style="color: #94a3b8;">وقت الحجز بالنظام: ${dateStr}</small>
+                </div>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <button onclick="togglePaymentStatus('${docId}', ${isPaid})" class="btn" style="padding: 8px 14px; font-size: 13px; background: ${isPaid ? '#22c55e' : '#f59e0b'}; color: white;">
+                        ${isPaid ? '✅ مدفوع (Paid)' : '⏳ غير مدفوع (Unpaid)'}
+                    </button>
+                    <button onclick="deleteBooking('${docId}')" class="btn" style="padding: 8px 14px; font-size: 13px; background: #ef4444; color: white;">
+                        🗑 حذف
+                    </button>
+                </div>
+            </li>`;
+        });
+        html += "</ul>";
+        container.innerHTML = html;
+    } catch (error) {
+        console.error("Error loading bookings: ", error);
+        container.innerHTML = "<p style='color: red;'>حدث خطأ أثناء جلب الحجوزات من قاعدة البيانات.</p>";
+    }
+}
+
+window.togglePaymentStatus = async function(docId, currentStatus) {
+    try {
+        const bookingRef = window.doc(window.db, "bookings", docId);
+        await window.updateDoc(bookingRef, {
+            paid: !currentStatus
+        });
+        loadAdminBookings();
+    } catch (error) {
+        console.error("Error updating payment status: ", error);
+        alert("حدث خطأ أثناء تحديث حالة الدفع.");
+    }
+}
+
+window.deleteBooking = async function(docId) {
+    if(confirm("هل أنت متأكد من حذف هذا الحجز نهائياً؟")) {
+        try {
+            await window.deleteDoc(window.doc(window.db, "bookings", docId));
+            loadAdminBookings();
+        } catch (error) {
+            console.error("Error deleting booking: ", error);
+            alert("حدث خطأ أثناء محاولة الحذف.");
+        }
+    }
+}
+
+window.exportDashboardPDF = function() {
+    const element = document.getElementById('pdfExportArea');
+    const options = {
+        margin:       10,
+        filename:     'AKA-Bookings-Report.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().from(element).set(options).save();
+}
+
+document.getElementById("firebaseBookingForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const clientName = document.getElementById("clientNameInput").value;
+    const clientPhone = document.getElementById("clientPhoneInput").value;
+    const clientDate = document.getElementById("clientDateInput").value;
+
+    if(!selectedTripObj) return;
+
+    try {
+        await window.addDoc(window.collection(window.db, "bookings"), {
+            tripName: selectedTripObj.title.en,
+            clientName: clientName,
+            clientPhone: clientPhone,
+            tripDate: clientDate,
+            paid: false,
+            timestamp: new Date()
+        });
+        alert("تم حفظ الحجز بنجاح في قاعدة البيانات! سيتم تحويلك إلى واتساب الآن.");
+    } catch (error) {
+        console.error("Error adding document: ", error);
+        alert("حدث خطأ أثناء حفظ الحجز، سيتم تحويلك إلى واتساب مباشرة.");
+    }
+
+    const bookingMsg = `Hello 👋%0A%0AI would like to book:%0A${selectedTripObj.title[currentLanguage]}%0A%0A📅 Trip Date: ${clientDate}%0AMy Name: ${clientName}%0APhone: ${clientPhone}`;
+    window.open(`https://wa.me/201274692093?text=${bookingMsg}`, "_blank");
+});
+
 window.addEventListener('popstate', function(event) {
-    if (event.state && event.state.view) {
-        if(event.state.view === 'categoryTripsView' && event.state.category){
+    if(event.state && event.state.view){
+        const view = event.state.view;
+        if(view === 'categoryTripsView' && event.state.category){
             openCategory(event.state.category, false);
-        } else if(event.state.view === 'tripDetailView' && event.state.tripId){
+        } else if(view === 'tripDetailView' && event.state.tripId){
             openTripDetail(event.state.tripId, false);
         } else {
-            switchView(event.state.view, false);
+            switchView(view, false);
         }
     } else {
         switchView('homeView', false);
     }
 });
 
-document.addEventListener("DOMContentLoaded", function(){
-    history.replaceState({ view: 'homeView' }, '', window.location.pathname);
-    changeLanguage("en");
-});
+changeLanguage("en");
 </script>
 
 </body>
