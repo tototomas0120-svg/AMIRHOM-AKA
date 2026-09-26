@@ -13,6 +13,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 :root{
@@ -27,6 +28,24 @@
     --shadow:0 15px 40px rgba(9,44,60,.12);
     --radius:22px;
     --glow-color: rgba(14, 165, 168, 0.4);
+    --bg-body:#fff;
+    --card-bg:#fff;
+    --text-muted:#64748b;
+}
+
+[data-theme="dark"]{
+    --primary:#0ea5a8;
+    --primary-dark:#0bb3b6;
+    --secondary:#1e293b;
+    --dark:#f8fafc;
+    --text:#cbd5e1;
+    --light:#0f172a;
+    --white:#1e293b;
+    --border:#334155;
+    --shadow:0 15px 40px rgba(0,0,0,.4);
+    --bg-body:#0b0f19;
+    --card-bg:#1e293b;
+    --text-muted:#94a3b8;
 }
 
 html{
@@ -36,7 +55,7 @@ html{
 body{
     font-family:Arial, Tahoma, sans-serif;
     color:var(--text);
-    background:#fff;
+    background:var(--bg-body);
     overflow-x:hidden;
 }
 
@@ -67,10 +86,10 @@ button{
     left:0;
     width:100%;
     z-index:1000;
-    background:rgba(255,255,255,.92);
+    background:var(--card-bg);
     backdrop-filter:blur(14px);
     -webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid rgba(226,232,240,.8);
+    border-bottom:1px solid var(--border);
     box-shadow: 0 4px 20px rgba(0,0,0,.03);
 }
 
@@ -109,7 +128,7 @@ button{
 }
 
 .nav-links a{
-    color:#475569;
+    color:var(--text-muted);
     font-weight:700;
     transition:.25s;
     cursor:pointer;
@@ -141,9 +160,9 @@ button{
     gap:10px;
 }
 
-.language-select{
+.language-select, .theme-toggle-btn{
     border:1px solid var(--border);
-    background:white;
+    background:var(--card-bg);
     border-radius:10px;
     padding:9px 12px;
     outline:none;
@@ -153,20 +172,21 @@ button{
     transition: all 0.3s ease;
 }
 
-.language-select:hover {
+.language-select:hover, .theme-toggle-btn:hover {
     border-color: var(--primary);
     box-shadow: 0 0 10px var(--glow-color);
 }
 
-.mobile-lang-box {
+.mobile-box {
     display: none;
     margin-top: 15px;
     padding-top: 15px;
     border-top: 1px solid var(--border);
     width: 100%;
+    gap: 10px;
 }
 
-.mobile-lang-box select {
+.mobile-box select {
     width: 100%;
     padding: 10px;
     border-radius: 10px;
@@ -183,7 +203,7 @@ button{
     height:42px;
     border:0;
     border-radius:12px;
-    background:#edfafa;
+    background:var(--light);
     color:var(--dark);
     font-size:22px;
     transition: 0.3s;
@@ -337,7 +357,7 @@ section{
 
 .section-head p{
     line-height:1.8;
-    color:#64748b;
+    color:var(--text-muted);
 }
 
 /* =========================
@@ -417,7 +437,7 @@ section{
     border:1px solid var(--border);
     border-radius:var(--radius);
     overflow:hidden;
-    background:white;
+    background:var(--card-bg);
     box-shadow:0 8px 25px rgba(15,61,86,.05);
     transition:all 0.4s ease;
 }
@@ -471,7 +491,7 @@ section{
 }
 
 .trip-content p{
-    color:#64748b;
+    color:var(--text-muted);
     line-height:1.7;
     min-height:55px;
     margin-bottom:18px;
@@ -483,7 +503,7 @@ section{
     gap:15px;
     flex-wrap:wrap;
     margin-bottom:18px;
-    color:#475569;
+    color:var(--text);
     font-size:13px;
     font-weight: 700;
 }
@@ -502,11 +522,11 @@ section{
 ========================= */
 .why{ background:var(--light); }
 .why-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
-.why-card{ background:white; padding:30px 24px; border-radius:var(--radius); text-align:center; box-shadow:0 8px 25px rgba(15,61,86,.04); border: 1px solid rgba(226,232,240,0.6); transition: all 0.3s ease; }
+.why-card{ background:var(--card-bg); padding:30px 24px; border-radius:var(--radius); text-align:center; box-shadow:0 8px 25px rgba(15,61,86,.04); border: 1px solid var(--border); transition: all 0.3s ease; }
 .why-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(14, 165, 168, 0.15); border-color: var(--primary); }
 .why-icon{ width:65px; height:65px; margin:0 auto 18px; border-radius:20px; display:flex; align-items:center; justify-content:center; background:#e7fafa; font-size:28px; box-shadow: 0 4px 15px rgba(14, 165, 168, 0.2); }
 .why-card h3{ color:var(--dark); margin-bottom:10px; font-size: 18px; }
-.why-card p{ line-height:1.7; color:#64748b; font-size:14px; }
+.why-card p{ line-height:1.7; color:var(--text-muted); font-size:14px; }
 
 .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
 .about-image{ height:500px; border-radius:30px; overflow:hidden; box-shadow:var(--shadow); position: relative; }
@@ -515,23 +535,23 @@ section{
 .about-image:hover img { transform: scale(1.03); }
 .about-content span{ color:var(--primary); font-weight:900; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
 .about-content h2{ color:var(--dark); font-size:38px; margin:12px 0 20px; }
-.about-content p{ line-height:1.9; color:#64748b; margin-bottom:16px; }
+.about-content p{ line-height:1.9; color:var(--text-muted); margin-bottom:16px; }
 
 .reviews{ background:var(--light); }
 .review-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-.review-card{ background:white; padding:30px; border-radius:var(--radius); box-shadow:0 8px 25px rgba(15,61,86,.04); border: 1px solid rgba(226,232,240,0.6); transition: all 0.3s ease; }
+.review-card{ background:var(--card-bg); padding:30px; border-radius:var(--radius); box-shadow:0 8px 25px rgba(15,61,86,.04); border: 1px solid var(--border); transition: all 0.3s ease; }
 .review-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(14, 165, 168, 0.15); }
 .stars{ color:#f59e0b; margin-bottom:14px; font-size:18px; letter-spacing: 2px; }
-.review-card p{ line-height:1.8; color:#475569; margin-bottom:20px; font-style: italic; }
+.review-card p{ line-height:1.8; color:var(--text); margin-bottom:20px; font-style: italic; }
 .reviewer{ font-weight:900; color:var(--dark); display: flex; align-items: center; gap: 8px; }
 .reviewer::before { content: '👤'; font-size: 14px; }
 
 .faq-list{ max-width:850px; margin:auto; }
-.faq-item{ border:1px solid var(--border); border-radius:16px; margin-bottom:14px; overflow:hidden; background:white; box-shadow: 0 4px 15px rgba(0,0,0,.02); transition: all 0.3s ease; }
+.faq-item{ border:1px solid var(--border); border-radius:16px; margin-bottom:14px; overflow:hidden; background:var(--card-bg); box-shadow: 0 4px 15px rgba(0,0,0,.02); transition: all 0.3s ease; }
 .faq-item:hover { border-color: var(--primary); }
-.faq-question{ width:100%; padding:20px 24px; border:0; background:white; color:var(--dark); font-size:16px; font-weight:800; display:flex; justify-content:space-between; align-items:center; text-align:right; cursor:pointer; transition: background 0.2s; }
+.faq-question{ width:100%; padding:20px 24px; border:0; background:var(--card-bg); color:var(--dark); font-size:16px; font-weight:800; display:flex; justify-content:space-between; align-items:center; text-align:right; cursor:pointer; transition: background 0.2s; }
 .faq-question:hover { background: var(--light); }
-.faq-answer{ display:none; padding:0 24px 22px; line-height:1.8; color:#64748b; }
+.faq-answer{ display:none; padding:0 24px 22px; line-height:1.8; color:var(--text-muted); }
 .faq-item.active .faq-answer{ display:block; animation: fadeIn 0.3s ease; }
 .faq-item.active .faq-question span{ transform:rotate(45deg); color: var(--primary); }
 .faq-question span{ font-size:24px; transition:transform 0.3s ease, color 0.3s; color: #94a3b8; }
@@ -540,16 +560,16 @@ section{
 .contact-card{ background:var(--light); border-radius:var(--radius); padding:35px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,.02); }
 .contact-card h3{ color:var(--dark); margin-bottom:22px; font-size: 22px; }
 .contact-item{ display:flex; gap:16px; align-items:flex-start; margin-bottom:22px; }
-.contact-icon{ width:50px; height:50px; min-width:50px; display:flex; align-items:center; justify-content:center; border-radius:14px; background:white; box-shadow: 0 4px 15px rgba(0,0,0,.05); font-size: 20px; }
+.contact-icon{ width:50px; height:50px; min-width:50px; display:flex; align-items:center; justify-content:center; border-radius:14px; background:var(--card-bg); box-shadow: 0 4px 15px rgba(0,0,0,.05); font-size: 20px; }
 .contact-item strong{ display:block; color:var(--dark); margin-bottom:4px; }
-.contact-item span{ color:#64748b; font-size:14px; }
+.contact-item span{ color:var(--text-muted); font-size:14px; }
 
 /* =========================
    BACK BUTTON & TRIP DETAILS
 ========================= */
 .back-btn{
     border:0;
-    background:white;
+    background:var(--card-bg);
     color:var(--dark);
     padding:12px 20px;
     border-radius:12px;
@@ -572,7 +592,7 @@ section{
 }
 
 .trip-detail-box{
-    background:white;
+    background:var(--card-bg);
     border-radius:28px;
     overflow:hidden;
     box-shadow:var(--shadow);
@@ -595,7 +615,7 @@ section{
     margin-bottom:12px;
 }
 .trip-detail-intro{
-    color:#64748b;
+    color:var(--text-muted);
     line-height:1.8;
     margin-bottom:30px;
     font-size: 17px;
@@ -610,7 +630,7 @@ section{
     background:var(--light);
     border-radius:16px;
     padding:18px;
-    border: 1px solid rgba(226,232,240,0.6);
+    border: 1px solid var(--border);
 }
 .detail strong{
     display:block;
@@ -621,7 +641,7 @@ section{
     letter-spacing: 0.5px;
 }
 .detail span{
-    color:#475569;
+    color:var(--text);
     font-weight: 600;
 }
 .trip-section{
@@ -645,7 +665,7 @@ section{
     border-radius: 2px;
 }
 .trip-section p, .trip-section li{
-    color:#64748b;
+    color:var(--text-muted);
     line-height:1.8;
 }
 .trip-section ul{
@@ -655,17 +675,7 @@ section{
 .trip-section li {
     margin-bottom: 8px;
 }
-.trip-book-area{
-    margin-top:35px;
-    padding-top:30px;
-    border-top:1px solid var(--border);
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    align-items: center;
-}
 
-/* Firebase Booking Form Integration in Detail Page */
 .firebase-booking-card {
     background: var(--light);
     border-radius: 16px;
@@ -684,13 +694,42 @@ section{
     border: 1px solid var(--border);
     border-radius: 8px;
     outline: none;
+    background: var(--card-bg);
+    color: var(--dark);
 }
 .firebase-booking-card input:focus {
     border-color: var(--primary);
 }
 
 /* =========================
-   FLOATING ACTION BUTTONS (WhatsApp & Facebook)
+   TOAST NOTIFICATION STYLES
+========================= */
+#toastNotification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #22c55e;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 9999;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+#toastNotification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* =========================
+   FLOATING ACTION BUTTONS
 ========================= */
 .floating-buttons {
     position: fixed;
@@ -766,7 +805,7 @@ section{
         flex-direction:column;
         align-items:stretch;
         padding:22px;
-        background:white;
+        background:var(--card-bg);
         border-radius:20px;
         box-shadow:0 20px 40px rgba(0,0,0,0.15);
         border: 1px solid var(--border);
@@ -774,9 +813,9 @@ section{
     .nav-links.active{ display:flex; animation: fadeIn 0.3s ease; }
     .nav-links a{ padding:12px 15px; border-radius: 10px; }
     .nav-links a:hover { background: var(--light); }
-    .mobile-lang-box{ display:block; }
+    .mobile-box{ display:flex; flex-direction: column; }
     .menu-btn{ display:block; }
-    .nav-actions .language-select{ display:none; }
+    .nav-actions .language-select, .nav-actions .theme-toggle-btn{ display:none; }
     
     .trip-grid{ grid-template-columns:repeat(2,1fr); }
     .about-grid, .contact-grid{ grid-template-columns:1fr; }
@@ -802,6 +841,9 @@ section{
 
 <body>
 
+<!-- TOAST NOTIFICATION CONTAINER -->
+<div id="toastNotification">✅ تم حجز الرحلة بنجاح وحفظها بالنظام!</div>
+
 <!-- NAVBAR -->
 <header class="navbar">
     <div class="container nav-inner">
@@ -818,13 +860,14 @@ section{
             <a onclick="switchView('faqView')" data-i18n="faqNav">الأسئلة</a>
             <a onclick="switchView('contactView')" data-i18n="contactNav">تواصل معنا</a>
             
-            <div class="mobile-lang-box">
+            <div class="mobile-box">
                 <select class="language-select-mobile" onchange="changeLanguage(this.value)">
                     <option value="en">English</option>
                     <option value="ar">العربية</option>
                     <option value="de">Deutsch</option>
                     <option value="ru">Русский</option>
                 </select>
+                <button class="theme-toggle-btn" onclick="toggleTheme()" style="width:100%;">🌓 تبديل الوضع (Dark/Light)</button>
             </div>
         </nav>
 
@@ -835,6 +878,7 @@ section{
                 <option value="de">Deutsch</option>
                 <option value="ru">Русский</option>
             </select>
+            <button class="theme-toggle-btn" onclick="toggleTheme()" title="تبديل المظهر">🌓</button>
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
         </div>
     </div>
@@ -1074,8 +1118,27 @@ section{
                     <form id="firebaseBookingForm">
                         <input type="text" id="clientNameInput" placeholder="اسم العميل (Client Name)" required>
                         <input type="tel" id="clientPhoneInput" placeholder="رقم الهاتف أو الواتساب (Phone)" required>
-                        <label style="display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px; color: var(--dark);">اختر تاريخ الرحلة (Trip Date):</label>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                            <div>
+                                <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 3px; color: var(--dark);">عدد الأفراد (Adults):</label>
+                                <input type="number" id="adultsCountInput" value="1" min="1" required>
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 3px; color: var(--dark);">عدد الأطفال (Children):</label>
+                                <input type="number" id="childrenCountInput" value="0" min="0">
+                            </div>
+                        </div>
+
+                        <!-- حقل الأمتعة يظهر فقط للترانسفير -->
+                        <div id="luggageFieldContainer" style="display: none; margin-top: 10px;">
+                            <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 3px; color: var(--dark);">عدد الشنط / الأمتعة (Luggage):</label>
+                            <input type="number" id="luggageCountInput" value="1" min="0">
+                        </div>
+
+                        <label style="display: block; font-size: 13px; font-weight: bold; margin-top: 10px; margin-bottom: 5px; color: var(--dark);">اختر تاريخ الرحلة (Trip Date):</label>
                         <input type="date" id="clientDateInput" required>
+                        
                         <button type="submit" class="btn btn-primary" style="width:100%; margin-top: 10px;">💬 <span data-i18n="dbSubmitBtn">تأكيد وحفظ الحجز وإرسال واتساب</span></button>
                     </form>
                 </div>
@@ -1186,7 +1249,7 @@ section{
             </div>
             <div class="contact-card">
                 <h3 data-i18n="readyTitle">هل أنت جاهز للحجز؟</h3>
-                <p data-i18n="readyText" style="line-height:1.8;color:#64748b;margin-bottom:20px;">أرسل لنا اسم الرحلة والتاريخ وعدد الأشخاص وسنقوم بالرد عليك عبر واتساب.</p>
+                <p data-i18n="readyText" style="line-height:1.8;color:var(--text-muted);margin-bottom:20px;">أرسل لنا اسم الرحلة والتاريخ وعدد الأشخاص وسنقوم بالرد عليك عبر واتساب.</p>
                 <a href="https://wa.me/201274692093" target="_blank" class="btn btn-primary">💬 <span data-i18n="messageWhatsApp">راسلنا على واتساب</span></a>
             </div>
         </div>
@@ -1196,7 +1259,7 @@ section{
 <!-- VIEW 9: ADMIN DASHBOARD -->
 <div id="adminDashboardView" class="app-view">
     <div class="container">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
             <button class="back-btn" onclick="switchView('homeView')" style="margin: 0;">← الرئيسية</button>
             <button class="btn btn-primary" onclick="exportDashboardPDF()">📥 تحميل التقرير PDF</button>
         </div>
@@ -1204,12 +1267,34 @@ section{
         <div id="pdfExportArea">
             <div class="section-head">
                 <span>لوحة التحكم</span>
-                <h2>إدارة الحجوزات والمدفوعات</h2>
-                <p>مرحباً بك يا مهندس توماس في لوحة تحكم موقع AKA Tours</p>
+                <h2>إدارة الحجوزات والمدفوعات المالية</h2>
+                <p>AKA Tours</p>
             </div>
+            
+            <!-- إحصائيات مالية سريعة للمدير -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 25px;">
+                <div style="background: var(--card-bg); padding: 20px; border-radius: 16px; border: 1px solid var(--border); text-align: center; box-shadow: var(--shadow);">
+                    <span style="font-size: 13px; color: var(--text-muted); display: block; margin-bottom: 5px;">إجمالي المبيعات</span>
+                    <h3 id="statTotalSales" style="color: var(--primary); font-size: 22px;">0</h3>
+                </div>
+                <div style="background: var(--card-bg); padding: 20px; border-radius: 16px; border: 1px solid var(--border); text-align: center; box-shadow: var(--shadow);">
+                    <span style="font-size: 13px; color: var(--text-muted); display: block; margin-bottom: 5px;">إجمالي المدفوع</span>
+                    <h3 id="statPaidAmount" style="color: #22c55e; font-size: 22px;">0</h3>
+                </div>
+                <div style="background: var(--card-bg); padding: 20px; border-radius: 16px; border: 1px solid var(--border); text-align: center; box-shadow: var(--shadow);">
+                    <span style="font-size: 13px; color: var(--text-muted); display: block; margin-bottom: 5px;">إجمالي المتبقي</span>
+                    <h3 id="statRemainingAmount" style="color: #f59e0b; font-size: 22px;">0</h3>
+                </div>
+            </div>
+
+            <!-- حقل البحث الفوري -->
+            <div class="search-box" style="margin-bottom: 25px;">
+                <input type="text" id="adminSearchInput" placeholder="ابحث باسم العميل، رقم الهاتف، أو اسم الرحلة..." onkeyup="filterAdminBookings()" style="width: 100%; padding: 14px 18px; border-radius: 12px; border: 1px solid var(--border); outline: none; font-size: 15px; background: var(--card-bg); color: var(--dark);">
+            </div>
+
             <div class="trip-detail-box" style="padding: 30px;">
                 <h3 style="color: var(--dark); margin-bottom: 20px;">قائمة حجز العملاء:</h3>
-                <div id="adminBookingsList" style="color: #64748b; line-height: 1.8;">
+                <div id="adminBookingsList" style="color: var(--text-muted); line-height: 1.8;">
                     جاري تحميل الحجوزات من قاعدة البيانات...
                 </div>
             </div>
@@ -1485,7 +1570,7 @@ const trips = [
         description:{ ar:"تجربة سبيد بوت متميزة لمدة 4 ساعات لمن يرغب في قضاء وقت أطول بالبحر واستكشاف الجزر وممارسة السنوركلينج بحرية مع تقديم المشروبات الباردة والمياه طوال الرحلة.", en:"A premium 4-hour speedboat experience with extended island visits, snorkeling, and refreshing drinks included.", de:"Ein erstklassiges 4-stündiges Speedboat-Erlebnis mit Inseln, Schnorcheln und Getränken.", ru:"Премиальная 4-часовая поездка на спидботе с посещением островов, снорклингом и напитками." },
         itinerary:{
             ar:["الاستلام من الفندق","الانطلاق بالسبيد بوت","جولة لزيارة عدة جزر مميزة","وقت إضافي للسنوركلينج والاستجمام","تقديم المشروبات الباردة والمياه","العودة للمارينا والفندق"],
-            en:["Hotel pickup","Speedboat departure","Island tour","Extended snorkeling time","Soft drinks & water provided","Return to marina"],
+            en:["Hotel pickup","Speedboat departure","Island tour","Extended snorkeling time","Soft drinks & water","Return to marina"],
             de:["Hotelabholung","Speedboat-Abfahrt","Inseltour","Erweiterte Schnorchelzeit","Getränke & Wasser","Rückkehr"],
             ru:["Трансфер из отеля","Выезд на спидботе","Тур по островам","Расширенное время для снорклинга","Напитки и вода","Возвращение"]
         },
@@ -1541,7 +1626,7 @@ const trips = [
         type:{ ar:"مشتركة", en:"Shared", de:"Gemeinsam", ru:"Групповая" },
         description:{ ar:"استمتع بيوم على البحر الأحمر وزيارة أورانج باي مع أجواء جميلة ووقت للاسترخاء.", en:"Enjoy a day on the Red Sea visiting Orange Bay with beautiful views.", de:"Genießen Sie einen Tag am Roten Meer.", ru:"Насладитесь днем на Красном море." },
         itinerary:{ ar:["الاستلام من الفندق","التوجه إلى المارينا","رحلة بحرية","زيارة أورانج باي","السباحة والاسترخاء"], en:["Hotel pickup","Transfer to marina","Boat trip","Orange Bay visit","Swimming"], de:["Hotelabholung","Fahrt zur Marina","Bootsfahrt","Besuch Orange Bay","Schwimmen"], ru:["Трансфер из отеля","Поездка к марине","Морская прогулка","Посещение Orange Bay","Купание"] },
-        included:{ ar:["التوصيل","رحلة بحرية","معدات السنوركل","وجبة الغداء"], en:["Transportation","Boat trip","Snorkeling gear","Lunch"], de:["Transport","Bootsfahrt","Schnorchelausrüstung","Mittagessen"], ru:["Трансфер","Морская прогулка","Снаряжение","Обед"] },
+        included:{ ar:["التوصيل","رحلة بحرية","معدات السنوركل","وجبة الغداء"], en:["Transportation","Boat trip","Snorkeling gear","Lunch"], de:["Transport","Boot","Schnorchelausrüstung","Mittagessen"], ru:["Трансфер","Морская прогулка","Снаряжение","Обед"] },
         notIncluded:{ ar:["المصاريف الشخصية"], en:["Personal expenses"], de:["Persönliche Ausgaben"], ru:["Личные расходы"] },
         image:"ORANGE.jpg"
     },
@@ -1702,7 +1787,7 @@ const trips = [
         description: { 
             ar: "رحلة استثنائية من الغردقة إلى مدينة الأقصر عاصمة التاريخ القديم، لاستكشاف أسرار الفراعنة في البر الشرقي والغربي، مع مرشد سياحي متخصص يروي لك قصص المعابد والأساطير.", 
             en: "An exceptional trip from Hurghada to Luxor, the capital of ancient history, to explore the secrets of the Pharaohs on the East and West banks with an expert guide.", 
-            de: "Eine außergewöhnliche Reise von Hurghada nach Luxor, um die Geheimnisse der Pharaonen zu erkunden.", 
+            de: "Eine außergewöhnliche Reise von Hurghada nach Kairo zu den Pyramiden von Gizeh und historischen Sehenswürdigkeiten.", 
             ru: "Исключительная поездка из Хургады в Луксор для изучения тайн фараонов." 
         },
         itinerary: {
@@ -1809,6 +1894,14 @@ function openTripDetail(tripId, pushHistory = true){
     document.getElementById("detailType").textContent = trip.type[currentLanguage];
     document.getElementById("detailDesc").textContent = trip.description[currentLanguage];
 
+    // إظهار حقل الأمتعة فقط إذا كانت الرحلة من قسم الترانسيفر (transfer)
+    const luggageContainer = document.getElementById("luggageFieldContainer");
+    if(trip.category === 'transfer'){
+        luggageContainer.style.display = "block";
+    } else {
+        luggageContainer.style.display = "none";
+    }
+
     document.getElementById("detailItinerary").innerHTML = trip.itinerary[currentLanguage].map(i => `<li>${i}</li>`).join("");
     document.getElementById("detailIncluded").innerHTML = trip.included[currentLanguage].map(i => `<li>${i}</li>`).join("");
     document.getElementById("detailNotIncluded").innerHTML = trip.notIncluded[currentLanguage].map(i => `<li>${i}</li>`).join("");
@@ -1894,6 +1987,39 @@ function toggleFaq(button){
 }
 
 /* =========================
+   DARK / LIGHT MODE TOGGLE
+========================= */
+function toggleTheme(){
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    if(currentTheme === "dark"){
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem("aka_theme", "light");
+    } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("aka_theme", "dark");
+    }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("aka_theme");
+    if(savedTheme === "dark"){
+        document.documentElement.setAttribute("data-theme", "dark");
+    }
+});
+
+/* =========================
+   TOAST NOTIFICATION FUNCTION
+========================= */
+function showToast(message) {
+    const toast = document.getElementById("toastNotification");
+    toast.textContent = message;
+    toast.classList.add("show");
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 4000);
+}
+
+/* =========================
    ADMIN LOGO 4-CLICKS SYSTEM
 ========================= */
 let logoClickCount = 0;
@@ -1928,22 +2054,64 @@ async function loadAdminBookings() {
         const querySnapshot = await window.getDocs(window.collection(window.db, "bookings"));
         if(querySnapshot.empty) {
             container.innerHTML = "<p>لا توجد حجوزات مسجلة حتى الآن.</p>";
+            document.getElementById("statTotalSales").textContent = "0";
+            document.getElementById("statPaidAmount").textContent = "0";
+            document.getElementById("statRemainingAmount").textContent = "0";
             return;
         }
-        let html = "<ul style='list-style: none; padding: 0;'>";
+
+        let totalSalesSum = 0;
+        let totalPaidSum = 0;
+        let totalRemainingSum = 0;
+
+        let html = "<ul id='adminBookingsTable' style='list-style: none; padding: 0;'>";
         querySnapshot.forEach((docSnap) => {
             let data = docSnap.data();
             let docId = docSnap.id;
             let dateStr = data.timestamp ? new Date(data.timestamp.toDate()).toLocaleString() : "وقت غير محدد";
             let isPaid = data.paid || false;
 
-            html += `<li id="booking-${docId}" style="background: var(--light); padding: 20px; margin-bottom: 15px; border-radius: 12px; border: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
-                <div>
-                    <strong>الرحلة:</strong> ${data.tripName}<br>
-                    <strong>اسم العميل:</strong> ${data.clientName}<br>
-                    <strong>رقم الهاتف:</strong> ${data.clientPhone}<br>
+            let tPrice = parseFloat(data.totalPrice) || 0;
+            let pAmount = parseFloat(data.paidAmount) || 0;
+            let rAmount = parseFloat(data.remainingAmount) || 0;
+            
+            totalSalesSum += tPrice;
+            totalPaidSum += pAmount;
+            totalRemainingSum += rAmount;
+
+            let adults = data.adults || 1;
+            let children = data.children || 0;
+            let luggageText = data.luggage !== undefined ? `<br><strong>الأمتعة (الشنط):</strong> 🧳 ${data.luggage}` : '';
+
+            html += `<li class="booking-item-row" style="background: var(--light); padding: 20px; margin-bottom: 15px; border-radius: 12px; border: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                <div style="flex: 1; min-width: 280px;">
+                    <strong>الرحلة:</strong> <span class="searchable-field">${data.tripName}</span><br>
+                    <strong>اسم العميل:</strong> <span class="searchable-field">${data.clientName}</span><br>
+                    <strong>رقم الهاتف:</strong> <span class="searchable-field">${data.clientPhone}</span><br>
+                    <strong>الأفراد:</strong> 👤 بالغين: ${adults} | 👶 أطفال: ${children}${luggageText}<br>
                     <strong>تاريخ الرحلة:</strong> ${data.tripDate || 'غير محدد'}<br>
-                    <small style="color: #94a3b8;">وقت الحجز بالنظام: ${dateStr}</small>
+                    
+                    <div style="margin-top: 10px; padding: 10px; background: var(--card-bg); border-radius: 8px; border: 1px solid var(--border);">
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+                            <div>
+                                <label style="font-size:11px; display:block; font-weight:bold;">الإجمالي:</label>
+                                <input type="text" id="total-${docId}" value="${data.totalPrice || ''}" placeholder="0" style="width: 80px; padding: 5px; border: 1px solid var(--border); border-radius: 4px; background: var(--light); color: var(--dark);">
+                            </div>
+                            <div>
+                                <label style="font-size:11px; display:block; font-weight:bold;">المدفوع:</label>
+                                <input type="text" id="paid-${docId}" value="${data.paidAmount || ''}" placeholder="0" style="width: 80px; padding: 5px; border: 1px solid var(--border); border-radius: 4px; background: var(--light); color: var(--dark);">
+                            </div>
+                            <div>
+                                <label style="font-size:11px; display:block; font-weight:bold;">المتبقي:</label>
+                                <input type="text" id="rem-${docId}" value="${data.remainingAmount || ''}" placeholder="0" style="width: 80px; padding: 5px; border: 1px solid var(--border); border-radius: 4px; background: var(--light); color: var(--dark);">
+                            </div>
+                            <div style="align-self: flex-end;">
+                                <button onclick="saveAdminFinancials('${docId}')" class="btn btn-primary" style="padding: 5px 10px; font-size: 12px;">💾 حفظ</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <small style="color: var(--text-muted); display:block; margin-top:5px;">وقت الحجز بالنظام: ${dateStr}</small>
                 </div>
                 <div style="display: flex; gap: 10px; align-items: center;">
                     <button onclick="togglePaymentStatus('${docId}', ${isPaid})" class="btn" style="padding: 8px 14px; font-size: 13px; background: ${isPaid ? '#22c55e' : '#f59e0b'}; color: white;">
@@ -1957,9 +2125,50 @@ async function loadAdminBookings() {
         });
         html += "</ul>";
         container.innerHTML = html;
+
+        document.getElementById("statTotalSales").textContent = totalSalesSum;
+        document.getElementById("statPaidAmount").textContent = totalPaidSum;
+        document.getElementById("statRemainingAmount").textContent = totalRemainingSum;
+
     } catch (error) {
         console.error("Error loading bookings: ", error);
         container.innerHTML = "<p style='color: red;'>حدث خطأ أثناء جلب الحجوزات من قاعدة البيانات.</p>";
+    }
+}
+
+window.saveAdminFinancials = async function(docId) {
+    let totalPrice = document.getElementById(`total-${docId}`).value;
+    let paidAmount = document.getElementById(`paid-${docId}`).value;
+    let remainingAmount = document.getElementById(`rem-${docId}`).value;
+
+    try {
+        const bookingRef = window.doc(window.db, "bookings", docId);
+        await window.updateDoc(bookingRef, {
+            totalPrice: totalPrice,
+            paidAmount: paidAmount,
+            remainingAmount: remainingAmount
+        });
+        showToast("✅ تم حفظ التعديلات المالية بنجاح!");
+        loadAdminBookings();
+    } catch (error) {
+        console.error("Error updating financials: ", error);
+        alert("حدث خطأ أثناء حفظ التعديلات المالية.");
+    }
+}
+
+window.filterAdminBookings = function() {
+    let input = document.getElementById('adminSearchInput').value.toLowerCase();
+    let listContainer = document.getElementById('adminBookingsTable');
+    if(!listContainer) return;
+    let items = listContainer.getElementsByClassName('booking-item-row');
+
+    for (let i = 0; i < items.length; i++) {
+        let textContent = items[i].textContent || items[i].innerText;
+        if (textContent.toLowerCase().indexOf(input) > -1) {
+            items[i].style.display = "";
+        } else {
+            items[i].style.display = "none";
+        }
     }
 }
 
@@ -2004,27 +2213,59 @@ document.getElementById("firebaseBookingForm").addEventListener("submit", async 
     e.preventDefault();
     const clientName = document.getElementById("clientNameInput").value;
     const clientPhone = document.getElementById("clientPhoneInput").value;
+    const adultsCount = document.getElementById("adultsCountInput").value;
+    const childrenCount = document.getElementById("childrenCountInput").value;
     const clientDate = document.getElementById("clientDateInput").value;
+    
+    let isTransfer = selectedTripObj && selectedTripObj.category === 'transfer';
+    let luggageCount = isTransfer ? document.getElementById("luggageCountInput").value : null;
 
-    if(!selectedTripObj) return;
-
-    try {
-        await window.addDoc(window.collection(window.db, "bookings"), {
-            tripName: selectedTripObj.title.en,
-            clientName: clientName,
-            clientPhone: clientPhone,
-            tripDate: clientDate,
-            paid: false,
-            timestamp: new Date()
-        });
-        alert("تم حفظ الحجز بنجاح في قاعدة البيانات! سيتم تحويلك إلى واتساب الآن.");
-    } catch (error) {
-        console.error("Error adding document: ", error);
-        alert("حدث خطأ أثناء حفظ الحجز، سيتم تحويلك إلى واتساب مباشرة.");
+    let tripNameToSave = "General Booking";
+    let tripNameToWhatsApp = "General Booking";
+    
+    if (selectedTripObj && selectedTripObj.title) {
+        tripNameToSave = selectedTripObj.title.en || selectedTripObj.title.ar || "Trip";
+        tripNameToWhatsApp = selectedTripObj.title[currentLanguage] || selectedTripObj.title.en || selectedTripObj.title.ar || "Trip";
+    } else {
+        const fallbackTitle = document.getElementById("detailTitle");
+        if (fallbackTitle && fallbackTitle.textContent) {
+            tripNameToSave = fallbackTitle.textContent;
+            tripNameToWhatsApp = fallbackTitle.textContent;
+        }
     }
 
-    const bookingMsg = `Hello 👋%0A%0AI would like to book:%0A${selectedTripObj.title[currentLanguage]}%0A%0A📅 Trip Date: ${clientDate}%0AMy Name: ${clientName}%0APhone: ${clientPhone}`;
-    window.open(`https://wa.me/201274692093?text=${bookingMsg}`, "_blank");
+    let bookingData = {
+        tripName: tripNameToSave,
+        clientName: clientName,
+        clientPhone: clientPhone,
+        adults: adultsCount,
+        children: childrenCount,
+        tripDate: clientDate,
+        totalPrice: "0",
+        paidAmount: "0",
+        remainingAmount: "0",
+        paid: false,
+        timestamp: new Date()
+    };
+
+    if(isTransfer) {
+        bookingData.luggage = luggageCount;
+    }
+
+    try {
+        await window.addDoc(window.collection(window.db, "bookings"), bookingData);
+        showToast("🎉 تم حفظ الحجز في النظام بنجاح وتجهيز واتساب!");
+    } catch (error) {
+        console.error("Error adding document: ", error);
+        showToast("⚠️ حدث خطأ بالربط، سيتم تحويلك لواتساب مباشرة.");
+    }
+
+    let luggageWhatsAppPart = isTransfer ? `%0A🧳 Luggage (Bags): ${luggageCount}` : '';
+    const bookingMsg = `Hello 👋%0A%0AI would like to book:%0A${encodeURIComponent(tripNameToWhatsApp)}%0A%0A👥 Adults: ${adultsCount} | Children: ${childrenCount}${luggageWhatsAppPart}%0A📅 Trip Date: ${clientDate}%0A👤 Name: ${clientName}%0APhone: ${clientPhone}`;
+    
+    setTimeout(() => {
+        window.open(`https://wa.me/201274692093?text=${bookingMsg}`, "_blank");
+    }, 1000);
 });
 
 window.addEventListener('popstate', function(event) {
