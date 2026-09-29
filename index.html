@@ -605,14 +605,23 @@ section{
     box-shadow:var(--shadow);
     border: 1px solid var(--border);
 }
-.trip-detail-image{
-    height:400px;
+
+/* =========================
+   STATIC IMAGE CONTAINER (صورة ثابتة بدون سلايدر)
+========================= */
+.trip-single-image {
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    background: #000;
 }
-.trip-detail-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+
+.trip-single-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
+
 .trip-detail-content{
     padding:40px;
 }
@@ -709,7 +718,7 @@ section{
 }
 
 /* =========================
-   TOAST NOTIFICATION STYLES
+   TOAST & LIVE NOTIFICATIONS
 ========================= */
 #toastNotification {
     position: fixed;
@@ -735,12 +744,73 @@ section{
     opacity: 1;
 }
 
+/* Live Booking Popup Styles */
+.live-notif-card {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    background: var(--card-bg);
+    color: var(--text);
+    padding: 12px 16px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 9500;
+    max-width: 330px;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--primary);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.live-notif-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.live-notif-card.hidden {
+    display: none;
+}
+
+.notif-icon {
+    font-size: 26px;
+}
+
+.notif-content strong {
+    font-size: 13px;
+    display: block;
+    color: var(--dark);
+}
+
+.notif-content p {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 2px 0 0 0;
+}
+
+.notif-close {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--text-muted);
+    margin-left: auto;
+    padding: 0 4px;
+}
+
+.notif-close:hover {
+    color: var(--dark);
+}
+
 /* =========================
    FLOATING ACTION BUTTONS
 ========================= */
 .floating-buttons {
     position: fixed;
-    left: 25px;
+    right: 25px;
     bottom: 25px;
     z-index: 900;
     display: flex;
@@ -850,6 +920,16 @@ section{
 
 <!-- TOAST NOTIFICATION CONTAINER -->
 <div id="toastNotification">✅ تم حجز الرحلة بنجاح وحفظها بالنظام!</div>
+
+<!-- LIVE BOOKING NOTIFICATION POPUP (Social Proof - فاصل زمني أكثر من دقيقة) -->
+<div id="live-notification" class="live-notif-card hidden">
+    <div class="notif-icon">🌍</div>
+    <div class="notif-content">
+        <strong id="notif-user">Hans from Germany</strong>
+        <p id="notif-text">booked Luxor VIP Full-Day Trip (2 minutes ago)</p>
+    </div>
+    <button onclick="closeNotification()" class="notif-close">&times;</button>
+</div>
 
 <!-- NAVBAR -->
 <header class="navbar">
@@ -1073,9 +1153,11 @@ section{
         <button class="back-btn" onclick="goBackToCategory()">← <span data-i18n="back">رجوع</span></button>
         
         <div class="trip-detail-box">
-            <div class="trip-detail-image">
-                <img id="detailImg" src="" alt="">
+            <!-- Static Image Container (صورة ثابتة واحدة) -->
+            <div class="trip-single-image">
+                <img id="detailMainImg" src="" alt="Trip Image" onerror="this.src='https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=900';">
             </div>
+
             <div class="trip-detail-content">
                 <h1 id="detailTitle"></h1>
                 <p class="trip-detail-intro" id="detailIntro"></p>
@@ -1384,6 +1466,58 @@ let currentLanguage = "en";
 let activeCategory = "sea";
 let selectedTripObj = null;
 
+// LIVE BOOKING NOTIFICATION QUEUE (الفاصل بين الإشعار والثاني ما بين 65 إلى 95 ثانية أي أكثر من دقيقة)
+const liveBookingsQueue = [
+    { name: "Hans Müller from Germany", action: "booked Luxor VIP Full-Day Trip", time: "2 minutes ago" },
+    { name: "Emma Watson from UK", action: "booked Cairo Pyramids & Museum Excursion", time: "5 minutes ago" },
+    { name: "Marco Rossi from Italy", action: "booked Orange Bay Island Snorkeling", time: "1 minute ago" },
+    { name: "Anna Kowalski from Poland", action: "booked Desert Safari & BBQ Dinner", time: "8 minutes ago" },
+    { name: "Sven Erik from Sweden", action: "booked Luxor East & West Valleys", time: "12 minutes ago" },
+    { name: "Dmitry Volkov from Russia", action: "booked VIP Airport Transfer to Hurghada", time: "3 minutes ago" },
+    { name: "Claire Dubois from France", action: "booked Cairo by Air Excursion", time: "15 minutes ago" },
+    { name: "Markus Schmidt from Germany", action: "booked Super Quad Runner Safari", time: "6 minutes ago" },
+    { name: "Elena Garcia from Spain", action: "booked Dolphin House Snorkeling Trip", time: "4 minutes ago" },
+    { name: "Jan de Jong from Netherlands", action: "booked Luxor 2-Day Private Tour", time: "10 minutes ago" }
+];
+
+function showRandomNotification() {
+    const notifElement = document.getElementById("live-notification");
+    const userElement = document.getElementById("notif-user");
+    const textElement = document.getElementById("notif-text");
+
+    if (!notifElement) return;
+
+    const randomItem = liveBookingsQueue[Math.floor(Math.random() * liveBookingsQueue.length)];
+    
+    userElement.innerText = randomItem.name;
+    textElement.innerText = `${randomItem.action} (${randomItem.time})`;
+
+    notifElement.classList.remove("hidden");
+    setTimeout(() => notifElement.classList.add("show"), 100);
+
+    setTimeout(() => {
+        notifElement.classList.remove("show");
+        setTimeout(() => notifElement.classList.add("hidden"), 400);
+    }, 6000);
+}
+
+function closeNotification() {
+    const notifElement = document.getElementById("live-notification");
+    if(notifElement) {
+        notifElement.classList.remove("show");
+        setTimeout(() => notifElement.classList.add("hidden"), 400);
+    }
+}
+
+// بدء ظهور أول إشعار بعد 15 ثانية، ثم التكرار بفاصل زمني أكثر من دقيقة (بين 65 إلى 95 ثانية)
+setTimeout(() => {
+    showRandomNotification();
+    setInterval(() => {
+        showRandomNotification();
+    }, Math.floor(Math.random() * (95000 - 65000 + 1)) + 65000);
+}, 15000);
+
+
 const translations = {
     ar:{
         home:"الرئيسية", categoriesNav:"الرحلات", aboutNav:"من نحن", reviewsNav:"آراء العملاء", faqNav:"الأسئلة", contactNav:"تواصل معنا",
@@ -1545,7 +1679,7 @@ const trips = [
         },
         included:{ ar:["سيارة خاصة مكيفة","سائق محترف","متابعة مواعيد الطيران"], en:["Modern private AC vehicle","Professional driver","Flight tracking"], de:["Klimatisiertes Fahrzeug","Professioneller Fahrer","Flugverfolgung"], ru:["Автомобиль с кондиционером","Профессиональный водитель","Отслеживание рейсов"] },
         notIncluded:{ ar:["المصاريف غير المتفق عليها"], en:["Unagreed expenses"], de:["Zusatzkosten"], ru:["Неоговоренные расходы"] },
-        image:"TRAN.jpeg"
+        image: "TRAN.jpeg"
     },
     {
         id:7, category:"sea",
@@ -1564,13 +1698,13 @@ const trips = [
         },
         included:{ ar:["السبيد بوت الخاص/المشترك","معدات السنوركلينج","سوفت درينك ومياه معدنية","مرشد بحري"], en:["Speedboat","Snorkeling equipment","Soft drinks & water","Marine guide"], de:["Speedboat","Schnorchelausrüstung","Erfrischungsgetränke & Wasser","Guide"], ru:["Спидбот","Снаряжение для снорклинга","Напитки и вода","Гид"] },
         notIncluded:{ ar:["رسوم دخول المحمية (إن وجدت) والمصاريف الشخصية"], en:["Protected area fees (if any) & personal expenses"], de:["Naturschutzgebietsgebühren"], ru:["Сборы за охраняемую территорию"] },
-        image:"speed2.jpg"
+        image: "speed2.jpg"
     },
     {
         id:8, category:"sea",
         title:{ ar:"رحلة سبيد بوت (4 ساعات)", en:"Speedboat Trip (4 Hours)", de:"Speedboat Tour (4 Stunden)", ru:"Прогулка на спидботе (4 часа)" },
         intro:{ ar:"رحلة سبيد بوت ممتعة لمدة 4 ساعات تشمل زيارة جزر متعددة، سنوركلينج، سوفت درينك، ومياه منعشة.", en:"An extended 4-hour speedboat trip including islands, snorkeling, soft drinks and refreshing water.", de:"Eine erweiterte 4-stündige Speedboat-Tour mit Inseln, Schnorcheln und Getränken.", ru:"Расширенная 4-часовая поездка на спидботе с островами, снорклингом и напитками." },
-        duration:{ ar:"4 ساعات", en:"4 Hours", de:"3 Stunden -> 4 Hours", ru:"4 часа" },
+        duration:{ ar:"4 ساعات", en:"4 Hours", de:"4 Hours", ru:"4 часа" },
         pickup:{ ar:"من الفندق", en:"Hotel Pickup", de:"Hotelabholung", ru:"Трансфер из отеля" },
         days:{ ar:"يوميًا", en:"Daily", de:"Täglich", ru:"Ежедневно" },
         type:{ ar:"خاصة / مشتركة", en:"Private / Shared", de:"Privat / Gemeinsam", ru:"Индивидуальная / Групповая" },
@@ -1583,7 +1717,7 @@ const trips = [
         },
         included:{ ar:["السبيد بوت","معدات السنوركلينج","سوفت درينك ومياه معدنية","مرشد بحري"], en:["Speedboat","Snorkeling gear","Soft drinks & water","Marine guide"], de:["Speedboat","Schnorchelausrüstung","Getränke & Wasser","Guide"], ru:["Спидбот","Снаряжение","Напитки и вода","Гид"] },
         notIncluded:{ ar:["المصاريف الشخصية ورسوم المحمية"], en:["Personal expenses & protected area fees"], de:["Persönliche Ausgaben"], ru:["Личные расходы"] },
-        image:"speed1.jpg"
+        image: "speed1.jpg"
     },
     {
         id:9, category:"sea",
@@ -1602,7 +1736,7 @@ const trips = [
         },
         included:{ ar:["التوصيل من وإلى الفندق","المركب ومعدات السنوركلينج","رسوم دخول جزيرة هولا هولا","وجبة غداء ومشروبات طوال اليوم"], en:["Hotel transfers","Boat & snorkeling equipment","Hula Hula island entrance","Lunch & drinks all day"], de:["Hoteltransfers","Boot & Schnorchelausrüstung","Inseleintritt Hula Hula","Mittagessen & Getränke"], ru:["Трансфер","Лодка и снаряжение","Вход на остров","Обед и напитки"] },
         notIncluded:{ ar:["المصاريف الشخصية والصور"], en:["Personal expenses & photos"], de:["Persönliche Ausgaben"], ru:["Личные расходы"] },
-        image:"HULA HULA.jpg"
+        image: "HULA HULA.jpg"
     },
     {
         id:51, category:"hurghada",
@@ -1621,7 +1755,7 @@ const trips = [
         },
         included:{ ar:["التوصيل من وإلى الفندق","مرشد سياحي"], en:["Hotel pickup and drop-off","Tour guide"], de:["Hoteltransfer","Reiseleiter"], ru:["Трансфер из/в отель","Гид"] },
         notIncluded:{ ar:["المصاريف الشخصية والمشتريات"], en:["Personal expenses"], de:["Persönliche Ausgaben"], ru:["Личные расходы"] },
-        image:"HURGADA.jpg"
+        image: "HURGADA.jpg"
     },
     {
         id:1, category:"sea",
@@ -1635,7 +1769,7 @@ const trips = [
         itinerary:{ ar:["الاستلام من الفندق","التوجه إلى المارينا","رحلة بحرية","زيارة أورانج باي","السباحة والاسترخاء"], en:["Hotel pickup","Transfer to marina","Boat trip","Orange Bay visit","Swimming"], de:["Hotelabholung","Fahrt zur Marina","Bootsfahrt","Besuch Orange Bay","Schwimmen"], ru:["Трансфер из отеля","Поездка к марине","Морская прогулка","Посещение Orange Bay","Купание"] },
         included:{ ar:["التوصيل","رحلة بحرية","معدات السنوركل","وجبة الغداء"], en:["Transportation","Boat trip","Snorkeling gear","Lunch"], de:["Transport","Boot","Schnorchelausrüstung","Mittagessen"], ru:["Трансфер","Морская прогулка","Снаряжение","Обед"] },
         notIncluded:{ ar:["المصاريف الشخصية"], en:["Personal expenses"], de:["Persönliche Ausgaben"], ru:["Личные расходы"] },
-        image:"ORANGE.jpg"
+        image: "ORANGE.jpg"
     },
     {
         id:2, category:"sea",
@@ -1649,7 +1783,7 @@ const trips = [
         itinerary:{ ar:["الاستلام من الفندق","التحرك من المارينا","البحث عن الدلافين","سنوركلينج","العودة"], en:["Pickup","Marina departure","Dolphin search","Snorkeling","Return"], de:["Abholung","Abfahrt","Delfinsuche","Schnorcheln","Rückkehr"], ru:["Трансфер","Выезд","Поиск дельфинов","Снорклинг","Возвращение"] },
         included:{ ar:["التوصيل","القارب","معدات السنوركل","الغداء"], en:["Transportation","Boat","Snorkeling gear","Lunch"], de:["Transport","Boot","Schnorchelausrüstung","Mittagessen"], ru:["Трансфер","Лодка","Снаряжение","Обед"] },
         notIncluded:{ ar:["المصاريف الشخصية"], en:["Personal expenses"], de:["Persönliche Ausgaben"], ru:["Личные расходы"] },
-        image:"https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1200&q=85"
+        image: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1200&q=85"
     },
     {
         id:3, category:"safari",
@@ -1663,7 +1797,7 @@ const trips = [
         itinerary:{ ar:["الاستلام من الفندق","التوجه لمنطقة السفاري","قيادة ATV","زيارة بدوية","غروب الشمس"], en:["Hotel pickup","Safari area","ATV ride","Bedouin visit","Sunset"], de:["Abholung","Safari-Gebiet","ATV-Fahrt","Beduinen","Sonnenuntergang"], ru:["Трансфер","Зона сафари","Квадроциклы","Бедуины","Закат"] },
         included:{ ar:["التوصيل","ATV","تجربة بدوية","مشروبات"], en:["Transportation","ATV","Bedouin experience","Drinks"], de:["Transport","ATV","Beduinen","Getränke"], ru:["Трансфер","Квадроциклы","Бедуины","Напитки"] },
         notIncluded:{ ar:["المصاريف الشخصية"], en:["Personal expenses"], de:["Persönliche Ausgaben"], ru:["Личные расходы"] },
-        image:"https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=85"
+        image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=85"
     },
     {
         id:4, category:"cairo",
@@ -1751,7 +1885,7 @@ const trips = [
             de: ["Eintrittskarten für das Innere der Pyramiden und persönliche Ausgaben"], 
             ru: ["Билеты внутрь пирамид и личные расходы"] 
         },
-        image:"https://images.unsplash.com/photo-1568322445389-f64ac2515020?auto=format&fit=crop&w=1200&q=85"
+        image: "https://images.unsplash.com/photo-1568322445389-f64ac2515020?auto=format&fit=crop&w=1200&q=85"
     },
     {
         id: 5, category: "luxor",
@@ -1891,8 +2025,12 @@ function openTripDetail(tripId, pushHistory = true){
     document.querySelectorAll(".app-view").forEach(v => v.classList.remove("active"));
     document.getElementById("tripDetailView").classList.add("active");
 
-    document.getElementById("detailImg").src = trip.image;
-    document.getElementById("detailImg").alt = trip.title[currentLanguage];
+    // تعيين الصورة الثابتة المفردة
+    const mainImgEl = document.getElementById("detailMainImg");
+    if(mainImgEl) {
+        mainImgEl.src = trip.image || "";
+    }
+
     document.getElementById("detailTitle").textContent = trip.title[currentLanguage];
     document.getElementById("detailIntro").textContent = trip.intro[currentLanguage];
     document.getElementById("detailDuration").textContent = trip.duration[currentLanguage];
@@ -1901,7 +2039,6 @@ function openTripDetail(tripId, pushHistory = true){
     document.getElementById("detailType").textContent = trip.type[currentLanguage];
     document.getElementById("detailDesc").textContent = trip.description[currentLanguage];
 
-    // إظهار حقل الأمتعة فقط إذا كانت الرحلة من قسم الترانسيفر (transfer)
     const luggageContainer = document.getElementById("luggageFieldContainer");
     if(trip.category === 'transfer'){
         luggageContainer.style.display = "block";
@@ -1993,9 +2130,6 @@ function toggleFaq(button){
     item.classList.toggle("active");
 }
 
-/* =========================
-   DARK / LIGHT MODE TOGGLE
-========================= */
 function toggleTheme(){
     const currentTheme = document.documentElement.getAttribute("data-theme");
     if(currentTheme === "dark"){
@@ -2014,9 +2148,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-/* =========================
-   TOAST NOTIFICATION FUNCTION
-========================= */
 function showToast(message) {
     const toast = document.getElementById("toastNotification");
     toast.textContent = message;
@@ -2026,9 +2157,6 @@ function showToast(message) {
     }, 4000);
 }
 
-/* =========================
-   ADMIN LOGO 4-CLICKS SYSTEM
-========================= */
 let logoClickCount = 0;
 let logoTimer = null;
 
