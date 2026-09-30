@@ -921,7 +921,7 @@ section{
 <!-- TOAST NOTIFICATION CONTAINER -->
 <div id="toastNotification">✅ تم حجز الرحلة بنجاح وحفظها بالنظام!</div>
 
-<!-- LIVE BOOKING NOTIFICATION POPUP (Social Proof - فاصل زمني أكثر من دقيقة) -->
+<!-- LIVE BOOKING NOTIFICATION POPUP (Social Proof) -->
 <div id="live-notification" class="live-notif-card hidden">
     <div class="notif-icon">🌍</div>
     <div class="notif-content">
@@ -1016,7 +1016,7 @@ section{
                     <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=900&q=80" alt="Safari">
                     <div class="category-overlay">
                         <h3 data-i18n="safari">رحلات السفاري</h3>
-                        <p data-i18n="safariDesc">الصحراء والـ ATV والبدو</p>
+                        <p data-i18n="safariDesc">الصحراء والمغامرات والبدو</p>
                     </div>
                 </div>
 
@@ -1107,7 +1107,7 @@ section{
                 <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=900&q=80" alt="Safari">
                 <div class="category-overlay">
                     <h3 data-i18n="safari">رحلات السفاري</h3>
-                    <p data-i18n="safariDesc">الصحراء والـ ATV والبدو</p>
+                    <p data-i18n="safariDesc">الصحراء والمغامرات والبدو</p>
                 </div>
             </div>
             <div class="category-card" onclick="openCategory('hurghada')">
@@ -1153,7 +1153,7 @@ section{
         <button class="back-btn" onclick="goBackToCategory()">← <span data-i18n="back">رجوع</span></button>
         
         <div class="trip-detail-box">
-            <!-- Static Image Container (صورة ثابتة واحدة) -->
+            <!-- Static Image Container -->
             <div class="trip-single-image">
                 <img id="detailMainImg" src="" alt="Trip Image" onerror="this.src='https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=900';">
             </div>
@@ -1391,7 +1391,7 @@ section{
     </div>
 </div>
 
-<!-- FLOATING ACTION BUTTONS (WhatsApp & Facebook) -->
+<!-- FLOATING ACTION BUTTONS -->
 <div class="floating-buttons">
     <a class="float-btn whatsapp-float" href="https://wa.me/201274692093" target="_blank" aria-label="WhatsApp">☎</a>
     <a class="float-btn facebook-float" href="https://www.facebook.com/share/1CDwyKcXDT/" target="_blank" aria-label="Facebook">f</a>
@@ -1466,16 +1466,16 @@ let currentLanguage = "en";
 let activeCategory = "sea";
 let selectedTripObj = null;
 
-// LIVE BOOKING NOTIFICATION QUEUE (الفاصل بين الإشعار والثاني ما بين 65 إلى 95 ثانية أي أكثر من دقيقة)
+// LIVE BOOKING NOTIFICATION QUEUE
 const liveBookingsQueue = [
     { name: "Hans Müller from Germany", action: "booked Luxor VIP Full-Day Trip", time: "2 minutes ago" },
     { name: "Emma Watson from UK", action: "booked Cairo Pyramids & Museum Excursion", time: "5 minutes ago" },
     { name: "Marco Rossi from Italy", action: "booked Orange Bay Island Snorkeling", time: "1 minute ago" },
-    { name: "Anna Kowalski from Poland", action: "booked Desert Safari & BBQ Dinner", time: "8 minutes ago" },
-    { name: "Sven Erik from Sweden", action: "booked Luxor East & West Valleys", time: "12 minutes ago" },
+    { name: "Anna Kowalski from Poland", action: "booked Super Safari & BBQ Dinner", time: "8 minutes ago" },
+    { name: "Sven Erik from Sweden", action: "booked Stargazing Desert Safari", time: "12 minutes ago" },
     { name: "Dmitry Volkov from Russia", action: "booked VIP Airport Transfer to Hurghada", time: "3 minutes ago" },
     { name: "Claire Dubois from France", action: "booked Cairo by Air Excursion", time: "15 minutes ago" },
-    { name: "Markus Schmidt from Germany", action: "booked Super Quad Runner Safari", time: "6 minutes ago" },
+    { name: "Markus Schmidt from Germany", action: "booked Super Quad Runner Safari (3 Hours)", time: "6 minutes ago" },
     { name: "Elena Garcia from Spain", action: "booked Dolphin House Snorkeling Trip", time: "4 minutes ago" },
     { name: "Jan de Jong from Netherlands", action: "booked Luxor 2-Day Private Tour", time: "10 minutes ago" }
 ];
@@ -1509,7 +1509,6 @@ function closeNotification() {
     }
 }
 
-// بدء ظهور أول إشعار بعد 15 ثانية، ثم التكرار بفاصل زمني أكثر من دقيقة (بين 65 إلى 95 ثانية)
 setTimeout(() => {
     showRandomNotification();
     setInterval(() => {
@@ -1526,7 +1525,7 @@ const translations = {
         explore:"اكتشف الرحلات", bookWhatsApp:"احجز الآن",
         discover:"اكتشف", categoriesTitle:"اختار تجربتك", categoriesText:"اختر نوع الرحلة التي تناسبك واستكشف جميع الخيارات المتاحة.",
         sea:"الرحلات البحرية والسبيد بوت", seaDesc:"بحر، جزر، غطس، سبيد بوت ودلافين",
-        safari:"رحلات السفاري", safariDesc:"الصحراء والـ ATV والبدو",
+        safari:"رحلات السفاري", safariDesc:"الصحراء والمغامرات والبدو",
         hurghada:"رحلات الغردقة", hurghadaDesc:"جولة المدينة والمعالم والمارينا",
         cairo:"رحلات القاهرة", cairoDesc:"الأهرامات والمتحف والحضارة",
         luxor:"رحلات الأقصر", luxorDesc:"المعابد والنيل والحضارة القديمة",
@@ -1561,7 +1560,7 @@ const translations = {
         explore:"Explore Tours", bookWhatsApp:"Book Now",
         discover:"Discover", categoriesTitle:"Choose Your Experience", categoriesText:"Choose the type of experience that suits you and explore all available options.",
         sea:"Sea & Speedboat Trips", seaDesc:"Sea, islands, snorkeling, speedboats and dolphins",
-        safari:"Safari Trips", safariDesc:"Desert, ATV and Bedouin experience",
+        safari:"Safari Trips", safariDesc:"Desert, adventures and Bedouin experience",
         hurghada:"Hurghada Trips", hurghadaDesc:"City tour, landmarks and Marina",
         cairo:"Cairo Trips", cairoDesc:"Pyramids, museums and ancient history",
         luxor:"Luxor Trips", luxorDesc:"Temples, Nile and ancient civilization",
@@ -1596,7 +1595,7 @@ const translations = {
         explore:"Ausflüge entdecken", bookWhatsApp:"Jetzt buchen",
         discover:"Entdecken", categoriesTitle:"Wähle dein Erlebnis", categoriesText:"Wähle die passende Tour und entdecke unsere Angebote.",
         sea:"Bootstouren & Speedboat", seaDesc:"Meer, Inseln, Schnorcheln, Speedboat und Delfine",
-        safari:"Safari", safariDesc:"Wüste, ATV und Beduinen",
+        safari:"Safari", safariDesc:"Wüste, Abenteuer und Beduinen",
         hurghada:"Hurghada Ausflüge", hurghadaDesc:"Stadtrundfahrt und Marina",
         cairo:"Kairo", cairoDesc:"Pyramiden, Museen und Geschichte",
         luxor:"Luxor", luxorDesc:"Tempel, Nil und alte Zivilisation",
@@ -1631,7 +1630,7 @@ const translations = {
         explore:"Смотреть экскурсии", bookWhatsApp:"Забронировать",
         discover:"Откройте", categoriesTitle:"Выберите впечатление", categoriesText:"Выберите подходящий тип экскурсии и изучите наши предложения.",
         sea:"Морские прогулки и спидботы", seaDesc:"Море, острова, снорклинг, спидботы и дельфины",
-        safari:"Сафари", safariDesc:"Пустыня, ATV и бедуины",
+        safari:"Сафари", safariDesc:"Пустыня, приключения и бедуины",
         hurghada:"Экскурсии в Хургаде", hurghadaDesc:"Обзорная экскурсия и марина",
         cairo:"Каир", cairoDesc:"Пирамиды, музеи и история",
         luxor:"Луксор", luxorDesc:"Храмы, Нил и древняя цивилизация",
@@ -1785,20 +1784,219 @@ const trips = [
         notIncluded:{ ar:["المصاريف الشخصية"], en:["Personal expenses"], de:["Persönliche Ausgaben"], ru:["Личные расходы"] },
         image: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1200&q=85"
     },
+    /* ========================================================
+       الرحلات الجديدة المضافة حديثاً (بدون ATV)
+    ======================================================== */
     {
-        id:3, category:"safari",
-        title:{ ar:"ATV Desert Safari", en:"ATV Desert Safari", de:"ATV Wüstensafari", ru:"Сафари на квадроциклах" },
-        intro:{ ar:"مغامرة في الصحراء باستخدام ATV مع تجربة بدوية ومشاهدة غروب الشمس.", en:"A desert adventure with ATV riding and Bedouin experience.", de:"Ein Wüstenabenteuer mit ATV und Beduinendorf.", ru:"Пустынное приключение на квадроциклах." },
-        duration:{ ar:"عدة ساعات", en:"Several Hours", de:"Mehrere Stunden", ru:"Несколько часов" },
-        pickup:{ ar:"من الفندق", en:"Hotel Pickup", de:"Hotelabholung", ru:"Трансфер из отеля" },
-        days:{ ar:"يوميًا", en:"Daily", de:"Täglich", ru:"Ежедневно" },
-        type:{ ar:"مشتركة", en:"Shared", de:"Gemeinsam", ru:"Групповая" },
-        description:{ ar:"اكتشف الصحراء المصرية واستمتع بقيادة الـ ATV والأجواء البدوية الرائعة.", en:"Explore the Egyptian desert and enjoy ATV riding.", de:"Entdecken Sie die Wüste mit dem ATV.", ru:"Исследуйте египетскую пустыню на квадроциклах." },
-        itinerary:{ ar:["الاستلام من الفندق","التوجه لمنطقة السفاري","قيادة ATV","زيارة بدوية","غروب الشمس"], en:["Hotel pickup","Safari area","ATV ride","Bedouin visit","Sunset"], de:["Abholung","Safari-Gebiet","ATV-Fahrt","Beduinen","Sonnenuntergang"], ru:["Трансфер","Зона сафари","Квадроциклы","Бедуины","Закат"] },
-        included:{ ar:["التوصيل","ATV","تجربة بدوية","مشروبات"], en:["Transportation","ATV","Bedouin experience","Drinks"], de:["Transport","ATV","Beduinen","Getränke"], ru:["Трансфер","Квадроциклы","Бедуины","Напитки"] },
-        notIncluded:{ ar:["المصاريف الشخصية"], en:["Personal expenses"], de:["Persönliche Ausgaben"], ru:["Личные расходы"] },
-        image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=85"
+        id: 301, category: "safari",
+        title: { 
+            ar: "سوبر سفاري (3 ساعات - مكس مغامرات)", 
+            en: "Super Quad Runner Safari (3 Hours)", 
+            de: "Super Quadsafari (3 Stunden)", 
+            ru: "Супер квадро-сафари (3 часа)" 
+        },
+        intro: { 
+            ar: "انطلق في مغامرة حماسية لمدة 3 ساعات تجمع بين قيادة البيتش باجي، والسبيدر السريع، وسيارات الجيب 4x4 في قلب الصحراء الساحرة.", 
+            en: "Embark on an exciting 3-hour adventure combining Quad biking, fast Spiders, and 4x4 Jeeps in the heart of the desert.", 
+            de: "Erleben Sie ein aufregendes 3-stündiges Abenteuer mit Quad, Spider und Jeeps.", 
+            ru: "Отправляйтесь в захватывающее 3-часовое приключение на квадроциклах, спайдерах и джипах." 
+        },
+        duration: { ar: "3 ساعات", en: "3 Hours", de: "3 Stunden", ru: "3 часа" },
+        pickup: { ar: "من الفندق", en: "Hotel Pickup", de: "Hotelabholung", ru: "Трансфер из отеля" },
+        days: { ar: "يوميًا", en: "Daily", de: "Täglich", ru: "Ежедневно" },
+        type: { ar: "مشتركة / خاصة", en: "Shared / Private", de: "Gemeinsam / Privat", ru: "Групповая / Индивидуальная" },
+        description: { 
+            ar: "عش روح التحدي والمغامرة القصوى في رحلة 'سوبر سفاري 3 ساعات'! استمتع بقيادة دراجات البيتش باجي (Quad) القوية، وعربيات السبيدر (Spider) الحماسية، وجولات سيارات الجيب 4x4 المثيرة وسط الكثبان الرملية، مع زيارة استكشافية مميزة للقرية البدوية والتعرف على عاداتها.", 
+            en: "Experience ultimate thrill and adventure with our 3-hour Super Safari! Enjoy powerful Quad biking, action-packed Spiders, thrilling 4x4 Jeep rides, and an exploratory visit to the Bedouin village.", 
+            de: "Erleben Sie ultimativen Nervenkitzel mit Quad, Spider und Jeep sowie Besuch im Beduinendorf.", 
+            ru: "Испытайте максимальный прилив адреналина во время супер-сафари на квадроциклах, спайдерах и джипах с посещением деревни бедуинов." 
+        },
+        itinerary: {
+            ar: [
+                "الاستلام من الفندق والتوجة لمركز محطات السفاري في الصحراء",
+                "ارتداء المعدات وتلقي تعليمات القيادة والأمان",
+                "جولة قيادة ممتعة وحماسية بالبيتش باجي (Quad) والسبيدر (Spider)",
+                "الانطلاق بسيارات الجيب 4x4 في عمق الصحراء",
+                "زيارة القرية البدوية والترحيب التقليدي",
+                "العودة إلى نقطة البداية والتوصيل للفندق"
+            ],
+            en: [
+                "Hotel pickup and transfer to desert safari station",
+                "Equipment fitting and safety instructions briefing",
+                "Exciting Quad and Spider driving tour through the sand",
+                "Thrilling 4x4 Jeep ride deep into the desert",
+                "Exploratory visit to the Bedouin village",
+                "Return to base station and hotel drop-off"
+            ],
+            de: [
+                "Hotelabholung zur Wüstencamp-Station",
+                "Sicherheitseinweisung und Ausrüstung",
+                "Aufregende Quad- und Spider-Tour",
+                "Spannende 4x4 Jeep-Fahrt in der Wüste",
+                "Besuch des Beduinendorfes",
+                "Rückfahrt zum Hotel"
+            ],
+            ru: [
+                "Трансфер из отеля на сафари-станцию",
+                "Инструктаж по технике безопасности",
+                "Увлекательная поездка на квадроциклах и спайдерах",
+                "Захватывающая поездка на джипах 4x4",
+                "Посещение деревни бедуинов",
+                "Возвращение в отель"
+            ]
+        },
+        included: { 
+            ar: ["التوصيل من وإلى الفندق", "قيادة البيتش باجي والسبيدر", "جولة سيارات الجيب 4x4", "زيارة القرية البدوية ومياه منعشة"], 
+            en: ["Hotel transfers", "Quad & Spider driving", "4x4 Jeep tour", "Bedouin village visit & refreshing water"], 
+            de: ["Hoteltransfers", "Quad & Spider Fahrt", "4x4 Jeep Tour", "Beduinendorf Besuch"], 
+            ru: ["Трансфер из/в отель", "Катание на квадроциклах и спайдерах", "Тур на джипах", "Посещение деревни бедуинов"] 
+        },
+        notIncluded: { ar: "المصاريف الشخصية وشراء الشماغ أو الصور", en: "Personal expenses, scarves or photos", de: "Persönliche Ausgaben", ru: "Личные расходы и фотографии" },
+        image: "1.webp"
     },
+    {
+        id: 302, category: "safari",
+        title: { 
+            ar: "سوبر سفاري بالعشاء والحفلة (4 ساعات)", 
+            en: "Super Safari with BBQ Dinner & Show (4 Hours)", 
+            de: "Super Safari mit Abendessen & Show (4 Stunden)", 
+            ru: "Супер сафари с ужином и шоу (4 часа)" 
+        },
+        intro: { 
+            ar: "المغامرة المتكاملة لمدة 4 ساعات: بيتش باجي، سبيدر، جيب، قرية بدوية، عشاء مشويات فاخر، وحفلة شرقية ساحرة تحت نجوم الصحراء.", 
+            en: "The ultimate 4-hour adventure: Quad, Spider, Jeep, Bedouin village, delicious BBQ dinner, and an enchanting oriental show under desert stars.", 
+            de: "Das ultimative 4-stündige Abenteuer mit Quad, Spider, Jeep, Beduinendorf, Abendessen und Show.", 
+            ru: "Идеальное 4-часовое приключение: квадроциклы, спайдеры, джипы, деревня бедуинов, барбекю-ужин и восточное шоу." 
+        },
+        duration: { ar: "4 ساعات", en: "4 Hours", de: "4 Stunden", ru: "4 часа" },
+        pickup: { ar: "من الفندق عصراً", en: "Afternoon Hotel Pickup", de: "Nachmittag Hotelabholung", ru: "Трансфер из отеля во второй половине дня" },
+        days: { ar: "يوميًا", en: "Daily", de: "Täglich", ru: "Ежедневно" },
+        type: { ar: "مشتركة / خاصة", en: "Shared / Private", de: "Gemeinsam / Privat", ru: "Групповая / Индивидуальная" },
+        description: { 
+            ar: "عش أجمل سهرة صحراوية مع 'سوبر سفاري بالعشاء والحفلة'! ابدأ رحلتك بقمة الإثارة والحماس بقيادة البيتش باجي والسبيدر وجولات الجيب في قلب الطبيعة الصحراوية، ومع غروب الشمس استمتع بأجواء الضيافة البدوية الأصيلة، وتناول وجبة عشاء بوفيه مشويات مفتوح على الفحم، وشاهد الحفلة الشرقية الفلكلورية وعروض التنورة الساحرة تحت سماء الصحراء.", 
+            en: "Enjoy the ultimate desert evening with our Super Safari with BBQ & Show! Start with high-octane Quad, Spider, and Jeep adventures, followed by authentic Bedouin hospitality, a delicious charcoal BBQ dinner, and a mesmerizing oriental show under the desert stars.", 
+            de: "Genießen Sie einen unvergesslichen Wüstenabend mit Quad, Jeep, Beduinen-Abendessen und Show.", 
+            ru: "Насладитесь незабываемым вечерним сафари с катанием на квадроциклах и джипах, ужином барбекю и восточным шоу." 
+        },
+        itinerary: {
+            ar: [
+                "الاستلام عصراً من الفندق والانطلاق للصحراء",
+                "تجربة قيادة البيتش باجي والسبيدر وسط الرمال الذهبية",
+                "جولة سيارات الجيب الاستكشافية وقت غروب الشمس",
+                "الوصول للخيام البدوية والاسترخاء",
+                "تناول عشاء بوفيه مشويات بدوي فاخر على الفحم",
+                "الاستمتاع بالحفلة الشرقية الاستعراضية وعروض التنورة والرقص",
+                "العودة إلى الفندق مساءً"
+            ],
+            en: [
+                "Afternoon hotel pickup and heading to the desert",
+                "Quad biking and Spider driving experience across golden sands",
+                "Exploratory 4x4 Jeep tour during sunset",
+                "Arrival at Bedouin tents and relaxation",
+                "Delicious charcoal BBQ dinner buffet",
+                "Enjoying the oriental folklore show and Tannoura dance",
+                "Return to the hotel in the evening"
+            ],
+            de: [
+                "Nachmittag-Abholung und Fahrt in die Wüste",
+                "Quad- und Spider-Fahrt im goldenen Sand",
+                "4x4 Jeep-Tour zum Sonnenuntergang",
+                "Ankunft im Beduinencamp",
+                "Köstliches BBQ-Abendessen",
+                "Orientalische Show und Tanoura-Tanz",
+                "Rückkehr zum Hotel am Abend"
+            ],
+            ru: [
+                "Трансфер из отеля во второй половине дня",
+                "Катание на квадроциклах и спайдерах",
+                - "Тур на джипах на закате",
+                "Прибытие в лагерь бедуинов",
+                "Вкусный ужин барбекю",
+                "Восточное шоу и танец таннура",
+                "Возвращение в отель вечером"
+            ]
+        },
+        included: { 
+            ar: ["التوصيل من وإلى الفندق", "قيادة البيتش باجي والسبيدر", "جولة الجيب الصحراوية", "عشاء مشويات بدوي مفتوح", "المشروبات وحفلة العروض الشرقية"], 
+            en: ["Hotel transfers", "Quad & Spider ride", "Desert Jeep tour", "Open BBQ Bedouin dinner", "Drinks & oriental show"], 
+            de: ["Hoteltransfers", "Quad & Spider", "Jeep-Tour", "BBQ-Abendessen", "Getränke & Show"], 
+            ru: ["Трансфер", "Квадроциклы и спайдеры", "Тур на джипах", "Ужин барбекю", "Напитки и восточное шоу"] 
+        },
+        notIncluded: { ar: "المصاريف الشخصية والصور التذكارية", en: "Personal expenses & souvenirs", de: "Persönliche Ausgaben", ru: "Личные расходы и сувениры" },
+        image: "3.jpeg"
+    },
+    {
+        id: 303, category: "safari",
+        title: { 
+            ar: "رحلة النجوم واستكشاف الفضاء الصحراوي (4 ساعات أو أكتر)", 
+            en: "Stargazing Desert Safari (4+ Hours)", 
+            de: "Stargazing Wüstensafari (4+ Stunden)", 
+            ru: "Сафари с наблюдением за звездами (4+ часа)" 
+        },
+        intro: { 
+            ar: "رحلة ساحرة لقلب الصحراء العميق بعيداً عن أضواء المدينة: جولة جيب بين المناظر الطبيعية، عشاء بدوي أصيل، وسهرة فلكية فريدة لاستكشاف النجوم بالتلسكوب/الجيرسكوب.", 
+            en: "A magical journey deep into the dark desert: Jeep tour through stunning landscapes, authentic Bedouin dinner, and an astronomy night using telescopes to discover stars.", 
+            de: "Eine magische Reise in die tiefe Wüste: Jeep-Tour, Beduinen-Abendessen und Sternenbeobachtung mit Teleskop.", 
+            ru: "Магическое путешествие вглубь пустыни: тур на джипах, ужин и астрономическая ночь с телескопом." 
+        },
+        duration: { ar: "4 ساعات أو أكتر", en: "4+ Hours", de: "4+ Stunden", ru: "4+ часа" },
+        pickup: { ar: "من الفندق قبل الغروب", en: "Pre-sunset Hotel Pickup", de: "Abholung vor Sonnenuntergang", ru: "Трансфер до заката" },
+        days: { ar: "يوميًا", en: "Daily", de: "Täglich", ru: "Ежедневно" },
+        type: { ar: "مشتركة / خاصة", en: "Shared / Private", de: "Gemeinsam / Privat", ru: "Групповая / Индивидуальная" },
+        description: { 
+            ar: "عش تجربة علمية ومغامرة ساحرة لا تُنسى! تبدأ رحلتك بركوب سيارات الجيب والانطلاق في عمق الجبل للاستمتاع بالمناظر الطبيعية الخلابة ووقت الغروب الساحر، يعقبها تناول عشاء بدوي شهي في أجواء هادئة، ثم تبدأ سهرة الفضاء واستكشاف النجوم والكواكب باحترافية تامة باستخدام التلسكوب/الجيرسكوب الفلكي وسط صفاء وسكون الصحراء ليلاً.", 
+            en: "Experience an unforgettable scientific and magical adventure! Start with a Jeep ride deep into the mountains to enjoy breathtaking landscapes and sunset, followed by a quiet Bedouin dinner, and a stargazing session using professional telescopes to discover planets and stars in the crystal-clear desert night sky.", 
+            de: "Erleben Sie ein unvergessliches astronomisches Abenteuer in der Wüste mit Jeep-Tour, Abendessen und Sternenbeobachtung durch ein Teleskop.", 
+            ru: "Насладитесь незабываемым приключением: поездка на джипах среди живописных пейзажей на закате, ужин в пустыне и астрономическая ночь с телескопом." 
+        },
+        itinerary: {
+            ar: [
+                "الاستلام من الفندق قبيل غروب الشمس والتوجه للصحراء العميق",
+                "ركوب سيارات الجيب والانطلاق بين الجبال والمناظر الطبيعية الخلابة",
+                "الاستمتاع برؤية الغغروب من أعلى نقطة جبلية",
+                "التوجه للخيمة البدوية وتناول وجبة العشاء البدوي الأصيل",
+                "التحرك لمنطقة مظلمة ومخصصة لمراقبة الفضاء",
+                "جلسة استكشاف النجوم والكواكب باستخدام التلسكوب/الجيرسكوب الفلكي مع شرح مبسط",
+                "العودة إلى الفندق بعد سهرة هادئة ومميزة"
+            ],
+            en: [
+                "Hotel pickup before sunset and heading deep into the desert",
+                "Jeep ride through stunning mountain landscapes",
+                "Enjoying the sunset from a panoramic mountain viewpoint",
+                "Heading to the Bedouin tent for an authentic dinner",
+                "Moving to a dedicated dark-sky stargazing area",
+                "Stargazing and planet exploration session using professional telescopes with expert guide",
+                "Return to the hotel after a peaceful evening"
+            ],
+            de: [
+                "Hotelabholung vor Sonnenuntergang und Fahrt in die Wüste",
+                "Jeep-Fahrt durch wunderschöne Berglandschaften",
+                "Sonnenuntergang von einem Aussichtspunkt genießen",
+                "Beduinen-Abendessen im Camp",
+                "Fahrt zum Beobachtungsbereich",
+                "Sterne- und Planetenbeobachtung mit Teleskop und fachkundiger Erklärung",
+                "Rückkehr zum Hotel"
+            ],
+            ru: [
+                - "Трансфер из отеля перед закатом",
+                "Поездка на джипах по горным ландшафтам",
+                "Любование закатом с панорамной точки",
+                "Ужин в бедуинском шатре",
+                "Переезд в специальную темную зону для наблюдения за звездами",
+                "Астрономическая сессия с использованием профессионального телескопа",
+                "Возвращение в отель"
+            ]
+        },
+        included: { 
+            ar: ["التوصيل من وإلى الفندق", "جولة سيارات الجيب في الجبل", "عشاء بدوي أصيل", "استخدام التلسكوب/الجيرسكوب لرصد النجوم", "مرشد فلكي ومشروبات"], 
+            en: ["Hotel transfers", "Mountain Jeep tour", "Authentic Bedouin dinner", "Telescope / Gyroscope stargazing session", "Astronomy guide & drinks"], 
+            de: ["Hoteltransfers", "Berg-Jeep-Tour", "Beduinen-Abendessen", "Teleskop-Sternenbeobachtung", "Guide & Getränke"], 
+            ru: ["Трансфер", "Горный тур на джипах", "Ужин", "Наблюдение за звездами в телескоп", "Гид и напитки"] 
+        },
+        notIncluded: { ar: "المصاريف الشخصية", en: "Personal expenses", de: "Persönliche Ausgaben", ru: "Личные расходы" },
+        image: "2.jpeg"
+    },
+    /* ======================================================== */
     {
         id:4, category:"cairo",
         title:{ 
@@ -1813,30 +2011,10 @@ const trips = [
             de: "Entdecken Sie die Pyramiden von Gizeh und die Highlights von Kairo.", 
             ru: "Посетите пирамиды Гизы, Сфинкса и достопримечательности Каира." 
         },
-        duration:{ 
-            ar: "يوم كامل", 
-            en: "Full Day", 
-            de: "Ganztägig", 
-            ru: "Целый день" 
-        },
-        pickup:{ 
-            ar: "من الفندق فجراً", 
-            en: "Early Hotel Pickup", 
-            de: "Frühe Hotelabholung", 
-            ru: "Ранний трансфер из отеля" 
-        },
-        days:{ 
-            ar: "حسب الجدول", 
-            en: "Schedule-based", 
-            de: "Nach Plan", 
-            ru: "По графику" 
-        },
-        type:{ 
-            ar: "خاصة / مشتركة", 
-            en: "Private / Shared", 
-            de: "Privat / Gemeinsam", 
-            ru: "Индивидуальная / Групповая" 
-        },
+        duration:{ ar: "يوم كامل", en: "Full Day", de: "Ganztägig", ru: "Целый день" },
+        pickup:{ ar: "من الفندق فجراً", en: "Early Hotel Pickup", de: "Frühe Hotelabholung", ru: "Ранний трансфер из отеля" },
+        days:{ ar: "حسب الجدول", en: "Schedule-based", de: "Nach Plan", ru: "По графику" },
+        type:{ ar: "خاصة / مشتركة", en: "Private / Shared", de: "Privat / Gemeinsam", ru: "Индивидуальная / Групповая" },
         description:{ 
             ar: "رحلة استثنائية من الغردقة إلى القاهرة لزيارة أهرامات الجيزة الخالدة، تمثال أبو الهول، ومعالم التاريخ العريقة برفقة مرشد سياحي متخصص.", 
             en: "An exceptional trip from Hurghada to Cairo to visit the timeless Giza Pyramids, the Sphinx, and historical landmarks with an expert guide.", 
@@ -1879,12 +2057,7 @@ const trips = [
             de: ["Moderne Transfers", "Professioneller Reiseleiter", "Mittagessen"], 
             ru: ["Трансферы", "Профессиональный гид", "Обед"] 
         },
-        notIncluded:{ 
-            ar: ["تذاكر الدخول للمواقع الداخلية (مثل هرم من الداخل) والمصاريف الشخصية"], 
-            en: ["Inner monument tickets (e.g., inside pyramids) and personal expenses"], 
-            de: ["Eintrittskarten für das Innere der Pyramiden und persönliche Ausgaben"], 
-            ru: ["Билеты внутрь пирамид и личные расходы"] 
-        },
+        notIncluded:{ ar: ["تذاكر الدخول للمواقع الداخلية والمصاريف الشخصية"], en: ["Inner monument tickets and personal expenses"], de: ["Eintrittskarten und persönliche Ausgaben"], ru: ["Билеты и личные расходы"] },
         image: "https://images.unsplash.com/photo-1568322445389-f64ac2515020?auto=format&fit=crop&w=1200&q=85"
     },
     {
@@ -1901,34 +2074,14 @@ const trips = [
             de: "Entdecken Sie den Karnak-Tempel, das Tal der Könige und den Hatschepsut-Tempel.", 
             ru: "Исследуйте Карнакский храм, Долину царей и храм Хатшепсут." 
         },
-        duration: { 
-            ar: "يوم كامل", 
-            en: "Full Day", 
-            de: "Ganztägig", 
-            ru: "Целый день" 
-        },
-        pickup: { 
-            ar: "من الفندق مبكراً", 
-            en: "Early Hotel Pickup", 
-            de: "Frühe Hotelabholung", 
-            ru: "Ранний трансфер из отеля" 
-        },
-        days: { 
-            ar: "حسب الجدول", 
-            en: "Schedule-based", 
-            de: "Nach Plan", 
-            ru: "По графику" 
-        },
-        type: { 
-            ar: "خاصة / مشتركة", 
-            en: "Private / Shared", 
-            de: "Privat / Gemeinsam", 
-            ru: "Индивидуальная / Групповая" 
-        },
+        duration: { ar: "يوم كامل", en: "Full Day", de: "Ganztägig", ru: "Целый день" },
+        pickup: { ar: "من الفندق مبكراً", en: "Early Hotel Pickup", de: "Frühe Hotelabholung", ru: "Ранний трансфер из отеля" },
+        days: { ar: "حسب الجدول", en: "Schedule-based", de: "Nach Plan", ru: "По графику" },
+        type: { ar: "خاصة / مشتركة", en: "Private / Shared", de: "Privat / Gemeinsam", ru: "Индивидуальная / Групповая" },
         description: { 
-            ar: "رحلة استثنائية من الغردقة إلى مدينة الأقصر عاصمة التاريخ القديم، لاستكشاف أسرار الفراعنة في البر الشرقي والغربي، مع مرشد سياحي متخصص يروي لك قصص المعابد والأساطير.", 
+            ar: "رحلة استثنائية من الغردقة إلى مدينة الأقصر عاصمة التاريخ القديم، لاستكشاف أسرار الفراعنة في البر الشرقي والغربي، مع مرشد سياحي متخصص.", 
             en: "An exceptional trip from Hurghada to Luxor, the capital of ancient history, to explore the secrets of the Pharaohs on the East and West banks with an expert guide.", 
-            de: "Eine außergewöhnliche Reise von Hurghada nach Kairo zu den Pyramiden von Gizeh und historischen Sehenswürdigkeiten.", 
+            de: "Eine außergewöhnliche Reise von Hurghada nach Luxor, der Hauptstadt der antiken Geschichte.", 
             ru: "Исключительная поездка из Хургады в Луксор для изучения тайн фараонов." 
         },
         itinerary: {
@@ -1960,7 +2113,7 @@ const trips = [
                 "Ранний выезд из отеля на машине с кондиционером",
                 "Прибытие в Луксор и посещение Карнакского храма",
                 "Обед в хорошем ресторане",
-                "Посещение Долины царей и храма Хатшепсут на Западном берегу",
+                "Посещение Долины царей и храма Хатшепсут",
                 "Остановка у Колоссов Мемнона",
                 "Возвращение в отель вечером"
             ]
@@ -1971,12 +2124,7 @@ const trips = [
             de: ["Moderne Transfers", "Professioneller Reiseleiter", "Eintrittskarten", "Mittagessen"], 
             ru: ["Трансферы", "Профессиональный гид", "Входные билеты", "Обед"] 
         },
-        notIncluded: { 
-            ar: ["المشروبات الشخصية والمصاريف الإضافية"], 
-            en: ["Personal drinks and extra expenses"], 
-            de: ["Persönliche Getränke und Ausgaben"], 
-            ru: ["Личные напитки и расходы"] 
-        },
+        notIncluded: { ar: ["المشروبات الشخصية والمصاريف الإضافية"], en: ["Personal drinks and extra expenses"], de: ["Persönliche Getränke und Ausgaben"], ru: ["Личные напитки и расходы"] },
         image: "https://images.pexels.com/photos/35433021/pexels-photo-35433021.jpeg?auto=compress&cs=tinysrgb&w=1400"
     }
 ];
@@ -2025,7 +2173,6 @@ function openTripDetail(tripId, pushHistory = true){
     document.querySelectorAll(".app-view").forEach(v => v.classList.remove("active"));
     document.getElementById("tripDetailView").classList.add("active");
 
-    // تعيين الصورة الثابتة المفردة
     const mainImgEl = document.getElementById("detailMainImg");
     if(mainImgEl) {
         mainImgEl.src = trip.image || "";
@@ -2064,7 +2211,7 @@ function goBackToCategory(){
 function getCategoryDescription(category){
     const descs = {
         sea:{ ar:"استمتع بأجمل الرحلات البحرية ورحلات السبيد بوت والجزر في البحر الأحمر.", en:"Enjoy unforgettable sea & speedboat experiences in the Red Sea.", de:"Genießen Sie unvergessliche Erlebnisse am Roten Meer.", ru:"Насладитесь незабываемыми морскими экскурсиями на Красном море." },
-        safari:{ ar:"اكتشف الصحراء المصرية واستمتع بالمغامرات.", en:"Explore the Egyptian desert and enjoy exciting adventures.", de:"Entdecken Sie die ägyptische Wüste und erleben Sie Abenteuer.", ru:"Исследуйте египетскую пустыню и наслаждайтесь приключениями." },
+        safari:{ ar:"اكتشف الصحراء المصرية واستمتع بأقوى مغامرات السفاري والقرى البدوية والنجوم.", en:"Explore the Egyptian desert and enjoy powerful safari adventures and Bedouin villages.", de:"Entdecken Sie die ägyptische Wüste und erleben Sie Safari-Abenteuer.", ru:"Исследуйте египетскую пустыню и наслаждайтесь приключениями." },
         hurghada:{ ar:"اكتشف معالم مدينة الغردقة والأسواق والمارينا.", en:"Explore Hurghada city highlights, markets and Marina.", de:"Entdecken Sie die Highlights von Hurghada.", ru:"Исследуйте достопримечательности Хургады." },
         cairo:{ ar:"اكتشف القاهرة والأهرامات والحضارة المصرية القديمة.", en:"Discover Cairo, the pyramids and ancient Egyptian civilization.", de:"Entdecken Sie Kairo, die Pyramiden und das alte Ägypten.", ru:"Откройте Каир, пирамиды и древнюю египетскую цивилизацию." },
         luxor:{ ar:"استكشف الأقصر ومعابد الحضارة المصرية القديمة.", en:"Explore Luxor and the temples of ancient Egyptian civilization.", de:"Entdecken Sie Luxor und die Tempel des alten Ägypten.", ru:"Исследуйте Луксор и храмы Древнего Египта." },
@@ -2167,7 +2314,7 @@ document.getElementById("adminLogoBtn").addEventListener("click", function() {
 
     if(logoClickCount === 4) {
         logoClickCount = 0;
-        let password = prompt("أدخل كلمة المرور للوحة التحكم:");
+        let password = prompt("أدخل كلمة المرور لوحة التحكم:");
         if(password === "AKA123456") {
             switchView('adminDashboardView');
             loadAdminBookings();
