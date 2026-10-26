@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="AKA Egypt Tours - رحلات وسفاري وانتقالات في مصر">
+<meta name="description" content="Book private airport transfers and exciting excursions in Hurghada and Marsa Alam with AKA Tours & Transfer. Safe, reliable, and comfortable rides.">
+<meta name="robots" content="index, follow">
 <meta name="google-site-verification" content="RKvb_VXspv8q2LxQUlmcLmxmotIRuvQ5MehqayAk49s" />
-<title>AKA | Egypt Tours</title>
+<title>AKA Tours & Transfer | Hurghada & Marsa Alam Airport Transfers</title>
 <!-- Open Graph Meta Tags -->
 <meta property="og:title" content="AKA Tours & Transfer" />
 <meta property="og:description" content="Enjoy the best sea trips, safari, and transfers in Hurghada and Egypt." />
@@ -607,7 +608,7 @@ section{
 }
 
 /* =========================
-   STATIC IMAGE CONTAINER (صورة ثابتة بدون سلايدر)
+   STATIC IMAGE CONTAINER
 ========================= */
 .trip-single-image {
     width: 100%;
@@ -744,7 +745,6 @@ section{
     opacity: 1;
 }
 
-/* Live Booking Popup Styles */
 .live-notif-card {
     position: fixed;
     bottom: 25px;
@@ -921,7 +921,7 @@ section{
 <!-- TOAST NOTIFICATION CONTAINER -->
 <div id="toastNotification">✅ تم حجز الرحلة بنجاح وحفظها بالنظام!</div>
 
-<!-- LIVE BOOKING NOTIFICATION POPUP (Social Proof) -->
+<!-- LIVE BOOKING NOTIFICATION POPUP -->
 <div id="live-notification" class="live-notif-card hidden">
     <div class="notif-icon">🌍</div>
     <div class="notif-content">
@@ -934,7 +934,6 @@ section{
 <!-- NAVBAR -->
 <header class="navbar">
     <div class="container nav-inner">
-        <!-- اللوجو مع خاصية الـ 4 ضغطات للوحة التحكم -->
         <div class="logo" id="adminLogoBtn" title="AKA Tours">
             <img src="logo.png" alt="AKA Logo" class="brand-logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50?text=AKA+Tours';">
         </div>
@@ -1157,7 +1156,6 @@ section{
         <button class="back-btn" onclick="goBackToCategory()">← <span data-i18n="back">رجوع</span></button>
         
         <div class="trip-detail-box">
-            <!-- Static Image Container -->
             <div class="trip-single-image">
                 <img id="detailMainImg" src="" alt="Trip Image" onerror="this.src='https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=900';">
             </div>
@@ -1205,7 +1203,6 @@ section{
                     <ul id="detailNotIncluded"></ul>
                 </div>
 
-                <!-- Firebase Booking Form Integration -->
                 <div class="firebase-booking-card">
                     <h4 data-i18n="dbBookingTitle">حجز سريع عبر قاعدة البيانات وواتساب</h4>
                     <form id="firebaseBookingForm">
@@ -1223,7 +1220,6 @@ section{
                             </div>
                         </div>
 
-                        <!-- حقل الأمتعة يظهر فقط للترانسفير -->
                         <div id="luggageFieldContainer" style="display: none; margin-top: 10px;">
                             <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 3px; color: var(--dark);">عدد الشنط / الأمتعة (Luggage):</label>
                             <input type="number" id="luggageCountInput" value="1" min="0">
@@ -1326,7 +1322,7 @@ section{
         </div>
         <div class="contact-grid">
             <div class="contact-card">
-                <h3>AKA | Egypt Tours</h3>
+                <h3>AKA Tours & Transfer</h3>
                 <div class="contact-item">
                     <div class="contact-icon">📱</div>
                     <div><strong data-i18n="whatsappLabel">واتساب</strong><span>+20 12 74692093</span></div>
@@ -1361,10 +1357,9 @@ section{
             <div class="section-head">
                 <span>لوحة التحكم</span>
                 <h2>إدارة الحجوزات والمدفوعات المالية</h2>
-                <p>AKA Tours</p>
+                <p>AKA Tours & Transfer</p>
             </div>
             
-            <!-- إحصائيات مالية سريعة للمدير -->
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 25px;">
                 <div style="background: var(--card-bg); padding: 20px; border-radius: 16px; border: 1px solid var(--border); text-align: center; box-shadow: var(--shadow);">
                     <span style="font-size: 13px; color: var(--text-muted); display: block; margin-bottom: 5px;">إجمالي المبيعات</span>
@@ -1380,7 +1375,6 @@ section{
                 </div>
             </div>
 
-            <!-- حقل البحث الفوري -->
             <div class="search-box" style="margin-bottom: 25px;">
                 <input type="text" id="adminSearchInput" placeholder="ابحث باسم العميل، رقم الهاتف، أو اسم الرحلة..." onkeyup="filterAdminBookings()" style="width: 100%; padding: 14px 18px; border-radius: 12px; border: 1px solid var(--border); outline: none; font-size: 15px; background: var(--card-bg); color: var(--dark);">
             </div>
@@ -1406,7 +1400,7 @@ section{
     <div class="container">
         <div class="footer-grid">
             <div>
-                <h3>AKA | Egypt Tours</h3>
+                <h3>AKA Tours & Transfer</h3>
                 <p data-i18n="footerText">اكتشف مصر معنا واستمتع برحلات بحرية وسفاري وتجارب سياحية مميزة.</p>
             </div>
             <div>
@@ -1427,7 +1421,7 @@ section{
             </div>
         </div>
         <div class="footer-bottom">
-            © 2026 AKA Egypt Tours — All Rights Reserved
+            © 2026 AKA Tours & Transfer — All Rights Reserved
             <br>
             <strong style="color:#fff;font-size:14px;display:inline-block;margin-top:8px;">Crafted with ❤️ by Engineer Thomas Malak</strong>
             <br>
@@ -1470,7 +1464,6 @@ let currentLanguage = "en";
 let activeCategory = "sea";
 let selectedTripObj = null;
 
-// LIVE BOOKING NOTIFICATION QUEUE
 const liveBookingsQueue = [
     { name: "Hans Müller from Germany", action: "booked Luxor VIP Full-Day Trip", time: "2 minutes ago" },
     { name: "Emma Watson from UK", action: "booked Cairo Pyramids & Museum Excursion", time: "5 minutes ago" },
@@ -1745,21 +1738,20 @@ const trips = [
         type:{ ar:"خاص", en:"Private", de:"Privat", ru:"Индивидуальный", fr:"Privé", pl:"Prywatny" },
         description:{ ar:"احجز سيارة خاصة للتوصيل والاستقبال من وإلى المطارات وإلى أي فندق أو منتجع في الجونة، سهل حشيش، خليج مكادي، سوما باي، سفاجا، والقصير.", en:"Book a private vehicle for airport pickups and drop-offs to hotels and resorts in El Gouna, Sahl Hasheesh, Makadi Bay, Soma Bay, Safaga, and Al Quseir.", de:"Buchen Sie ein privates Fahrzeug für Flughafentransfers und Fahrten in alle Resorts.", ru:"Закажите индивидуальный трансфер из/в аэропорты и отели курортов.", fr:"Réservez un véhicule privé pour vos transferts d'aéroport et vers les hôtels et complexes.", pl:"Zarezerwuj prywatny pojazd na transfery lotniskowe oraz do hoteli i kurortów." },
         itinerary:{
-            ar:["تحديد وجهة الاستلام والتوصيل","استقبال السائق بلافتة تحمل اسمك","المساعدة في الأمتعة","التوصيل المباشر والآمن"],
+            ar:["تحديد وجهة الاستلاستلام والتوصيل","استقبال السائق بلافتة تحمل اسمك","المساعدة في الأمتعة","التوصيل المباشر والآمن"],
             en:["Specify pick-up and drop-off locations","Driver meets you with a name sign","Luggage assistance","Direct and safe transfer"],
             de:["Abhol- und Zielort festlegen","Fahrer erwartet Sie mit Namensschild","Gepäckservice","Direkter Transfer"],
             ru:["Укажите точки отправления и назначения","Водитель встретит вас с табличкой","Помощь с багажом","Прямой трансфер"],
             fr:["Spécifier les lieux de prise en charge et de dépôt","Le chauffeur vous attend avec une pancarte","Assistance bagages","Transfert direct et sécurisé"],
             pl:["Określ miejsca odbioru i docelowe","Kierowca czeka z tabliczką imienną","Pomoc z bagażem","Bezpośredni i bezpieczny transfer"]
         },
-        included:{ ar:["سيارة خاصة مكيفة","سائق محترف","متابعة مواعيد الطيران"], en:["Modern private AC vehicle","Professional driver","Flight tracking"], de:["Klimatisiertes Fahrzeug","Professioneller Fahrer","Flugverfolgung"], ru:["Автомобиль с кондиционером","Профессиональный водитель","Отслеживание рейсов"], fr:["Véhicule climatisé privé","Chauffeur professionnel","Suivi des vols"], pl:["Klimatyzowany pojazd prywatny","Profesjonalny kierowع","Śledzenie lotów"] },
+        included:{ ar:["سيارة خاصة مكيفة","سائق محترف","متابعة مواعيد الطيران"], en:["Modern private AC vehicle","Professional driver","Flight tracking"], de:["Klimatisiertes Fahrzeug","Professioneller Fahrer","Flugverfolgung"], ru:["Автомобиль с кондиционером","Профессиональный водитель","Отслеживание рейсов"], fr:["Véhicule climatisé privé","Chauffeur professionnel","Suivi des vols"], pl:["Klimatyzowany pojazd prywatny","Profesjonalny kierowca","Śledzenie lotów"] },
         notIncluded:{ ar:["المصاريف غير المتفق عليها"], en:["Unagreed expenses"], de:["Zusatzkosten"], ru:["Неоговоренные расходы"], fr:["Frais non convenus"], pl:["Nieuwzględnione wydatki"] },
         image: "TRAN.jpeg"
     },
-   
     {
         id:8, category:"sea",
-        title:{ ar:"رحلة سبيد بوت (4 ساعات)", en:"Speedboat Trip (4 Hours)", de:"Speedboat Tour (4 Stunden)", ru:"Прогулка на спидботе (4 часа)", fr:"Excursion en Speedboat (4 heures)", pl:"Wycieczkaspeedboatem (4 godziny)" },
+        title:{ ar:"رحلة سبيد بوت (4 ساعات)", en:"Speedboat Trip (4 Hours)", de:"Speedboat Tour (4 Stunden)", ru:"Прогулка на спидботе (4 часа)", fr:"Excursion en Speedboat (4 heures)", pl:"Wycieczka speedboatem (4 godziny)" },
         intro:{ ar:"رحلة سبيد بوت ممتعة لمدة 4 ساعات تشمل زيارة جزر متعددة، سنوركلينج، سوفت درينك، ومياه منعشة.", en:"An extended 4-hour speedboat trip including islands, snorkeling, soft drinks and refreshing water.", de:"Eine erweiterte 4-stündige Speedboat-Tour mit Inseln, Schnorcheln und Getränken.", ru:"Расширенная 4-часовая поездка на спидботе с островами, снорклингом и напитками.", fr:"Une excursion prolongée en speedboat de 4 heures incluant îles, snorkeling et boissons.", pl:"Przedłużona 4-godzinna wycieczka speedboatem obejmująca wyspy, snorkeling i napoje." },
         duration:{ ar:"4 ساعات", en:"4 Hours", de:"4 Hours", ru:"4 часа", fr:"4 heures", pl:"4 godziny" },
         pickup:{ ar:"من الفندق", en:"Hotel Pickup", de:"Hotelabholung", ru:"Трансфер из отеля", fr:"Prise en charge à l'hôtel", pl:"Odbiór z hotelu" },
@@ -1806,7 +1798,7 @@ const trips = [
         duration:{ ar:"عدة ساعات", en:"Several Hours", de:"Mehrere Stunden", ru:"Несколько часов", fr:"Plusieurs heures", pl:"Kilka godzin" },
         pickup:{ ar:"من الفندق", en:"Hotel Pickup", de:"Hotelabholung", ru:"Трансфер из отеля", fr:"Prise en charge à l'hôtel", pl:"Odbiór z hotelu" },
         days:{ ar:"يوميًا", en:"Daily", de:"Täglich", ru:"Ежедневно", fr:"Tous les jours", pl:"Codziennie" },
-        type:{ ar:"مشتركة / خاصة", en:"Shared / Private", de:"Gemeinsam / Privat", ru:"Индивидуальная / Групповая", fr:"Partagé / Privé", pl:"Grupowy / Prywatny" },
+        type:{ ar:"مشتركة / خاصة", en:"Shared / Private", de:"Gemeinsam / Privat", ru:"Групповая / Индивидуальная", fr:"Partagé / Privé", pl:"Grupowy / Prywatny" },
         description:{ ar:"جولة سياحية استكشافية داخل مدينة الغردقة للتعرف على الحياة المحلية وزيارة أشهر معالم المدينة.", en:"An exploratory city tour in Hurghada to experience local life and visit landmarks.", de:"Eine Entdeckungstour durch Hurghada.", ru:"Обзорная экскурсия по Хургаде.", fr:"Une visite guidée pour découvrir la vie locale et les monuments d'Hurghada.", pl:"Eksploracyjna wycieczka po mieście, aby poznać lokalne życie i zabytki." },
         itinerary:{
             ar:["الاستلام من الفندق","زيارة المسجد الكبير وكنيسة العذراء","جولة في ممشى المارينا","التسوق في الأسوق التقليدية"],
@@ -2070,9 +2062,9 @@ const trips = [
             ar: "رحلة استثنائية من الغردقة إلى مدينة الأقصر عاصمة التاريخ القديم، لاستكشاف أسرار الفراعنة في البر الشرقي والغربي، مع مرشد سياحي متخصص.", 
             en: "An exceptional trip from Hurghada to Luxor, the capital of ancient history, to explore the secrets of the Pharaohs on the East and West banks with an expert guide.", 
             de: "Eine außergewöhnliche Reise von Hurghada nach Luxor, der Hauptstadt der antiken Geschichte.", 
-            ru: "Исключительная поездка из Хургады в Луксор для изучения тайн фараонов.",
+            ru: "Исключительная поездка из Хургады в Луксор, столицу древней истории.",
             fr: "Une excursion exceptionnelle d'Hurghada à Luxor pour explorer les secrets des pharaons.",
-            pl: "Wyjątkowa wycieczka z Hurghady do Luksoru, aby poznać tajemnice faraonów."
+            pl: "Wyjątkowa wycieczka z Hurghady do Luksoru, stolicy starożytnej historii."
         },
         itinerary:{
             ar: ["التحرك فجراً من الفندق في سيارة مكيفة","الوصول للأقصر وزيارة معبد الكرنك العظيم في البر الشرقي","تناول الغداء في مطعم متميز","العبور للبر الغربي وزيارة وادي الملوك ومعبد الملكة حتشبسوت","التوقف عند تمثالي ممنون لالتقاط الصور التذكارية","العودة إلى الفندق مساءً"],
@@ -2254,7 +2246,6 @@ function changeLanguage(lang){
     if(!translations[lang]) lang = "en";
     currentLanguage = lang;
     document.documentElement.lang = lang;
-    // اتجاه الكتابة: الفرنسية والبولندية من اليسار لليمين (LTR) مثل الإنجليزية والألمانية والروسية
     const isRtl = lang === "ar";
     document.documentElement.dir = isRtl ? "rtl" : "ltr";
     document.body.dir = isRtl ? "rtl" : "ltr";
